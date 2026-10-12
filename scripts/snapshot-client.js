@@ -1,0 +1,12 @@
+/* Two official GitHub transports for the same public file; no auth or proxy. */
+function snapshotEndpoints(address){const original=safeUrl(address);if(!original)return [];const out=[{url:original,name:'Public data file',headers:{Accept:'application/json'}}];const u=new URL(original);
+  if(u.hostname==='raw.githubusercontent.com'){const parts=u.pathname.split('/').filter(Boolean);if(parts.length>=4){const [owner,repo,ref,...path]=parts;if(/^[\w.-]+$/.test(owner)&&/^[\w.-]+$/.test(repo))out.push({url:'https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path.map(encodeURIComponent).join('/')+'?ref='+encodeURIComponent(ref),name:'GitHub public API',headers:{Accept:'application/vnd.github.raw+json'}});}}
+  return out;
+}
+async function fetchSnapshot(endpoint){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);try{const response=await fetch(endpoint.url,{signal:controller.signal,credentials:'omit',cache:'no-store',headers:endpoint.headers});if(!response.ok)throw Error('HTTP '+response.status);const value=await response.text();if(value.length>15000000)throw Error('Snapshot exceeds 15 MB');return normalise(JSON.parse(value));}finally{clearTimeout(timer);}}
+async function loadRemote(options={}){if(state.loading)return;if(!state.dataUrl){$('data-url').value='';$('settings-dialog').showModal();return;}state.loading=true;state.syncError='';renderStatus();const errors=[];
+  try{let snapshot=null;for(const endpoint of snapshotEndpoints(state.dataUrl)){try{snapshot=await fetchSnapshot(endpoint);state.syncEndpoint=endpoint.name;break;}catch(error){errors.push(endpoint.name+': '+(error.name==='AbortError'?'request timed out':error instanceof SyntaxError?'response was not a snapshot':error.message));}}
+    if(!snapshot)throw Error(errors.join(' · ')||'No valid data address');state.snapshot=snapshot;state.selected=state.selected?.startsWith('raindrop:')?state.selected:state.snapshot.items.some(i=>i.key===state.selected)?state.selected:null;state.mode='Saved messages';persist('snapshot',state.snapshot);if(!options.silent)toast('Messages updated.');
+  }catch(error){state.syncError='Could not update live messages. Your cached snapshot is still available. '+error.message+' You can open the public snapshot in Settings and import its JSON file.';}
+  finally{state.loading=false;renderStatus();if(!state.coverMode)render();$('sync-details').textContent=state.syncError||('Loaded using '+state.syncEndpoint);}
+}

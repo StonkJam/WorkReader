@@ -69,15 +69,23 @@ Bookmarklets may be blocked by a page or browser policy. The original source mus
 
 Jetstar “from” fares may be one-way, per person, date-limited or subject to membership/baggage conditions. Package prices may use different passenger and night counts. The card text is retained and the booking page is the source of truth. Sydney is indicated when present on the card or requested by the package URL; it is not guaranteed simply because a query parameter says SYD. Flight sales are collected across origins from your supplied pages; search “Sydney” for explicit Sydney matches.
 
-## Quick mail view and idle timeout
+## Reading/mail view, message actions and idle timeout
 
-Press **Space** while reading to switch to a fictional mailbox with neutral office emails. Press it again, or use **Reading view**, to return. Spaces in text fields and dialogs work normally. A **Mail view · Space** ribbon button is also available.
+**Space** changes only the content beneath the same fictional email subjects. Both views keep the same senders, subjects, rows, timestamps, selected item, folders, ribbon, filters, search query and pane positions. The real source and title appear underneath in reading view; mail view uses neutral office text. Images collapse and stay collapsed until reopened. Space does not toggle while typing in a field or dialog. The ribbon button provides the same switch on touch devices.
 
-Mail view replaces the visible folder list, message list and reading pane; hides source controls and source status; closes dialogs; clears the token input; collapses image previews; and suppresses background toasts. Your folder, selected item, search query and pane positions are restored on return. Images stay collapsed until explicitly reopened. The fictional messages are separate from real data and never enter your snapshot or export. The sample mailbox has no send/reply capability.
+In **File → Reader settings**, set the inactivity timeout in minutes (default **2**, **0** disables it). Clicks, typing, scrolling and touch reset the timer; pointer movement alone does not. A visibility check catches elapsed time after returning from a background tab. Subjects and senders are always fictional, including when importing an older export that requested real headings.
 
-In **File → Reader settings**, set the inactivity timeout in minutes (default **2**, **0** disables it), then choose **Save view settings**. Clicks, typing, scrolling and touch reset it; pointer movement alone does not. Returning from another tab checks elapsed wall-clock time, since browsers may delay timers in background tabs. A timed switch stays in mail view until you explicitly return.
+Right-click a message row or the open message to **Save to Raindrop**, **Bookmark**, **Email…**, or **Mark as read/unread**. Email opens a draft in the computer's configured mail application containing the real title and link; it never sends automatically. Sharing and preview actions are unavailable in mail view. Right-click a folder to mark that folder as read. Space and Escape dismiss the context menu.
 
-The same settings include **Email-style reader headings**: neutral sender above the subreddit/source subject, with the real post title beneath. Turn this off to restore the original source/author list. These preferences are saved in the browser and included in exports; the current mail-view state is temporary.
+Click an image attachment card to preview it; click the same card again to close it. Attachment labels use generic filenames in both views.
+
+Jetstar community offers render with a departure/fare table, with Sydney first. Prices must appear with an explicit dollar sign beside a recognised departure code. Semicolon-separated destinations remain distinct. Headline fares are not live quotes, and currency-ambiguous headlines are not converted into a table. Expand **Original offer text** to see the supplied description. Direct Jetstar scanning remains subject to source failures.
+
+## Public snapshot connection
+
+The reader first tries the configured public file. For a raw.githubusercontent.com address it can fall back to GitHub's official public Contents API for the same repository, branch and file. Neither transport uses a GitHub token or a third-party proxy. Failures retain cached posts and show a quiet status; **File → Reader settings** contains the actual connection details.
+
+If both requests fail on your computer, use **Open public snapshot for manual import** in Settings, save that public JSON file, and choose **Import**. A connection that succeeds on the GitHub runner does not establish that the work browser can reach that endpoint.
 
 ## Raindrop.io
 

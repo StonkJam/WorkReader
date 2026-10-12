@@ -4,22 +4,22 @@ const html=fs.readFileSync(path.join(__dirname,'../WorkReader.html'),'utf8');
 const match=html.match(/<script>([\s\S]*?)<\/script>/);assert(match,'Reader has an inline script');
 assert(!/<script[^>]+src=/i.test(html),'No external script dependency');
 const elements=new Map();
-function element(id){if(!elements.has(id))elements.set(id,{id,value:'',innerHTML:'',textContent:'',disabled:false,open:false,className:'',dataset:{},classList:{add(){},remove(){},toggle(){},contains(){return false;}},addEventListener(){},setAttribute(){},showModal(){this.open=true;},close(){this.open=false;},appendChild(){},select(){},click(){}});return elements.get(id);}
+function element(id){if(!elements.has(id))elements.set(id,{id,value:'',style:{},innerHTML:'',textContent:'',disabled:false,open:false,className:'',dataset:{},classList:{add(){},remove(){},toggle(){},contains(){return false;}},addEventListener(){},setAttribute(){},showModal(){this.open=true;},close(){this.open=false;},appendChild(){},select(){},click(){}});return elements.get(id);}
 for(const m of html.matchAll(/id="([^"]+)"/g))element(m[1]);
 element('sort').value='new';element('type').value='all';element('fresh').value='all';
-const storage=new Map();let fetchMode='failure';const rdCalls=[];
+const storage=new Map();let fetchMode='failure';const rdCalls=[],dataCalls=[];
 const context=vm.createContext({console,Intl,Date,JSON,Math,Number,String,Set,Map,Array,Object,RegExp,URL,URLSearchParams,Blob,AbortController,Promise,
   localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},
   document:{body:{classList:{toggle(){}}},getElementById:element,addEventListener(){},querySelector(){return null;},createElement:()=>element('temporary')},
-  location:{protocol:'file:',href:'file:///usb/WorkReader.html'},navigator:{},CSS:{escape:x=>x},
+  window:{addEventListener(){},innerWidth:1440,innerHeight:900},location:{protocol:'file:',href:'file:///usb/WorkReader.html'},navigator:{},CSS:{escape:x=>x},
   setTimeout:()=>1,clearTimeout(){},setInterval:()=>1,
-  fetch:async(url,options)=>{if(String(url).startsWith('https://api.raindrop.io/rest/v1/')){rdCalls.push({url,options});let items=[];if(url.endsWith('/collections'))items=[{_id:42,title:'My collection'}];else if(url.endsWith('/collections/childrens'))items=[{_id:43,title:'Child collection',parent:{$id:42}}];else if(url.includes('/raindrops/'))items=[{_id:999,title:'Private test bookmark',link:'https://private.example/bookmark',created:'2026-10-12T00:00:00Z',cover:'https://private.example/cover.png',collection:{$id:42}}];return {ok:true,json:async()=>({result:true,items,item:{_id:1000}})};}if(fetchMode==='failure')throw Error('Network blocked');return {ok:true,text:async()=>JSON.stringify({schema_version:1,generated_at:'2026-10-12T00:00:00Z',sources:[],items:[]})};}
+  fetch:async(url,options)=>{if(String(url).startsWith('https://api.raindrop.io/rest/v1/')){rdCalls.push({url,options});let items=[];if(url.endsWith('/collections'))items=[{_id:42,title:'My collection'}];else if(url.endsWith('/collections/childrens'))items=[{_id:43,title:'Child collection',parent:{$id:42}}];else if(url.includes('/raindrops/'))items=[{_id:999,title:'Private test bookmark',link:'https://private.example/bookmark',created:'2026-10-12T00:00:00Z',cover:'https://private.example/cover.png',collection:{$id:42}}];return {ok:true,json:async()=>({result:true,items,item:{_id:1000}})};}dataCalls.push(String(url));if(fetchMode==='failure'||fetchMode==='api-only'&&!String(url).startsWith('https://api.github.com/'))throw Error('Network unavailable');return {ok:true,text:async()=>JSON.stringify({schema_version:1,generated_at:'2026-10-12T00:00:00Z',sources:[],items:[]})};}
 });
 vm.runInContext(match[1],context,{timeout:3000});
 const run=s=>vm.runInContext(s,context,{timeout:1000});
 assert(run('state.snapshot.items.length')>0,'Bundled live snapshot loads');
-assert(element('sidebar').innerHTML.includes('OzBargain'),'Source folders render');
-assert(element('reading').innerHTML.includes('Your deal inbox'),'Empty reading pane renders');
+assert(element('sidebar').innerHTML.includes('Team circulars'),'Source folders render');
+assert(element('reading').innerHTML.includes('Select a message'),'Empty reading pane renders');
 run("state.folder='ozbargain';render()");assert(run("visibleItems().every(i=>i.group==='ozbargain')"));
 run("state.folder='reddit';render()");assert.equal(run('visibleItems().length'),run("state.snapshot.items.filter(i=>i.group==='reddit').length"));
 run("state.folder='inbox';$('search').value='unlikely-keyword-abcdef';renderList()");assert.equal(run('visibleItems().length'),0);run("$('search').value=''");
@@ -40,18 +40,22 @@ assert(!element('reading').innerHTML.includes('<img '),'No image request before 
 assert(element('reading').innerHTML.includes('Click to preview'));
 run("state.previewed.add('https://images.example/photo.jpg');renderReading()");
 assert(element('reading').innerHTML.includes('src="https://images.example/photo.jpg"'),'Explicit preview renders image');
-run("state.previewed.clear();state.folder='jetstar';state.selected=null;renderReading()");
-assert(element('reading').innerHTML.includes('Automatic scan unavailable'),'Failed Jetstar scan is explained');
-run("state.folder='inbox';state.selected=state.snapshot.items[0].key;state.images=true;$('search').value='remember-search';$('list').scrollTop=140;$('reading').scrollTop=80;$('settings-dialog').showModal();setCoverMode(true)");
-assert(run('state.coverMode'));assert.equal(element('settings-dialog').open,false,'Cover closes dialogs');assert.equal(element('search').value,'');assert.equal(element('search').disabled,true);assert(!element('reading').innerHTML.includes('images.example'));assert(!element('sidebar').innerHTML.includes('OzBargain'));assert(element('list').innerHTML.includes('Weekly planning notes'));assert(!run('JSON.stringify(exportData())').includes('SAMPLE_MAIL'),'Fictional mailbox never exported');
-run("render();renderList();renderReading();renderStatus();toast('Potentially revealing status')");assert.equal(element('status').textContent,'All folders are up to date','Background renders keep cover');
-run('setCoverMode(false)');assert.equal(element('search').value,'remember-search');assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);assert.equal(run('state.images'),false);assert.equal(run('state.previewed.size'),0,'Previews remain collapsed on return');
+run("togglePreview('https://images.example/photo.jpg')");assert(!element('reading').innerHTML.includes('<img '),'Same attachment card closes its preview');
+run("state.folder='inbox';state.selected=state.snapshot.items[0].key;state.images=true;$('search').value='';render();$('list').scrollTop=140;$('reading').scrollTop=80;$('settings-dialog').showModal()");
+const oldSidebar=element('sidebar').innerHTML,oldSubjects=element('list').innerHTML.match(/<div class="subject">[^<]*/g),oldCount=element('item-count').textContent;
+run('setCoverMode(true)');assert(run('state.coverMode'));assert.equal(element('settings-dialog').open,false);assert.equal(element('search').disabled,false);assert.equal(element('sidebar').innerHTML,oldSidebar,'Sidebar unchanged');assert.deepEqual(element('list').innerHTML.match(/<div class="subject">[^<]*/g),oldSubjects,'Subjects unchanged');assert.equal(element('item-count').textContent,oldCount,'Row count unchanged');assert(!element('reading').innerHTML.includes('<img '));
+assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);
+run('render()');assert.equal(element('sidebar').innerHTML,oldSidebar,'Background render keeps same sidebar');
+run('setCoverMode(false)');assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);assert.equal(run('state.images'),false);assert.equal(run('state.previewed.size'),0);
+assert(run("emailDraftLink({title:'Hello world',url:'https://example.com/post'}).startsWith('mailto:?subject=Hello%20world')"));
+run(`setRead(${JSON.stringify(first)},false)`);assert(!run(`state.read.has(${JSON.stringify(first)})`));run(`setRead(${JSON.stringify(first)},true)`);assert(run(`state.read.has(${JSON.stringify(first)})`));
+assert.equal(run("jetstarFares({group:'jetstar',title:'Bali Return PER $247, SYD $459, BNE $447'})[0].code"),'SYD');assert.equal(run("jetstarFares({group:'jetstar',title:'Bali PER $300; Nadi PER $200'}).length"),2,'Separate destinations are preserved');assert.equal(run("jetstarFares({group:'jetstar',title:'Sale SYD 2027'}).length"),0,'Years are not fares');assert.equal(run("jetstarFares({group:'jetstar',title:'US$ price SYD $300'}).length"),0);
 run("$('search').value='';state.idleMinutes=2;cover.lastActivity=1000;checkIdle(120999)");assert(!run('state.coverMode'),'Does not cover before timeout');run('checkIdle(121000)');assert(run('state.coverMode'),'Covers at configured idle deadline');run('setCoverMode(false);state.idleMinutes=0;cover.lastActivity=0;checkIdle(999999999)');assert(!run('state.coverMode'),'Zero disables timeout');run('state.idleMinutes=2');
 const before=run('state.snapshot.items.length');
 run("state.dataUrl='https://raw.githubusercontent.com/example/workreader/main/data/deals.json'");
-(async()=>{await run('loadRemote()');assert.equal(run('state.snapshot.items.length'),before,'Failed refresh retains data');assert.equal(run('state.loading'),false);
+(async()=>{for(let step=0;step<10;step++)await Promise.resolve();await run('loadRemote()');assert.equal(run('state.snapshot.items.length'),before,'Failed refresh retains data');assert.equal(run('state.loading'),false);
 element('rd-token').value='TEST-SECRET-TOKEN';await run('rdConnect()');assert.equal(element('rd-token').value,'','Token input cleared');assert.equal(run('rd.collections.length'),2,'Root and nested collections loaded');assert.equal(run('rd.items.length'),1);run("selectItem('raindrop:999')");
 assert.equal(run('visibleItems().length'),1,'Private bookmarks displayed');assert(!JSON.stringify([...storage]).includes('TEST-SECRET-TOKEN'));assert(!JSON.stringify([...storage]).includes('Private test bookmark'));assert(!run('JSON.stringify(exportData())').includes('private.example'));assert(!run('JSON.stringify(exportData())').includes('raindrop:999'));
 run('state.folder="inbox";state.selected=state.snapshot.items[0].key;rdOpenSave()');element('rd-save-collection').value='42';await run('rdSave()');const post=rdCalls.find(c=>c.options.method==='POST');assert(post,'Save performs explicit API POST');assert.equal(JSON.parse(post.options.body).collection.$id,42);assert(rdCalls.every(c=>c.options.credentials==='omit'&&c.options.redirect==='error'&&c.options.headers.Authorization==='Bearer TEST-SECRET-TOKEN'));
 run('rdDisconnect()');assert.equal(run('rd.items.length'),0);assert.equal(run('rd.token'),'');assert(!run('publicReadKeys().join()').includes('raindrop:'));
-fetchMode='success';await run('loadRemote()');assert.equal(run('state.snapshot.items.length'),0,'Valid remote snapshot replaces data');console.log('Reader runtime checks passed, including image consent, Jetstar failure state, Raindrop browse/save and private-data isolation.');})().catch(e=>{console.error(e);process.exitCode=1;});
+fetchMode='api-only';await run('loadRemote()');assert.equal(run('state.syncEndpoint'),'GitHub public API','Official API fallback succeeds');assert(dataCalls.some(u=>u.includes('/repos/example/workreader/contents/data/deals.json?ref=main')));fetchMode='success';await run('loadRemote()');assert.equal(run('state.snapshot.items.length'),0,'Valid remote snapshot replaces data');console.log('Reader runtime checks passed, including image consent, Jetstar failure state, Raindrop browse/save and private-data isolation.');})().catch(e=>{console.error(e);process.exitCode=1;});

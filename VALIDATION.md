@@ -17,3 +17,7 @@ GitHub Pages remains optional and requires Settings → Pages → GitHub Actions
 ## Mail-view update
 
 Node checks also cover replacing panes with a separate sample mailbox, closing dialogs, suppressing source/status content during background renders, preserving search and scroll positions, keeping images collapsed after return, switching at the configured inactivity deadline, and disabling the timer. Chromium checks exercise the Space shortcut, normal spaces in search, the actual short-duration idle timer, idle while a dialog is open, and covering/restoring a private Raindrop bookmark. The runner retains a mail-cover screenshot.
+
+## Content-only mode and message actions
+
+Runtime checks verify unchanged fake subjects, sidebar and counts across mode changes; preserved pane positions; same-card image toggle; read/unread state; email draft URL construction; official GitHub API fallback after raw-file failure; Sydney-first fare parsing; separate destinations; and rejection of year numbers and ambiguous currencies as fares. Chromium checks compare the exact geometry of every message row and the unchanged sidebar/ribbon across Space, exercise right-click Bookmark/read/unread/Raindrop actions, confirm quiet startup failure and successful mocked API failover, and retain Jetstar-format screenshots. Live endpoints were separately observed: raw public JSON returned HTTP 200 with permissive CORS; Pages data URL remained HTTP 404 because hosting is not enabled. Work-browser connectivity cannot be verified from the runner.

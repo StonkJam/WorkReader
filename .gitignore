@@ -3,3 +3,5 @@ __pycache__/
 .venv/
 *.zip
 diagnostics/
+
+/WorkReader-Outlook-*.html
