@@ -1,0 +1,18 @@
+{
+  "automotive": "Automotive",
+  "books-magazines": "Books & Magazines",
+  "computing": "Computing",
+  "electronics": "Electronics",
+  "entertainment": "Entertainment",
+  "fashion-apparel": "Fashion & Apparel",
+  "financial": "Financial",
+  "food-grocery": "Food & Grocery",
+  "gaming": "Gaming",
+  "health-beauty": "Health & Beauty",
+  "home-garden": "Home & Garden",
+  "internet": "Internet",
+  "mobile": "Mobile",
+  "sports-outdoors": "Sports & Outdoors",
+  "travel": "Travel",
+  "other": "Other"
+}

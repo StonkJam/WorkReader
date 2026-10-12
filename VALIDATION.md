@@ -42,3 +42,8 @@ The newer desktop Outlook reference was measured for pane positions and dominant
 Chromium run 38205309781 passed. Screenshots reviewed at 1440×900 and 3440×1440 in light/dark, with additional compact and Jetstar screenshots. Checks cover unchanged row/folder geometry across Space, idle timeout and mouse reset, image close/reopen, right-click bookmark/read actions, and snapshot failover.
 
 The right-click Raindrop action was previously disabled in mail view and discarded the clicked item when connection was required. It now remains available in either view and carries that item into the save form after connection. Browser checks use synthetic API responses to verify a nonselected row, an initial 401 and retry, correct title and collection in the POST, unchanged current selection, connected saving, and private-data exclusion from storage/exports. The real user's account and work-network access have not been tested.
+
+
+## v9 regression scope
+
+Added checks for mail-mode refresh with one new item and an additional source, neutral labels after refresh, retained selection/scroll, same-snapshot feedback and failed-fetch connection details. Source tests cover subreddit ordering, category URL construction, duplicates, the 60-source limit, repository/owner validation and rejection of arbitrary URL or malformed-name requests. Video tests cover extraction of supplied feed links, supported-provider parsing, hidden/unsafe content rejection, no player before preview, repeated-card close, removing Vimeo/direct players on Space, clearing state and the local-file YouTube original-site option. Browser provider/refresh tests use synthetic responses; they do not verify real remote playback or an owner-submitted source request.

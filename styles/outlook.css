@@ -121,3 +121,5 @@ body.compact-layout .search-scope{display:none}
 body.compact-layout .sender-header{flex-wrap:wrap}
 body.compact-layout .read-actions{max-width:100%;justify-content:flex-start;padding-left:34px}
 body.compact-layout .body-text,body.compact-layout .post-title,body.compact-layout .attachment-strip,body.compact-layout .details,body.compact-layout .notice,body.compact-layout .price-box,body.compact-layout .flight-offer,body.compact-layout .preview-block{margin-left:20px;margin-right:20px}
+
+[hidden]{display:none!important}.video-attachment{text-decoration:none;color:var(--ink)}.video-container{max-width:100%;width:100%}.video-preview{margin:10px 0 0;max-width:760px;border:1px solid var(--line);padding:10px;background:var(--bg)}.video-preview video,.video-preview iframe{display:block;width:100%;aspect-ratio:16/9;max-height:460px;background:#000;border:0}.video-preview a,.video-help{font-size:10px;line-height:1.6;color:var(--muted)}.video-preview a{display:inline-block;margin-top:9px;color:var(--blue)}#source-request-link{margin-top:10px}

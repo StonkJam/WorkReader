@@ -72,6 +72,28 @@ def feed_images(content):
     return parser.images[:12]
 
 
+
+class FeedVideos(HTMLParser):
+    def __init__(self):
+        super().__init__();self.links=[];self.seen=set();self.hidden=0
+    def handle_starttag(self,tag,attrs):
+        if tag in ('script','style'):self.hidden+=1
+        if self.hidden:return
+        attrs=dict(attrs)
+        link=safe_url(attrs.get('href') if tag=='a' else attrs.get('src') if tag in ('video','source','iframe') else '')
+        if not link:return
+        u=urlparse(link)
+        supported=bool(re.search(r'\.(?:mp4|webm|ogv|m4v)$',u.path,re.I)) or u.hostname in ('youtube.com','www.youtube.com','m.youtube.com','youtu.be','www.youtube-nocookie.com','vimeo.com','www.vimeo.com','player.vimeo.com','v.redd.it')
+        if supported and link not in self.seen:
+            self.seen.add(link);self.links.append({'url':link})
+    def handle_endtag(self,tag):
+        if tag in ('script','style'):self.hidden=max(0,self.hidden-1)
+
+
+def feed_videos(content):
+    parser=FeedVideos();parser.feed(content or '');return parser.links[:6]
+
+
 def price_in_title(title):
     # OzBargain titles often contain prices AND discounts; prefer an actual dollar price.
     m = re.search(r'(?<![\w])(?:AU\$|A\$|AUD\s*\$|\$)\s*(\d[\d,]*(?:\.\d{1,2})?)', title)
@@ -118,7 +140,7 @@ def parse_feed(data, source, checked=None):
             except ValueError: comments = None
             items.append(identify({'group':source['group'], 'source_ids':[source['id']], 'title':title,
                 'url':url, 'store_url':safe_url(attrs.get('url')), 'image':safe_url(attrs.get('image')),
-                'attachments':feed_images(node.findtext('description')),
+                'attachments':feed_images(node.findtext('description')), 'videos':feed_videos(node.findtext('description')),
                 'author':author, 'text':plain(node.findtext('description')), 'tags':categories,
                 'price':None if source.get('community') else price_in_title(title), 'currency':'AUD',
                 'price_basis':'Community post may list several routes/prices; verify the original offer' if source.get('community') else 'Price parsed from title; check offer',
@@ -135,7 +157,7 @@ def parse_feed(data, source, checked=None):
             author = node.findtext('a:author/a:name', 'Reddit', ns)
             items.append(identify({'group':'reddit', 'source_ids':[source['id']], 'title':title, 'url':url,
                 'author':author, 'text':plain(node.findtext('a:content', '', ns)), 'tags':[source['name']],
-                'attachments':feed_images(node.findtext('a:content', '', ns)),
+                'attachments':feed_images(node.findtext('a:content', '', ns)), 'videos':feed_videos(node.findtext('a:content', '', ns)),
                 'price':None, 'votes':None, 'comments':None, 'kind':'post',
                 'published':date_text(node.findtext('a:updated', '', ns)), 'checked_at':checked,
                 'evidence':'Reddit RSS · votes and comment threads not supplied'}))

@@ -14,8 +14,9 @@ def main():
     snapshot=json.loads((ROOT/'data/deals.json').read_text())
     cfg=json.loads((ROOT/'config.json').read_text())
     template=template.replace('__OUTLOOK_STYLE__',(ROOT/'styles/outlook.css').read_text()).replace('__RAINDROP_CLIENT__',(ROOT/'scripts/raindrop-client.js').read_text()).replace('__COVER_CLIENT__',(ROOT/'scripts/cover-view.js').read_text())
-    for marker,name in [('__SNAPSHOT_CLIENT__','snapshot-client.js'),('__MESSAGE_ACTIONS__','message-actions.js'),('__JETSTAR_FORMAT__','jetstar-format.js'),('__UI_SCALE__','ui-scale.js')]:
+    for marker,name in [('__SNAPSHOT_CLIENT__','snapshot-client.js'),('__MESSAGE_ACTIONS__','message-actions.js'),('__JETSTAR_FORMAT__','jetstar-format.js'),('__UI_SCALE__','ui-scale.js'),('__SOURCES_CLIENT__','source-settings.js'),('__VIDEO_CLIENT__','video-client.js')]:
         template=template.replace(marker,(ROOT/'scripts'/name).read_text())
+    template=template.replace('__SOURCE_CATEGORIES__',safe_json(json.loads((ROOT/'assets/source-categories.json').read_text())))
     result=template.replace('__SNAPSHOT__',safe_json(snapshot)).replace('__CONFIG__',safe_json(cfg)).replace('__EXTRACTOR__',safe_json((ROOT/'scripts/extract-page.js').read_text()))
     (ROOT/'WorkReader.html').write_text(result)
     (ROOT/'index.html').write_text(result)

@@ -61,6 +61,13 @@ class CollectTests(unittest.TestCase):
         atom=ATOM.replace('&lt;p&gt;Hello&lt;/p&gt;','&lt;p&gt;Hello&lt;/p&gt;&lt;a href="https://i.redd.it/a.png"&gt;[link]&lt;/a&gt;')
         item=c.parse_feed(atom,{'kind':'atom','group':'reddit','id':'r','name':'All'})[0]
         self.assertEqual(item['attachments'][0]['url'],'https://i.redd.it/a.png')
+    def test_video_links_are_collected_without_fetching_media(self):
+        content='<a href="https://youtu.be/M7lc1UVf-VE">[link]</a><video src="https://example.com/v.mp4"></video><a href="https://v.redd.it/abcd">video</a>'
+        self.assertEqual(len(c.feed_videos(content)),3)
+        atom=ATOM.replace('&lt;p&gt;Hello&lt;/p&gt;','&lt;a href="https://youtu.be/M7lc1UVf-VE"&gt;[link]&lt;/a&gt;')
+        self.assertEqual(c.parse_feed(atom,{'kind':'atom','group':'reddit','id':'r','name':'All'})[0]['videos'][0]['url'],'https://youtu.be/M7lc1UVf-VE')
+    def test_video_links_reject_hidden_unsafe_and_unknown_embeds(self):
+        self.assertEqual(c.feed_videos('<script><video src="https://example.com/v.mp4"></video></script><a href="javascript:alert(1)">x</a><iframe src="https://unknown.example/embed"></iframe>'),[])
     def test_community_fallback_is_labelled_and_not_a_single_route_price(self):
         item=c.parse_feed(RSS,{'kind':'rss','group':'jetstar','id':'jet-community','community':True})[0]
         self.assertIsNone(item['price'])

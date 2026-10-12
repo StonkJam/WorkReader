@@ -2,22 +2,30 @@
 import base64
 import json
 from pathlib import Path
+from datetime import datetime,timezone
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 PNG=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aWQAAAABJRU5ErkJggg==')
 def main():
     out=ROOT/'diagnostics/ui';out.mkdir(parents=True,exist_ok=True)
     snapshot=json.loads((ROOT/'data/deals.json').read_text())
+    remote=json.loads(json.dumps(snapshot));now=datetime.now(timezone.utc).isoformat()
+    remote['generated_at']=now
+    remote['items'].append({**snapshot['items'][0],'group':'reddit','kind':'post','url':'https://www.reddit.com/r/testreader/comments/refresh/','title':'Synthetic refresh post','image':'','videos':[],'attachments':[],'first_seen':now,'published':now,'source_ids':['reddit-custom']})
+    remote['sources'].append({'id':'reddit-custom','group':'reddit','name':'r/testreader','url':'https://www.reddit.com/r/testreader/.rss','status':'ok','count':1})
     with sync_playwright() as pw:
         browser=pw.chromium.launch();context=browser.new_context(viewport={'width':1440,'height':900})
-        images=[];posts=[];errors=[];network={'api':False,'reject_token':False}
+        images=[];posts=[];errors=[];video_requests=[];network={'api':False,'reject_token':False}
         context.route('https://raw.githubusercontent.com/**',lambda route:route.abort())
         def github(route):
-            if network['api']:route.fulfill(json=snapshot,headers={'Access-Control-Allow-Origin':'*'})
+            if network['api']:route.fulfill(json=remote,headers={'Access-Control-Allow-Origin':'*'})
             else:route.abort()
         context.route('https://api.github.com/**',github)
         def image(route):images.append(route.request.url);route.fulfill(body=PNG,content_type='image/png')
         context.route('https://images.example/**',image)
+        def video(route):video_requests.append(route.request.url);route.fulfill(body=b'',content_type='video/mp4')
+        context.route('https://video.example/**',video)
+        context.route('https://player.vimeo.com/**',lambda route:(video_requests.append(route.request.url),route.fulfill(body='<html><body>Test player</body></html>',content_type='text/html'))[-1])
         def raindrop(route):
             if network['reject_token']:route.fulfill(status=401,json={'result':False});return
             path=route.request.url.split('/rest/v1')[1]
@@ -39,6 +47,25 @@ def main():
         assert page.locator('#filter-panel').is_hidden()
         page.locator('#filter-toggle').click();assert page.locator('#filter-panel').is_visible()
         page.locator('#filter-toggle').click();assert page.locator('#filter-panel').is_hidden()
+        selected_at_refresh=page.evaluate('state.selected');initial_count=page.locator('.message').count()
+        network['api']=True
+        page.evaluate("$('list').scrollTop=50")
+        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        assert page.evaluate('state.coverMode') and page.evaluate('state.selected')==selected_at_refresh
+        assert page.locator('.message').count()==initial_count+1, 'Refresh renders new rows in mail view'
+        assert page.locator('#list').evaluate('(e)=>e.scrollTop')==50
+        assert 'Synthetic refresh post' not in page.locator('#list').inner_text()
+        assert 'r/testreader' not in page.locator('#sidebar').inner_text()
+        assert '1 new messages' in page.locator('#status').inner_text()
+        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        assert 'Up to date' in page.locator('#status').inner_text()
+        network['api']=False
+        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        assert page.locator('.message').count()==initial_count+1, 'Failed refresh preserves displayed cached rows'
+        assert page.locator('#status-details').inner_text()=='Connection details'
+        page.locator('#status-details').click();assert page.locator('#settings-dialog').is_visible()
+        assert 'Could not update live messages' in page.locator('#sync-details').inner_text()
+        page.locator('#settings-dialog .close').click()
         page.keyboard.press('Space')
         assert not page.evaluate('state.coverMode'), 'First Space opens reader'
         assert page.evaluate('cover.timer!==null'), 'Reader starts countdown'
@@ -50,12 +77,40 @@ def main():
         assert page.locator('link[rel="icon"]').get_attribute('href').startswith('data:image/svg+xml,')
         assert page.locator('#toast').is_hidden(), 'Startup network failure is quiet'
         assert page.evaluate('!!state.syncError')
-        assert page.evaluate('state.snapshot.items.length')==len(snapshot['items'])
+        assert page.evaluate('state.snapshot.items.length')==len(remote['items'])
         network['api']=True
         page.locator('#refresh').click();page.wait_for_function('!state.loading')
         assert page.evaluate('state.syncEndpoint')=='GitHub public API'
         assert not page.evaluate('state.syncError')
         page.evaluate("$('toast').classList.add('hidden')")
+        page.locator('#sources-tab').click();page.locator('#add-source').click()
+        page.locator('#source-subreddit').fill('r/AskReddit');page.locator('#source-order').select_option('new')
+        page.locator('#prepare-source').click()
+        request_url=page.locator('#source-request-link').get_attribute('href')
+        assert request_url.startswith('https://github.com/StonkJam/WorkReader/issues/new?')
+        assert 'askreddit' in request_url and 'new' in request_url
+        page.locator('#source-subreddit').fill('../bad');page.locator('#prepare-source').click()
+        assert page.locator('#source-request-link').is_hidden()
+        page.locator('#source-kind').select_option('ozbargain');page.locator('#source-category').select_option('computing');page.locator('#prepare-source').click()
+        assert 'computing' in page.locator('#source-request-link').get_attribute('href')
+        page.locator('#add-source-dialog .close').click();page.locator('#sources-dialog .close').click()
+        page.locator('.message').first.click()
+        page.evaluate("currentItem().videos=[{url:'https://player.vimeo.com/video/123456789'},{url:'https://youtu.be/M7lc1UVf-VE'}];renderReading()")
+        assert not video_requests and page.locator('.video-preview iframe').count()==0
+        assert page.locator('[data-video-external]').inner_text().find('Open YouTube')>=0, 'USB YouTube opens original instead of broken embed'
+        button=page.locator('[data-video-preview]').first;button.click()
+        assert page.locator('.video-preview iframe').count()==1
+        button=page.locator('[data-video-preview]').first;button.click();assert page.locator('.video-preview iframe').count()==0
+        page.locator('[data-video-preview]').first.click();page.keyboard.press('Space')
+        assert page.locator('.video-preview iframe').count()==0 and page.evaluate('videoPreviewed.size')==0
+        page.keyboard.press('Space');assert page.locator('.video-preview iframe').count()==0
+        page.evaluate("currentItem().videos=[{url:'https://video.example/file.mp4'}];renderReading()")
+        before_video=len(video_requests);assert page.locator('.video-preview video').count()==0
+        page.locator('[data-video-preview]').click()
+        page.wait_for_function("document.querySelector('.video-preview')!==null")
+        assert len(video_requests)>=before_video
+        page.keyboard.press('Space');assert page.locator('.video-preview').count()==0
+        page.keyboard.press('Space');page.evaluate('currentItem().videos=[];renderReading()')
         refresh=page.locator('#refresh').bounding_box();glyph=page.locator('#refresh .oi').bounding_box();ribbon=page.locator('.ribbon').bounding_box()
         assert 18<=glyph['width']/page.evaluate('uiScaleFactor()')<=22 and refresh['y']+refresh['height']<=ribbon['y']+ribbon['height']
         page.locator('.message').first.click()
