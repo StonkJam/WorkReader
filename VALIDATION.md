@@ -47,3 +47,8 @@ The right-click Raindrop action was previously disabled in mail view and discard
 ## v9 regression scope
 
 Added checks for mail-mode refresh with one new item and an additional source, neutral labels after refresh, retained selection/scroll, same-snapshot feedback and failed-fetch connection details. Source tests cover subreddit ordering, category URL construction, duplicates, the 60-source limit, repository/owner validation and rejection of arbitrary URL or malformed-name requests. Video tests cover extraction of supplied feed links, supported-provider parsing, hidden/unsafe content rejection, no player before preview, repeated-card close, removing Vimeo/direct players on Space, clearing state and the local-file YouTube original-site option. Browser provider/refresh tests use synthetic responses; they do not verify real remote playback or an owner-submitted source request.
+
+
+## v10 stale-data regression
+
+The latest live snapshot at investigation time was generated at 2026-10-12 17:00 UTC (13 October 04:00 Sydney), more than five hours before the user's report. Scheduled collections had large gaps. Tests now cover a newer bundle versus older browser cache, older server data rejected without losing rows, an unchanged response reported as No newer snapshot, source-success age reported as Collection overdue, and a link to run a quick collection manually. Existing mail-mode refresh, selection/scroll preservation, network failure and privacy checks remain. The new schedule is an attempted cadence, not a timing guarantee.

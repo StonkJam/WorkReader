@@ -17,10 +17,10 @@ on:
       mode:
         description: Quick feeds or full scan (includes rendered Jetstar/JB pages)
         type: choice
-        default: full
+        default: quick
         options: [quick, full]
   schedule:
-    - cron: '17,47 * * * *'
+    - cron: '7,22,37,52 * * * *'
 
 permissions:
   contents: write
@@ -48,7 +48,7 @@ jobs:
           import datetime, os
           now = datetime.datetime.now(datetime.timezone.utc)
           event = os.environ['EVENT_NAME']
-          mode = os.environ.get('REQUESTED_MODE') if event=='workflow_dispatch' else ('full' if event=='push' or (now.hour % 4 == 0 and now.minute < 40) else 'quick')
+          mode = os.environ.get('REQUESTED_MODE') if event=='workflow_dispatch' else ('full' if event=='push' or (now.hour % 4 == 0 and now.minute < 20) else 'quick')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write('value=' + (mode or 'quick') + '\n')
           PY

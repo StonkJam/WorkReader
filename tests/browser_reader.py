@@ -2,7 +2,7 @@
 import base64
 import json
 from pathlib import Path
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 PNG=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aWQAAAABJRU5ErkJggg==')
@@ -11,6 +11,8 @@ def main():
     snapshot=json.loads((ROOT/'data/deals.json').read_text())
     remote=json.loads(json.dumps(snapshot));now=datetime.now(timezone.utc).isoformat()
     remote['generated_at']=now
+    for source in remote['sources']:
+        if source.get('status')=='ok':source['last_success']=now
     remote['items'].append({**snapshot['items'][0],'group':'reddit','kind':'post','url':'https://www.reddit.com/r/testreader/comments/refresh/','title':'Synthetic refresh post','image':'','videos':[],'attachments':[],'first_seen':now,'published':now,'source_ids':['reddit-custom']})
     remote['sources'].append({'id':'reddit-custom','group':'reddit','name':'r/testreader','url':'https://www.reddit.com/r/testreader/.rss','status':'ok','count':1})
     with sync_playwright() as pw:
@@ -37,9 +39,12 @@ def main():
             else:raise AssertionError(path)
             route.fulfill(json=data,headers={'Access-Control-Allow-Origin':'*'})
         context.route('https://api.raindrop.io/**',raindrop)
+        old_cache=json.loads(json.dumps(snapshot));old_cache['generated_at']='2000-01-01T00:00:00Z';old_cache['items']=[]
+        context.add_init_script("localStorage.setItem('workreader:snapshot',"+json.dumps(json.dumps(old_cache))+");")
         page=context.new_page();page.on('pageerror',lambda error:errors.append(str(error)))
         page.goto((ROOT/'WorkReader.html').as_uri());page.wait_for_function('!state.loading')
         assert page.evaluate('state.coverMode'), 'Startup is mail view'
+        assert page.evaluate('state.snapshot.generated_at')==snapshot['generated_at'], 'New bundle overrides older local snapshot'
         assert page.evaluate('cover.timer===null'), 'No idle countdown in mail view'
         assert 'OzBargain' not in page.locator('#sidebar').inner_text()
         assert page.locator('.message .subject').all_text_contents()==page.evaluate('visibleItems().map(i=>mailFor(i).subject)')
@@ -59,7 +64,25 @@ def main():
         assert 'r/testreader' not in page.locator('#sidebar').inner_text()
         assert '1 new messages' in page.locator('#status').inner_text()
         page.locator('#refresh').click();page.wait_for_function('!state.loading')
-        assert 'Up to date' in page.locator('#status').inner_text()
+        assert 'No newer snapshot' in page.locator('#status').inner_text()
+        assert 'Up to date' not in page.locator('#status').inner_text()
+        remote['generated_at']='2000-01-01T00:00:00Z'
+        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        assert page.locator('.message').count()==initial_count+1
+        assert 'kept newer' in page.locator('#status').inner_text()
+        remote['generated_at']=now
+        old_success=datetime.now(timezone.utc)-timedelta(hours=5)
+        for source in remote['sources']:
+            if source.get('status')=='ok':source['last_success']=old_success.isoformat()
+        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        assert 'Collection overdue' in page.locator('#status').inner_text()
+        page.locator('#status-details').click()
+        assert 'Collection overdue' in page.locator('#collection-status').inner_text()
+        assert page.locator('#scan-link').get_attribute('href')=='https://github.com/StonkJam/WorkReader/actions/workflows/scan.yml'
+        page.locator('#sources-dialog .close').click()
+        for source in remote['sources']:
+            if source.get('status')=='ok':source['last_success']=now
+        page.locator('#refresh').click();page.wait_for_function('!state.loading')
         network['api']=False
         page.locator('#refresh').click();page.wait_for_function('!state.loading')
         assert page.locator('.message').count()==initial_count+1, 'Failed refresh preserves displayed cached rows'
