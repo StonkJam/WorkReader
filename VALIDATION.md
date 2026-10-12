@@ -33,3 +33,12 @@ Startup now sets mail view before the initial render, with images collapsed and 
 ## Outlook scale match
 
 Both supplied screenshots have the same image dimensions. Their pane proportions indicate approximately 140% relative scaling: the reader message pane spans about 200 screenshot pixels versus about 280 in Outlook. This revision defaults to 140%, uses 172/330 CSS-pixel folder/message panes, and adjusts ribbon/folder/message spacing. Browser checks verify viewport/footer fit, context-menu fit at the scaled coordinates, unchanged geometry across mail/reader mode, compact layout, ultrawide pane measurements and saved scale preferences.
+
+
+## v8 layout and Raindrop save flow
+
+The newer desktop Outlook reference was measured for pane positions and dominant dark colours. v8 keeps the 140% scale and 172/330 CSS-pixel panes, uses a #141414 folder background and #292929 ribbon/reading surfaces, lengthens the title-bar search box, adds the small blue Outlook wordmark, compresses message rows to 58 CSS pixels, and puts filters in an overlay menu. The sender and actions share a compact header. All toolbar commands are functional reader commands; this remains an independent reader, not an Outlook client.
+
+Chromium run 38205309781 passed. Screenshots reviewed at 1440×900 and 3440×1440 in light/dark, with additional compact and Jetstar screenshots. Checks cover unchanged row/folder geometry across Space, idle timeout and mouse reset, image close/reopen, right-click bookmark/read actions, and snapshot failover.
+
+The right-click Raindrop action was previously disabled in mail view and discarded the clicked item when connection was required. It now remains available in either view and carries that item into the save form after connection. Browser checks use synthetic API responses to verify a nonselected row, an initial 401 and retry, correct title and collection in the POST, unchanged current selection, connected saving, and private-data exclusion from storage/exports. The real user's account and work-network access have not been tested.
