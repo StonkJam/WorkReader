@@ -9,7 +9,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   add:
-    if: github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, 'WorkReader: add source')
+    if: >-
+      github.event.issue.user.login == github.repository_owner &&
+      startsWith(github.event.issue.title, 'WorkReader: add source')
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:

@@ -25,6 +25,7 @@ def main():
         context.route('https://images.example/**',image)
         def video(route):video_requests.append(route.request.url);route.fulfill(body=b'',content_type='video/mp4')
         context.route('https://video.example/**',video)
+        context.route('https://embed.reddit.com/**',lambda route:route.fulfill(body='<html><body>Test Reddit player</body></html>',content_type='text/html'))
         context.route('https://player.vimeo.com/**',lambda route:(video_requests.append(route.request.url),route.fulfill(body='<html><body>Test player</body></html>',content_type='text/html'))[-1])
         def raindrop(route):
             if network['reject_token']:route.fulfill(status=401,json={'result':False});return
@@ -110,6 +111,11 @@ def main():
         page.wait_for_function("document.querySelector('.video-preview')!==null")
         assert len(video_requests)>=before_video
         page.keyboard.press('Space');assert page.locator('.video-preview').count()==0
+        page.keyboard.press('Space')
+        page.evaluate("currentItem().videos=[{url:'https://v.redd.it/abcd'}];renderReading()")
+        page.locator('[data-video-preview]').click()
+        assert page.locator('.video-preview iframe').get_attribute('src').startswith('https://embed.reddit.com/r/testreader/comments/')
+        page.keyboard.press('Space');assert page.locator('.video-preview iframe').count()==0
         page.keyboard.press('Space');page.evaluate('currentItem().videos=[];renderReading()')
         refresh=page.locator('#refresh').bounding_box();glyph=page.locator('#refresh .oi').bounding_box();ribbon=page.locator('.ribbon').bounding_box()
         assert 18<=glyph['width']/page.evaluate('uiScaleFactor()')<=22 and refresh['y']+refresh['height']<=ribbon['y']+ribbon['height']

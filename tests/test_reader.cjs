@@ -56,7 +56,7 @@ assert.equal(run("videoLink('https://youtu.be/M7lc1UVf-VE').type"),'youtube');
 assert.equal(run("videoLink('https://player.vimeo.com/video/123456789').type"),'vimeo');
 assert.equal(run("videoLink('https://example.com/video.webm').type"),'file');
 assert.equal(run("videoLink('https://youtube.com.evil.example/watch?v=M7lc1UVf-VE')"),null);
-assert.equal(run("videoLink('javascript:alert(1)')"),null);
+assert.equal(run("videoLink('javascript:alert(1)')"),null);assert(run("redditVideoEmbed({url:'https://www.reddit.com/r/australia/comments/abc123/post/' }).startsWith('https://embed.reddit.com/')"));assert.equal(run("redditVideoEmbed({url:'https://evil.example/r/australia/comments/abc123/'})"),'');
 run("$('source-kind').value='subreddit';$('source-subreddit').value='r/AskReddit';$('source-order').value='new'");
 assert.equal(run('sourceRequest().subreddit'),'askreddit');
 assert(run("sourceRequestLink(sourceRequest(),'StonkJam/WorkReader').startsWith('https://github.com/StonkJam/WorkReader/issues/new?')"));
