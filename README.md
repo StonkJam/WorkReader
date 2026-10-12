@@ -17,7 +17,7 @@ The HTML does not silently rewrite itself on the USB. Preferences and the latest
 
 Repository: https://github.com/StonkJam/WorkReader
 
-The USB reader is preconfigured to load this repository's public data file. Open **WorkReader.html** and click **Refresh data** to download the latest snapshot.
+The USB reader is preconfigured to load this repository's public data file. Open **WorkReader.html** and click **Refresh** to download the latest snapshot.
 
 The initial source upload triggers a full collection job. Later source/configuration changes trigger it again. You can also run **Actions → Collect deal snapshots → Run workflow** and choose **full** or **quick**.
 
@@ -31,7 +31,7 @@ The scheduled workflow attempts a feed refresh about every 30 minutes. Rendered-
 
 The scanner's completed workflow also triggers publication. The separate `workflow_run` trigger matters because commits made with GitHub's workflow token do not normally trigger another push workflow.
 
-Public repository data and a normal GitHub Pages site are public. This project collects public offers/posts only; keep passwords, private documents, account cookies and API tokens out of the repository and HTML. No token is needed in the reader.
+Public repository data and a normal GitHub Pages site are public. This project collects public offers/posts only; keep passwords, private documents, account cookies and API tokens out of the repository and HTML. No GitHub token is needed in the reader. Optional Raindrop integration uses a personal token entered at runtime.
 
 ## Sources and current limits
 
@@ -42,7 +42,7 @@ Public repository data and a normal GitHub Pages site are public. This project c
 | Jetstar | Best-effort rendered-page cards | Your five sale/package pages. Flight and package types stay distinct. Cards with unclear multiple prices are left unpriced. Access and site layout can prevent collection. |
 | JB Hi-Fi | Best-effort rendered-page cards | Your iPad Pro collection with the supplied clearance/newest query. Only cards explicitly labelled Clearance are accepted. A URL query alone is not treated as proof. Stock and ex-display condition must be checked on JB. |
 
-**OzBargain is the verified live collector. Jetstar and JB's rendered collectors have not been run in a local browser during this build; they must be verified by the first full GitHub run.** They are deliberately conservative rather than returning invented prices or claiming an empty scrape means no deals exist. The exact run results are in `VALIDATION.md`.
+**OzBargain and Reddit All have returned live data on GitHub. Jetstar has failed with an HTTP/2 connection error, and JB has returned no explicitly verified iPad Pro clearance cards.** They are deliberately conservative rather than returning invented prices or claiming an empty scrape means no deals exist. The exact run results are in `VALIDATION.md`.
 
 The page extractor works from recognised links/cards and their surrounding text. Site changes may require editing `scripts/extract-page.js`. It does not solve challenges, spoof authenticated sessions or circumvent access blocks.
 
@@ -62,11 +62,21 @@ Bookmarklets may be blocked by a page or browser policy. The original source mus
 - Missing prices remain unknown and are excluded from maximum-price filters.
 - Price history starts when this scanner first observes an item. It is not historical retailer data. Price drops only compare observed numeric amounts for the same item.
 - Sources that fail retain older data with an older timestamp and stale label. Disappearing from a feed is not treated as proof that an offer expired.
-- Images are off by default. Turning them on loads the source image URLs.
+- Images appear as attachment cards with “Click to preview”. No image is requested until clicked, or until Images on is enabled. Hide preview collapses it again. RSS image URLs are extracted when the feed supplies them; galleries and video are not guaranteed.
 - Refresh downloads the latest JSON; it does not start an immediate collection job.
-- Dark mode and responsive layout; J/K to move through messages, F to save, R to refresh. Shortcuts are inactive while typing or in dialogs.
+- Compact Outlook-inspired ribbon, app rail, folder pane and message list, with light/dark themes and responsive layout; J/K to move through messages, F to save, R to refresh. Shortcuts are inactive while typing or in dialogs.
 
 Jetstar “from” fares may be one-way, per person, date-limited or subject to membership/baggage conditions. Package prices may use different passenger and night counts. The card text is retained and the booking page is the source of truth. Sydney is indicated when present on the card or requested by the package URL; it is not guaranteed simply because a query parameter says SYD. Flight sales are collected across origins from your supplied pages; search “Sydney” for explicit Sydney matches.
+
+## Raindrop.io
+
+1. Open **Raindrop** in the ribbon. In [Raindrop integration settings](https://app.raindrop.io/settings/integrations), create a personal app and obtain its **Test token**.
+2. Paste that token into the reader's password field and click **Connect**. Root and nested collections appear in the folder pane. Search queries use Raindrop's API; **Load more** fetches another page of bookmarks.
+3. Select a public item and choose **Save to Raindrop**, then review its title, collection and tags before clicking **Save bookmark**.
+
+The token, collection list and private bookmarks live only in JavaScript memory for the current session. They are not included in local storage, public snapshots, GitHub or exports. Closing/reloading the file requires reconnecting. Disconnect clears private data. The reader creates bookmarks only after an explicit save; it does not edit/delete existing bookmarks. Shared read-only collections are excluded from the save chooser.
+
+Raindrop documents CORS support; its API's unauthenticated preflight accepts a file-origin request. Automated API tests use synthetic responses. A real account connection still requires your own token and network access to api.raindrop.io.
 
 ## Local development
 
@@ -87,7 +97,7 @@ python scripts/collect.py --mode full
 python scripts/build.py
 ```
 
-Edit `reader.template.html`, then run the builder to update both HTML files. Edit `config.json` to add/remove feed folders or change source URLs. Source files are plain text and the reader has no CDN dependency, analytics, third-party proxy or external JavaScript requirement.
+Edit `reader.template.html`, `styles/outlook.css` or `scripts/raindrop-client.js`, then run the builder to update both HTML files. Edit `config.json` to add/remove feed folders or change source URLs. Source files are plain text and the reader has no CDN dependency, analytics, third-party proxy or external JavaScript requirement.
 
 ## Files
 

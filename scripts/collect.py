@@ -47,6 +47,31 @@ def safe_url(value):
     except ValueError: return ''
 
 
+class FeedImages(HTMLParser):
+    """Collect supplied image addresses without downloading any image."""
+    def __init__(self):
+        super().__init__(); self.images = []; self.seen = set(); self.hidden = 0
+    def handle_starttag(self, tag, attrs):
+        if tag in ('script', 'style'): self.hidden += 1
+        if self.hidden: return
+        attrs = dict(attrs)
+        value = attrs.get('src') if tag == 'img' else attrs.get('href') if tag == 'a' else ''
+        value = safe_url(value)
+        if not value: return
+        parsed = urlparse(value)
+        if tag != 'img' and not re.search(r'\.(?:jpg|jpeg|png|gif|webp|avif)$', parsed.path, re.I): return
+        if value not in self.seen:
+            self.seen.add(value)
+            self.images.append({'type':'image', 'url':value, 'name':parsed.path.rsplit('/',1)[-1][:100] or parsed.hostname + '.jpg'})
+    def handle_endtag(self, tag):
+        if tag in ('script', 'style'): self.hidden = max(0, self.hidden-1)
+
+
+def feed_images(content):
+    parser = FeedImages(); parser.feed(content or '')
+    return parser.images[:12]
+
+
 def price_in_title(title):
     # OzBargain titles often contain prices AND discounts; prefer an actual dollar price.
     m = re.search(r'(?<![\w])(?:AU\$|A\$|AUD\s*\$|\$)\s*(\d[\d,]*(?:\.\d{1,2})?)', title)
@@ -93,6 +118,7 @@ def parse_feed(data, source, checked=None):
             except ValueError: comments = None
             items.append(identify({'group':source['group'], 'source_ids':[source['id']], 'title':title,
                 'url':url, 'store_url':safe_url(attrs.get('url')), 'image':safe_url(attrs.get('image')),
+                'attachments':feed_images(node.findtext('description')),
                 'author':author, 'text':plain(node.findtext('description')), 'tags':categories,
                 'price':price_in_title(title), 'currency':'AUD', 'price_basis':'Price parsed from title; check offer',
                 'votes':votes, 'comments':comments, 'published':date_text(node.findtext('pubDate')),
@@ -107,6 +133,7 @@ def parse_feed(data, source, checked=None):
             author = node.findtext('a:author/a:name', 'Reddit', ns)
             items.append(identify({'group':'reddit', 'source_ids':[source['id']], 'title':title, 'url':url,
                 'author':author, 'text':plain(node.findtext('a:content', '', ns)), 'tags':[source['name']],
+                'attachments':feed_images(node.findtext('a:content', '', ns)),
                 'price':None, 'votes':None, 'comments':None, 'kind':'post',
                 'published':date_text(node.findtext('a:updated', '', ns)), 'checked_at':checked,
                 'evidence':'Reddit RSS · votes and comment threads not supplied'}))
@@ -123,8 +150,27 @@ def fetch_feed(source):
 
 def browser_collect(browser, source):
     page = browser.new_page(viewport={'width':1440, 'height':1000}, locale='en-AU')
+    network_errors = []
+    page.on('requestfailed', lambda request: network_errors.append({'url':request.url[:500], 'error':request.failure}))
     try:
-        response = page.goto(source['url'], wait_until='domcontentloaded', timeout=20000)
+        try:
+            response = page.goto(source['url'], wait_until='domcontentloaded', timeout=20000)
+        except Exception as err:
+            if source['group'] != 'jetstar' or 'ERR_HTTP2_PROTOCOL_ERROR' not in str(err): raise
+            # Ordinary HTTP/1 transport fallback for a failed HTTP/2 connection.
+            # Playwright's request client uses HTTP/1. No proxy, cookies from an
+            # account, identity spoofing, or challenge handling is involved.
+            def http1(route):
+                if route.request.method != 'GET':
+                    route.continue_(); return
+                try:
+                    result = page.request.get(route.request.url, timeout=12000)
+                    route.fulfill(response=result)
+                except Exception:
+                    route.continue_()
+            page.route('https://www.jetstar.com/**', http1)
+            print(source['id'], 'retrying standard HTTP/1 transport')
+            response = page.goto(source['url'], wait_until='domcontentloaded', timeout=25000)
         if response and response.status >= 400: raise ValueError('Website returned HTTP ' + str(response.status))
         for label in ('Accept all', 'Accept All', 'Accept cookies'):
             try:
@@ -157,7 +203,7 @@ def browser_collect(browser, source):
         return result['items']
     except Exception:
         # Public, anonymous-page diagnostics stay in workflow artifacts, not the published feed.
-        diagnostic = {'source':source['id'], 'url':source['url'], 'checked_at':NOW()}
+        diagnostic = {'source':source['id'], 'url':source['url'], 'checked_at':NOW(), 'network_errors':network_errors[:25]}
         try:
             diagnostic['title'] = page.title()
             diagnostic['visible_text'] = page.locator('body').inner_text(timeout=2000)[:8000]

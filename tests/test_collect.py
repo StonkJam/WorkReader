@@ -48,5 +48,18 @@ class CollectTests(unittest.TestCase):
     def test_safe_links(self):
         for url in ['javascript:alert(1)','file:///tmp/a','https://user:pass@example.com/']:
             self.assertEqual(c.safe_url(url),'')
+    def test_feed_images_are_optional_and_deduplicated(self):
+        content='<img src="https://preview.redd.it/a.jpg?width=640"><a href="https://i.redd.it/b.png">image</a><a href="https://i.redd.it/b.png">same</a><a href="https://example.com/article">article</a>'
+        images=c.feed_images(content)
+        self.assertEqual(len(images),2)
+        self.assertEqual(images[0]['url'],'https://preview.redd.it/a.jpg?width=640')
+        self.assertEqual(images[1]['name'],'b.png')
+    def test_unsafe_image_addresses_and_hidden_markup_rejected(self):
+        content='<img src="javascript:alert(1)"><img src="file:///etc/passwd"><img src="https://user:pass@example.com/a.jpg"><script><img src="https://example.com/a.jpg"></script>'
+        self.assertEqual(c.feed_images(content),[])
+    def test_reddit_atom_preserves_image_link(self):
+        atom=ATOM.replace('&lt;p&gt;Hello&lt;/p&gt;','&lt;p&gt;Hello&lt;/p&gt;&lt;a href="https://i.redd.it/a.png"&gt;[link]&lt;/a&gt;')
+        item=c.parse_feed(atom,{'kind':'atom','group':'reddit','id':'r','name':'All'})[0]
+        self.assertEqual(item['attachments'][0]['url'],'https://i.redd.it/a.png')
 
 if __name__=='__main__':unittest.main()

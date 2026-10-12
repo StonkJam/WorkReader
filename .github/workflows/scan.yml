@@ -7,6 +7,7 @@ on:
       - 'config.json'
       - 'reader.template.html'
       - 'scripts/**'
+      - 'styles/**'
       - 'tests/**'
       - 'requirements-browser.txt'
       - '.github/workflows/scan.yml'

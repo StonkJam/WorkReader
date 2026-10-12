@@ -9,6 +9,7 @@ def main():
     template=(ROOT/'reader.template.html').read_text()
     snapshot=json.loads((ROOT/'data/deals.json').read_text())
     cfg=json.loads((ROOT/'config.json').read_text())
+    template=template.replace('__OUTLOOK_STYLE__',(ROOT/'styles/outlook.css').read_text()).replace('__RAINDROP_CLIENT__',(ROOT/'scripts/raindrop-client.js').read_text())
     result=template.replace('__SNAPSHOT__',safe_json(snapshot)).replace('__CONFIG__',safe_json(cfg)).replace('__EXTRACTOR__',safe_json((ROOT/'scripts/extract-page.js').read_text()))
     (ROOT/'WorkReader.html').write_text(result)
     (ROOT/'index.html').write_text(result)
