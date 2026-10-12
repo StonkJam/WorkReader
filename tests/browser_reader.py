@@ -43,6 +43,7 @@ def main():
         page.screenshot(path=str(out/'outlook-light.png'))
         page.locator('#theme').click()
         assert page.locator('body').evaluate("e=>e.classList.contains('dark')")
+        page.wait_for_function("getComputedStyle(document.querySelector('.folder.active')).backgroundColor==='rgb(56, 56, 56)'")
         page.screenshot(path=str(out/'outlook-dark.png'))
         page.get_by_text('Click to preview', exact=True).click()
         page.wait_for_selector('.preview-block img')

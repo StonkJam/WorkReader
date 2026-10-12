@@ -39,10 +39,11 @@ Public repository data and a normal GitHub Pages site are public. This project c
 |---|---|---|
 | OzBargain | Official RSS | Titles, shortened text, authors, tags, votes, comment counts and links. Full description/comments stay on OzBargain. |
 | Reddit | Public Atom/RSS | Posts if Reddit permits the runner to access the feed. No account login, full comment viewer or proxy workaround is included. |
-| Jetstar | Best-effort rendered-page cards | Your five sale/package pages. Flight and package types stay distinct. Cards with unclear multiple prices are left unpriced. Access and site layout can prevent collection. |
+| Jetstar community | OzBargain Jetstar RSS | Clearly labelled community posts, refreshed with feeds. Titles may list multiple routes/prices, so no single fare is inferred. These are not direct Jetstar scans. |
+| Jetstar direct | Best-effort rendered-page cards | Your five sale/package pages. Flight and package types stay distinct. Cards with unclear multiple prices are left unpriced. Access and site layout can prevent collection. |
 | JB Hi-Fi | Best-effort rendered-page cards | Your iPad Pro collection with the supplied clearance/newest query. Only cards explicitly labelled Clearance are accepted. A URL query alone is not treated as proof. Stock and ex-display condition must be checked on JB. |
 
-**OzBargain and Reddit All have returned live data on GitHub. Jetstar has failed with an HTTP/2 connection error, and JB has returned no explicitly verified iPad Pro clearance cards.** They are deliberately conservative rather than returning invented prices or claiming an empty scrape means no deals exist. The exact run results are in `VALIDATION.md`.
+**OzBargain and Reddit All have returned live data on GitHub. The direct Jetstar pages still failed after a standard HTTP/1 transport retry. The Jetstar community feed returned 10 posts during verification. JB has returned no explicitly verified iPad Pro clearance cards.** They are deliberately conservative rather than returning invented prices or claiming an empty scrape means no deals exist. The exact run results are in `VALIDATION.md`.
 
 The page extractor works from recognised links/cards and their surrounding text. Site changes may require editing `scripts/extract-page.js`. It does not solve challenges, spoof authenticated sessions or circumvent access blocks.
 

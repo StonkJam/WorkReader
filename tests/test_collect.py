@@ -61,5 +61,10 @@ class CollectTests(unittest.TestCase):
         atom=ATOM.replace('&lt;p&gt;Hello&lt;/p&gt;','&lt;p&gt;Hello&lt;/p&gt;&lt;a href="https://i.redd.it/a.png"&gt;[link]&lt;/a&gt;')
         item=c.parse_feed(atom,{'kind':'atom','group':'reddit','id':'r','name':'All'})[0]
         self.assertEqual(item['attachments'][0]['url'],'https://i.redd.it/a.png')
+    def test_community_fallback_is_labelled_and_not_a_single_route_price(self):
+        item=c.parse_feed(RSS,{'kind':'rss','group':'jetstar','id':'jet-community','community':True})[0]
+        self.assertIsNone(item['price'])
+        self.assertTrue(item['community'])
+        self.assertIn('not a direct Jetstar scan',item['evidence'])
 
 if __name__=='__main__':unittest.main()

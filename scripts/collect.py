@@ -120,9 +120,11 @@ def parse_feed(data, source, checked=None):
                 'url':url, 'store_url':safe_url(attrs.get('url')), 'image':safe_url(attrs.get('image')),
                 'attachments':feed_images(node.findtext('description')),
                 'author':author, 'text':plain(node.findtext('description')), 'tags':categories,
-                'price':price_in_title(title), 'currency':'AUD', 'price_basis':'Price parsed from title; check offer',
+                'price':None if source.get('community') else price_in_title(title), 'currency':'AUD',
+                'price_basis':'Community post may list several routes/prices; verify the original offer' if source.get('community') else 'Price parsed from title; check offer',
                 'votes':votes, 'comments':comments, 'published':date_text(node.findtext('pubDate')),
-                'checked_at':checked, 'kind':'deal', 'evidence':'Official RSS · shortened description'}))
+                'checked_at':checked, 'kind':'deal', 'community':bool(source.get('community')),
+                'evidence':'OzBargain community RSS · not a direct Jetstar scan' if source.get('community') else 'Official RSS · shortened description'}))
     else:
         ns = {'a':'http://www.w3.org/2005/Atom'}
         if root.tag != '{http://www.w3.org/2005/Atom}feed': raise ValueError('Expected a Reddit Atom feed')
@@ -276,7 +278,10 @@ def main():
                 statuses.append({**status, 'status':'ok', 'last_success':NOW(), 'count':len(items), 'message':'Public listing collected'})
                 print(source['id'], 'OK', len(items))
             except Exception as err:
-                statuses.append({**status, 'status':'error', 'message':str(err)[:250]})
+                message = str(err)[:250]
+                if source['group']=='jetstar' and 'ERR_HTTP2_PROTOCOL_ERROR' in str(err):
+                    message = 'Jetstar connection failed (HTTP/2); standard HTTP/1 retry also failed. Open the page or use Capture page.'
+                statuses.append({**status, 'status':'error', 'message':message})
                 print(source['id'], 'ERROR', str(err)[:160])
             if source['group']=='reddit': time.sleep(2)
     finally:

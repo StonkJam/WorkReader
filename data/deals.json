@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T01:56:47.267795+00:00",
+  "generated_at": "2026-10-12T01:59:21.183672+00:00",
   "sources": [
     {
       "id": "oz-popular",
@@ -11,8 +11,8 @@
       "last_success": "2026-10-12T01:55:22.967336+00:00",
       "attempted_at": "2026-10-12T01:55:22.361972+00:00",
       "status": "ok",
-      "count": 20,
-      "message": "Public listing collected"
+      "message": "Public listing collected",
+      "page_url": "https://www.ozbargain.com.au/"
     },
     {
       "id": "oz-new",
@@ -23,8 +23,8 @@
       "last_success": "2026-10-12T01:55:23.666170+00:00",
       "attempted_at": "2026-10-12T01:55:22.967354+00:00",
       "status": "ok",
-      "count": 30,
-      "message": "Public listing collected"
+      "message": "Public listing collected",
+      "page_url": "https://www.ozbargain.com.au/deals"
     },
     {
       "id": "oz-freebies",
@@ -35,8 +35,8 @@
       "last_success": "2026-10-12T01:55:24.330251+00:00",
       "attempted_at": "2026-10-12T01:55:23.666183+00:00",
       "status": "ok",
-      "count": 30,
-      "message": "Public listing collected"
+      "message": "Public listing collected",
+      "page_url": "https://www.ozbargain.com.au/freebies"
     },
     {
       "id": "reddit-all",
@@ -47,7 +47,6 @@
       "last_success": "2026-10-12T01:55:24.588177+00:00",
       "attempted_at": "2026-10-12T01:55:24.330266+00:00",
       "status": "ok",
-      "count": 25,
       "message": "Public listing collected"
     },
     {
@@ -60,6 +59,20 @@
       "attempted_at": "2026-10-12T01:55:26.588331+00:00",
       "status": "error",
       "message": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "jet-community",
+      "group": "jetstar",
+      "name": "Community deals · OzBargain",
+      "kind": "rss",
+      "url": "https://www.ozbargain.com.au/deals/jetstar.com/feed",
+      "community": true,
+      "last_success": "2026-10-12T01:59:21.183587+00:00",
+      "attempted_at": "2026-10-12T01:59:15.320302+00:00",
+      "status": "ok",
+      "count": 10,
+      "message": "Public listing collected",
+      "page_url": "https://www.ozbargain.com.au/deals/jetstar.com"
     },
     {
       "id": "jet-wff-packages",
@@ -3870,6 +3883,481 @@
       "id": "8dc1a6f5d56e15a2595f",
       "first_seen": "2026-10-12T01:18:17.694511+00:00",
       "last_seen": "2026-10-12T01:56:47.267795+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Jetstar: Bali Return PER $247, DRW $312, AVV $329, CNS $365, MEL $368, ADL $370, BNE $447, SYD $459, GC $487, HBA $586 @ IWTF",
+      "url": "https://www.ozbargain.com.au/node/978415",
+      "store_url": "https://iwantthatflight.com.au/deal/bali-flights-on-jetstar-from-just-247-return?ozb=70",
+      "image": "https://files.ozbargain.com.au/n/15/978415l.jpg?h=12fa21c5",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/15/978415l.jpg?h=12fa21c5",
+          "name": "978415l.jpg"
+        }
+      ],
+      "author": "IWantThatFlight",
+      "text": "Jetstar has dropped prices on flights to Bali Flying: Jetstar Cheapest Dates: Departing Perth, Darwin, Melbourne, Brisbane, Sydney, Western Sydney and Hobart in Feb - Mar/27. Cairns in Jan - …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "Bali",
+        "Indonesia"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 16,
+      "comments": 15,
+      "published": "2026-10-10T09:29:27+11:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/978415|jetstar: bali return per $247, drw $312, avv $329, cns $365, mel $368, adl $370, bne $447, syd $459, gc $487, hba $586 @ iwtf",
+      "id": "ea1a0a42ba6dd49b701a",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Vietnam Rtn (HCMC, Hanoi, Da Nang): SYD $388, PER $410, MEL $462, BNE $486, OOL $619, ADL $701, HBA $708 & More @ BTF",
+      "url": "https://www.ozbargain.com.au/node/978093",
+      "store_url": "https://www.beatthatflight.com.au/deals/vietnam-return-various-airlines-sydney-388-perth-410-melbourne-462-brisbane-486-more-oct-2026-sep-2027",
+      "image": "https://files.ozbargain.com.au/n/93/978093l.jpg?h=7bac2055",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/93/978093l.jpg?h=7bac2055",
+          "name": "978093l.jpg"
+        }
+      ],
+      "author": "beatthatflight",
+      "text": "While previous posts have been one airline, like Singapore Airlines to Vietnam from $591 Return or VietJet to Vietnam - Ho Chi Minh City direct, plus Hanoi & Da Nang via Saigon, from $360 return, …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "Da Nang",
+        "Hanoi",
+        "Ho Chi Minh City",
+        "Vietnam"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 26,
+      "comments": 14,
+      "published": "2026-10-07T22:12:03+11:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/978093|vietnam rtn (hcmc, hanoi, da nang): syd $388, per $410, mel $462, bne $486, ool $619, adl $701, hba $708 & more @ btf",
+      "id": "423220aca731f9776bb5",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Jetstar Return for Free to Japan and South Korea @ Jetstar",
+      "url": "https://www.ozbargain.com.au/node/977842",
+      "store_url": "https://www.jetstar.com/au/en/deals/japan-south-korea-return-for-free",
+      "image": "https://files.ozbargain.com.au/n/42/977842l.jpg?h=3d0cccce",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/42/977842l.jpg?h=3d0cccce",
+          "name": "977842l.jpg"
+        }
+      ],
+      "author": "BangkokBreakfast",
+      "text": "Jetstar is back with the return for free sale to/from Japan and South Korea. Deal goes live at 12:00pm Tuesday 6 for Jetstar Club members and midnight for everyone else. See Booking Hacks • …",
+      "tags": [
+        "Travel",
+        "Asia",
+        "Instagrampost",
+        "Japan",
+        "South Korea"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 236,
+      "comments": 237,
+      "published": "2026-10-06T07:58:48+11:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/977842|jetstar return for free to japan and south korea @ jetstar",
+      "id": "e137426d4c13a5cd2bb3",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Direct O/W Bali PER $326, BNE $390, MEL $402; Queenstown SYD $336; Nadi BNE $298 (Dec 31 & Jan 1) @ Skyspy",
+      "url": "https://www.ozbargain.com.au/node/977309",
+      "store_url": "https://skyspy.deals/?date=2027-01-01&from=PER&to=DPS",
+      "image": "https://files.ozbargain.com.au/n/09/977309l.jpg?h=b42ac077",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/09/977309l.jpg?h=b42ac077",
+          "name": "977309l.jpg"
+        }
+      ],
+      "author": "Skyspy",
+      "text": "Summer holiday flights are brutal the week before Christmas, then they drop hard on New Year's Eve. I ran every date from 19 Dec to 10 Jan out of the five big cities. Against the dearest days of …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "Auckland",
+        "Bali",
+        "Fiji",
+        "Indonesia",
+        "Nadi",
+        "New Years Eve",
+        "New Zealand",
+        "Oceania",
+        "Queenstown"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 12,
+      "comments": 5,
+      "published": "2026-10-01T17:03:12+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/977309|direct o/w bali per $326, bne $390, mel $402; queenstown syd $336; nadi bne $298 (dec 31 & jan 1) @ skyspy",
+      "id": "9b7db8006a1a2145b858",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Open-Jaw RTW Europe-USA-Japan Ex PER $2,145, MEL $2,175, SYD $2,180, BNE $2,353, OOL $2,389, CNS $2,390 & More @ BTF",
+      "url": "https://www.ozbargain.com.au/node/976741",
+      "store_url": "https://www.beatthatflight.com.au/deals/open-jaw-round-the-world-europe-usa-japan-from-2145-return",
+      "image": "https://files.ozbargain.com.au/n/41/976741l.jpg?h=b6168ae9",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/41/976741l.jpg?h=b6168ae9",
+          "name": "976741l.jpg"
+        }
+      ],
+      "author": "beatthatflight",
+      "text": "Open Jaw Round the World Flights: Europe, USA and Japan from $2,145 Return These open-jaw round-the-world flight combinations link Australian cities with Europe, the USA and Japan from $2,145 …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "California",
+        "Dublin",
+        "Europe",
+        "Frankfurt",
+        "Germany",
+        "Ireland",
+        "Italy",
+        "Japan",
+        "Los Angeles",
+        "New York",
+        "North America",
+        "Rome",
+        "Round The World",
+        "Tokyo",
+        "United States"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 15,
+      "comments": 5,
+      "published": "2026-09-28T21:14:33+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/976741|open-jaw rtw europe-usa-japan ex per $2,145, mel $2,175, syd $2,180, bne $2,353, ool $2,389, cns $2,390 & more @ btf",
+      "id": "e765d31f0b0b8f158f54",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "5 Nights at Port Douglas Ramada with Flights & Bags: BNE $645, GC $656, SYD $684, MEL $708, ADL $777 Per Person @ Luxury Escapes",
+      "url": "https://www.ozbargain.com.au/node/976597",
+      "store_url": "https://iwantthatflight.com.au/deal/test-package-deal-pd-and-flights?ozb=70",
+      "image": "https://files.ozbargain.com.au/n/97/976597l.jpg?h=379b1218",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/97/976597l.jpg?h=379b1218",
+          "name": "976597l.jpg"
+        }
+      ],
+      "author": "IWantThatFlight",
+      "text": "What's Included: 5 Nights in a Standard Hotel Room at Ramada Resort by Wyndham Port Douglas Flights including checked bags A$50 dining credit to use at 3Sixteen Bar & Bistro Welcome bottle …",
+      "tags": [
+        "Travel",
+        "Accommodation",
+        "Airfare",
+        "Hotel",
+        "Port Douglas",
+        "Queensland"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 73,
+      "comments": 54,
+      "published": "2026-09-27T14:55:24+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/976597|5 nights at port douglas ramada with flights & bags: bne $645, gc $656, syd $684, mel $708, adl $777 per person @ luxury escapes",
+      "id": "97821513c2582af679cf",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Jetstar Return: SYD–Ballina $111.34, MEL–Launceston $127.87, SYD–Gold Coast $159.17 (Jan 2027) @ Skyspy",
+      "url": "https://www.ozbargain.com.au/node/976546",
+      "store_url": "https://skyspy.deals/?date=2027-01-12&from=SYD&return=2027-01-19&to=BNK",
+      "image": "https://files.ozbargain.com.au/n/46/976546l.jpg?h=b42ac077",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/46/976546l.jpg?h=b42ac077",
+          "name": "976546l.jpg"
+        }
+      ],
+      "author": "Skyspy",
+      "text": "A few people asked for school-holiday options on my earlier posts, so I checked January. These are seven-night trips during the January school holidays, with direct Jetstar flights both ways. All …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Domestic Flight",
+        "Jetstar"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 16,
+      "comments": 9,
+      "published": "2026-09-26T17:56:12+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/976546|jetstar return: syd–ballina $111.34, mel–launceston $127.87, syd–gold coast $159.17 (jan 2027) @ skyspy",
+      "id": "8adc9f24fecd7c275fad",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Japan Dec-Mar Return: Sapporo MEL $1074, PER $1197, BNE $1203, SYD $1239; Tokyo SYD $1041, MEL $1070, ADL $1077 @ Skyspy",
+      "url": "https://www.ozbargain.com.au/node/975627",
+      "store_url": "https://skyspy.deals/?date=2027-03-08&from=MEL&return=2027-03-17&to=CTS",
+      "image": "https://files.ozbargain.com.au/n/27/975627l.jpg?h=b42ac077",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/27/975627l.jpg?h=b42ac077",
+          "name": "975627l.jpg"
+        }
+      ],
+      "author": "Skyspy",
+      "text": "It's ski booking season and nobody's posted Japan snow fares since April, so I ran every capital to Sapporo and Tokyo for December through March. The cheap weeks are late February and …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "Hakuba",
+        "Hokkaido",
+        "Japan",
+        "Niseko",
+        "Sapporo",
+        "Tokyo"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 25,
+      "comments": 12,
+      "published": "2026-09-18T20:09:59+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/975627|japan dec-mar return: sapporo mel $1074, per $1197, bne $1203, syd $1239; tokyo syd $1041, mel $1070, adl $1077 @ skyspy",
+      "id": "b5aa58bb645004245a3f",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Jetstar/Batik Business Non-Stop Rtn: BNE-Osaka $1508, PER-KL $1560, BNE-Tokyo $1583, MEL-Sing $1743, SYD-Seoul $1822 @ Skyspy",
+      "url": "https://www.ozbargain.com.au/node/973512",
+      "store_url": "https://skyspy.deals/?cabin=business&date=2027-06-02&from=BNE&return=2027-06-16&to=KIX",
+      "image": "https://files.ozbargain.com.au/n/12/973512l.jpg?h=b42ac077",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/12/973512l.jpg?h=b42ac077",
+          "name": "973512l.jpg"
+        }
+      ],
+      "author": "Skyspy",
+      "text": "Business class, non-stop, return, from four Australian capitals, all under $1,850. Every price below was checked on Google Flights today. Sample itinerary: Brisbane to Osaka Kansai, departing …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "Business Class",
+        "International Flight",
+        "Japan",
+        "Kansai",
+        "Kuala Lumpur",
+        "Malaysia",
+        "Osaka",
+        "Seoul",
+        "Singapore",
+        "South Korea",
+        "Tokyo"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 16,
+      "comments": 17,
+      "published": "2026-09-01T18:29:09+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/973512|jetstar/batik business non-stop rtn: bne-osaka $1508, per-kl $1560, bne-tokyo $1583, mel-sing $1743, syd-seoul $1822 @ skyspy",
+      "id": "c93a8103cacdb3f76def",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "jetstar",
+      "source_ids": [
+        "jet-community"
+      ],
+      "title": "Direct O/W: Bali Ex PER $146, ADL $259, BNE $260, MEL $274, SYD $297; SIN Ex PER $182, SYD $256, MEL $274 (Nov-Jun) @ Sky Spy",
+      "url": "https://www.ozbargain.com.au/node/973280",
+      "store_url": "https://skyspy.deals/?date=2027-02-08&from=PER&to=DPS",
+      "image": "https://files.ozbargain.com.au/n/80/973280l.jpg?h=3eb37d63",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/80/973280l.jpg?h=3eb37d63",
+          "name": "973280l.jpg"
+        }
+      ],
+      "author": "Skyspy",
+      "text": "I scanned five Australian capitals against eleven Asian cities across every date from November through June, then checked how wide each price window actually is. Every fare below is direct. No …",
+      "tags": [
+        "Travel",
+        "Airfare",
+        "Asia",
+        "Bali",
+        "Bangkok",
+        "Ho Chi Minh City",
+        "Indonesia",
+        "Kuala Lumpur",
+        "Malaysia",
+        "Manila",
+        "Philippines",
+        "Phuket",
+        "Singapore",
+        "Thailand",
+        "Vietnam"
+      ],
+      "price": null,
+      "currency": "AUD",
+      "price_basis": "Community post may list several routes/prices; verify the original offer",
+      "votes": 85,
+      "comments": 11,
+      "published": "2026-08-30T19:08:18+10:00",
+      "checked_at": "2026-10-12T01:59:21.181566+00:00",
+      "kind": "deal",
+      "community": true,
+      "evidence": "OzBargain community RSS · not a direct Jetstar scan",
+      "key": "jetstar|www.ozbargain.com.au/node/973280|direct o/w: bali ex per $146, adl $259, bne $260, mel $274, syd $297; sin ex per $182, syd $256, mel $274 (nov-jun) @ sky spy",
+      "id": "c1f9e2ad2eaaadf2e6dd",
+      "first_seen": "2026-10-12T01:59:21.183672+00:00",
+      "last_seen": "2026-10-12T01:59:21.183672+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
