@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "max_items_per_source": 40,
+  "retain_days": 14,
+  "sources": [
+    {"id":"oz-popular","group":"ozbargain","name":"Popular deals","kind":"rss","url":"https://www.ozbargain.com.au/feed"},
+    {"id":"oz-new","group":"ozbargain","name":"New deals","kind":"rss","url":"https://www.ozbargain.com.au/deals/feed"},
+    {"id":"oz-freebies","group":"ozbargain","name":"Freebies","kind":"rss","url":"https://www.ozbargain.com.au/freebies/feed"},
+    {"id":"reddit-all","group":"reddit","name":"All","kind":"atom","url":"https://www.reddit.com/r/all/.rss?limit=25"},
+    {"id":"reddit-australia","group":"reddit","name":"Australia","kind":"atom","url":"https://www.reddit.com/r/australia/.rss?limit=25"},
+    {"id":"jet-wff-packages","group":"jetstar","name":"Fare frenzy packages · Sydney","kind":"browser","url":"https://www.jetstar.com/au/en/holidays/deals/wff?originCode=SYD","deal_type":"package"},
+    {"id":"jet-frenzy","group":"jetstar","name":"Fare frenzy flights","kind":"browser","url":"https://www.jetstar.com/au/en/friday-fare-frenzy?dealsorig=*","deal_type":"flight"},
+    {"id":"jet-flights","group":"jetstar","name":"Flight sales","kind":"browser","url":"https://www.jetstar.com/au/en/deals?pid=mainnav:deals","deal_type":"flight"},
+    {"id":"jet-asia","group":"jetstar","name":"Asia Pacific packages · Sydney","kind":"browser","url":"https://www.jetstar.com/au/en/holidays/deals/asia-pacific-deals?originCode=SYD","deal_type":"package"},
+    {"id":"jet-packages","group":"jetstar","name":"All packages · Sydney","kind":"browser","url":"https://www.jetstar.com/au/en/holidays/deals?originCode=SYD","deal_type":"package"},
+    {"id":"jb-ipad","group":"jbhifi","name":"iPad Pro clearance","kind":"browser","url":"https://www.jbhifi.com.au/collections/computers-tablets/apple-ipad-pro?sortBy=published_at_desc&clearanceItems=true","clearance_only":true}
+  ]
+}

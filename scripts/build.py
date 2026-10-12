@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""Make the portable HTML, embedding the latest public snapshot and capture code."""
+import json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+def safe_json(value):
+    return json.dumps(value,ensure_ascii=False).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
+def main():
+    template=(ROOT/'reader.template.html').read_text()
+    snapshot=json.loads((ROOT/'data/deals.json').read_text())
+    cfg=json.loads((ROOT/'config.json').read_text())
+    result=template.replace('__SNAPSHOT__',safe_json(snapshot)).replace('__CONFIG__',safe_json(cfg)).replace('__EXTRACTOR__',safe_json((ROOT/'scripts/extract-page.js').read_text()))
+    (ROOT/'WorkReader.html').write_text(result)
+    (ROOT/'index.html').write_text(result)
+    print('Built WorkReader.html and index.html')
+if __name__=='__main__':main()
