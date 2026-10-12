@@ -15,12 +15,14 @@ function armIdleTimer(){clearTimeout(cover.timer);cover.timer=null;const duratio
 function recordActivity(){cover.lastActivity=Date.now();armIdleTimer();}
 function checkIdle(now=Date.now()){const duration=idleMilliseconds();if(!state.coverMode&&duration&&now-cover.lastActivity>=duration)setCoverMode(true);else armIdleTimer();}
 function mailFor(item){let hash=2166136261;for(const c of String(item.key||item.url||''))hash=Math.imul(hash^c.charCodeAt(0),16777619);return SAMPLE_MAIL[(hash>>>0)%SAMPLE_MAIL.length];}
+function subjectFor(item){return state.coverMode?mailFor(item).subject:mailHeading(item);}
+function displayFolderLabel(id,label){if(!state.coverMode)return label;const groups={ozbargain:'Team circulars',jetstar:'Travel requests',jbhifi:'Equipment requests',reddit:'Discussion notes',raindrop:'Saved references'};if(groups[id])return groups[id];if(id.startsWith('source:')){const source=state.snapshot.sources.find(s=>s.id===id.slice(7)),index=state.snapshot.sources.filter(s=>s.group===source?.group).findIndex(s=>s.id===source?.id);return ['Announcements','Recent correspondence','Reference notes','Follow-ups','General enquiries'][Math.max(0,index)%5];}if(id.startsWith('raindrop:')&&id!=='raindrop:-1')return 'Reference folder '+(Math.max(0,rd.collections.findIndex(c=>c._id===Number(id.slice(9))))+1);if(id.startsWith('watch:'))return 'Search folder '+(Math.max(0,state.watches.findIndex(w=>w.id===id.slice(6)))+1);return label;}
 function fakeInitials(item){return mailFor(item).sender.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();}
-function previewText(item){return state.coverMode?mailFor(item).preview:mailHeading(item)+' · '+item.title;}
-function setCoverMode(enabled){enabled=!!enabled;if(enabled===state.coverMode)return;const listScroll=$('list').scrollTop||0,readingScroll=$('reading').scrollTop||0;state.coverMode=enabled;clearTimeout(cover.timer);
+function previewText(item){return state.coverMode?mailFor(item).preview:item.title;}
+function setCoverMode(enabled){enabled=!!enabled;if(enabled===state.coverMode)return;const listScroll=$('list').scrollTop||0,readingScroll=$('reading').scrollTop||0,sidebarScroll=$('sidebar').scrollTop||0;state.coverMode=enabled;clearTimeout(cover.timer);
   if(enabled){closeMessageMenu();state.previewed.clear();state.images=false;persist('images',false);$('rd-token').value='';for(const id of ['settings-dialog','sources-dialog','capture-dialog','watch-dialog','raindrop-dialog','rd-save-dialog'])$(id).close();$('toast').classList.add('hidden');clearTimeout(toast.timer);}
-  // Keep chrome, folders, count, filters, selection and query untouched.
-  applyAppearance();renderList();renderReading();$('list').scrollTop=listScroll;$('reading').scrollTop=readingScroll;recordActivity();
+  // Only labels and message content change; preserve every row and pane position.
+  applyAppearance();renderSidebar();renderList();renderReading();$('list').scrollTop=listScroll;$('reading').scrollTop=readingScroll;$('sidebar').scrollTop=sidebarScroll;recordActivity();
 }
 function saveViewSettings(){const n=Number($('idle-minutes').value);if(!Number.isFinite(n)||n<0||n>60){$('view-settings-status').textContent='Enter 0 to 60 minutes. Zero disables the timeout.';return;}state.idleMinutes=n;state.discreetHeaders=true;persist('idleMinutes',n);persist('discreetHeaders',state.discreetHeaders);$('view-settings-status').textContent='Saved. '+(n?'Mail view after '+n+' minutes without interaction.':'Idle timeout is off.');recordActivity();renderList();renderReading();}
 $('cover-toggle').onclick=()=>setCoverMode(!state.coverMode);$('save-view-settings').onclick=saveViewSettings;

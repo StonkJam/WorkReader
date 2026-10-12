@@ -21,3 +21,7 @@ Node checks also cover replacing panes with a separate sample mailbox, closing d
 ## Content-only mode and message actions
 
 Runtime checks verify unchanged fake subjects, sidebar and counts across mode changes; preserved pane positions; same-card image toggle; read/unread state; email draft URL construction; official GitHub API fallback after raw-file failure; Sydney-first fare parsing; separate destinations; and rejection of year numbers and ambiguous currencies as fares. Chromium checks compare the exact geometry of every message row and the unchanged sidebar/ribbon across Space, exercise right-click Bookmark/read/unread/Raindrop actions, confirm quiet startup failure and successful mocked API failover, and retain Jetstar-format screenshots. Live endpoints were separately observed: raw public JSON returned HTTP 200 with permissive CORS; Pages data URL remained HTTP 404 because hosting is not enabled. Work-browser connectivity cannot be verified from the runner.
+
+## Source-label revision
+
+Reading view now exposes actual source/subreddit subjects and real folder names. Mail view replaces labels with neutral subjects/folders. Tests verify these label substitutions and their restoration while comparing unchanged message and folder row geometry, selection, counts and ribbon.

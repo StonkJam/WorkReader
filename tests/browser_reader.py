@@ -55,20 +55,26 @@ def main():
         selected=page.evaluate('state.selected');subject=page.locator('.read-head h2').inner_text()
         subjects=page.locator('.message .subject').all_text_contents();senders=page.locator('.message .sender').all_text_contents()
         sidebar=page.locator('#sidebar').inner_html();toolbar=page.locator('.ribbon').inner_html();count=page.locator('.message').count()
+        folder_rectangles=page.locator('.folder').evaluate_all('(rows)=>rows.map(e=>{let r=e.getBoundingClientRect();return [r.x,r.y,r.width,r.height]})')
         rectangles=page.locator('.message').evaluate_all('(rows)=>rows.map(e=>{let r=e.getBoundingClientRect();return [r.x,r.y,r.width,r.height]})')
         page.screenshot(path=str(out/'subtle-reading.png'))
         page.keyboard.press('Space');assert page.evaluate('state.coverMode')
         assert page.locator('.preview-block img').count()==0
-        assert page.locator('#sidebar').inner_html()==sidebar
+        assert 'OzBargain' not in page.locator('#sidebar').inner_text()
+        assert 'Team circulars' in page.locator('#sidebar').inner_text()
         assert page.locator('.ribbon').inner_html()==toolbar
-        assert page.locator('.message .subject').all_text_contents()==subjects
+        assert page.locator('.message .subject').all_text_contents()==page.evaluate('visibleItems().map(i=>mailFor(i).subject)')
         assert page.locator('.message .sender').all_text_contents()==senders
         assert page.locator('.message').count()==count
-        assert page.locator('.read-head h2').inner_text()==subject
+        assert page.locator('.read-head h2').inner_text()==page.evaluate('mailFor(currentItem()).subject')
         assert page.locator('.message').evaluate_all('(rows)=>rows.map(e=>{let r=e.getBoundingClientRect();return [r.x,r.y,r.width,r.height]})')==rectangles
+        assert page.locator('.folder').evaluate_all('(rows)=>rows.map(e=>{let r=e.getBoundingClientRect();return [r.x,r.y,r.width,r.height]})')==folder_rectangles
         assert page.evaluate('state.selected')==selected
         page.screenshot(path=str(out/'subtle-mail.png'))
         page.keyboard.press('Space');assert not page.evaluate('state.coverMode')
+        assert page.locator('#sidebar').inner_html()==sidebar
+        assert page.locator('.message .subject').all_text_contents()==subjects
+        assert page.locator('.read-head h2').inner_text()==subject
         assert page.locator('.preview-block img').count()==0
         # Right-click operations use the clicked row, including a row that is not selected.
         row=page.locator('.message').nth(1);key=row.get_attribute('data-item');row.click(button='right')

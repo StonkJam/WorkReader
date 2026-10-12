@@ -18,7 +18,7 @@ const context=vm.createContext({console,Intl,Date,JSON,Math,Number,String,Set,Ma
 vm.runInContext(match[1],context,{timeout:3000});
 const run=s=>vm.runInContext(s,context,{timeout:1000});
 assert(run('state.snapshot.items.length')>0,'Bundled live snapshot loads');
-assert(element('sidebar').innerHTML.includes('Team circulars'),'Source folders render');
+assert(element('sidebar').innerHTML.includes('OzBargain'),'Source folders render');
 assert(element('reading').innerHTML.includes('Select a message'),'Empty reading pane renders');
 run("state.folder='ozbargain';render()");assert(run("visibleItems().every(i=>i.group==='ozbargain')"));
 run("state.folder='reddit';render()");assert.equal(run('visibleItems().length'),run("state.snapshot.items.filter(i=>i.group==='reddit').length"));
@@ -43,10 +43,10 @@ assert(element('reading').innerHTML.includes('src="https://images.example/photo.
 run("togglePreview('https://images.example/photo.jpg')");assert(!element('reading').innerHTML.includes('<img '),'Same attachment card closes its preview');
 run("state.folder='inbox';state.selected=state.snapshot.items[0].key;state.images=true;$('search').value='';render();$('list').scrollTop=140;$('reading').scrollTop=80;$('settings-dialog').showModal()");
 const oldSidebar=element('sidebar').innerHTML,oldSubjects=element('list').innerHTML.match(/<div class="subject">[^<]*/g),oldCount=element('item-count').textContent;
-run('setCoverMode(true)');assert(run('state.coverMode'));assert.equal(element('settings-dialog').open,false);assert.equal(element('search').disabled,false);assert.equal(element('sidebar').innerHTML,oldSidebar,'Sidebar unchanged');assert.deepEqual(element('list').innerHTML.match(/<div class="subject">[^<]*/g),oldSubjects,'Subjects unchanged');assert.equal(element('item-count').textContent,oldCount,'Row count unchanged');assert(!element('reading').innerHTML.includes('<img '));
+run('setCoverMode(true)');assert(run('state.coverMode'));assert.equal(element('settings-dialog').open,false);assert.equal(element('search').disabled,false);assert(element('sidebar').innerHTML.includes('Team circulars'));assert(!element('sidebar').innerHTML.includes('OzBargain'));assert.notDeepEqual(element('list').innerHTML.match(/<div class="subject">[^<]*/g),oldSubjects,'Cover substitutes subjects');assert.equal(element('item-count').textContent,oldCount,'Row count unchanged');assert(!element('reading').innerHTML.includes('<img '));
 assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);
-run('render()');assert.equal(element('sidebar').innerHTML,oldSidebar,'Background render keeps same sidebar');
-run('setCoverMode(false)');assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);assert.equal(run('state.images'),false);assert.equal(run('state.previewed.size'),0);
+run('render()');assert(element('sidebar').innerHTML.includes('Team circulars'),'Background render preserves neutral labels');
+run('setCoverMode(false)');assert.equal(element('sidebar').innerHTML,oldSidebar,'Real labels restored');assert.deepEqual(element('list').innerHTML.match(/<div class="subject">[^<]*/g),oldSubjects,'Source subjects restored');assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);assert.equal(run('state.images'),false);assert.equal(run('state.previewed.size'),0);
 assert(run("emailDraftLink({title:'Hello world',url:'https://example.com/post'}).startsWith('mailto:?subject=Hello%20world')"));
 run(`setRead(${JSON.stringify(first)},false)`);assert(!run(`state.read.has(${JSON.stringify(first)})`));run(`setRead(${JSON.stringify(first)},true)`);assert(run(`state.read.has(${JSON.stringify(first)})`));
 assert.equal(run("jetstarFares({group:'jetstar',title:'Bali Return PER $247, SYD $459, BNE $447'})[0].code"),'SYD');assert.equal(run("jetstarFares({group:'jetstar',title:'Bali PER $300; Nadi PER $200'}).length"),2,'Separate destinations are preserved');assert.equal(run("jetstarFares({group:'jetstar',title:'Sale SYD 2027'}).length"),0,'Years are not fares');assert.equal(run("jetstarFares({group:'jetstar',title:'US$ price SYD $300'}).length"),0);
