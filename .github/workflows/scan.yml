@@ -8,6 +8,7 @@ on:
       - 'reader.template.html'
       - 'scripts/**'
       - 'styles/**'
+      - 'assets/**'
       - 'tests/**'
       - 'requirements-browser.txt'
       - '.github/workflows/scan.yml'

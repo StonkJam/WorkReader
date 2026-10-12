@@ -2,7 +2,7 @@
 
 A self-contained Outlook-style reader for public deals and posts. Open **WorkReader.html** from a USB in Edge or Chrome. No installation is required on that computer.
 
-This is an original implementation. It does not include code, branding or assets copied from msoutlookit, Microsoft Outlook, Jetstar or JB Hi-Fi.
+This is an original implementation. It does not include code copied from msoutlookit. The interface uses an embedded SVG rendering of the familiar Outlook icon and the Outlook name. Microsoft Outlook branding belongs to Microsoft; WorkReader is an independent project, not Microsoft software or a Microsoft sign-in page.
 
 ## Start now
 

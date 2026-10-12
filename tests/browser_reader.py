@@ -36,6 +36,10 @@ def main():
         page = context.new_page()
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto((ROOT/'WorkReader.html').as_uri())
+        assert page.locator('#app-name').inner_text()=='Outlook'
+        assert page.title()=='Inbox — Outlook'
+        assert page.locator('.brand .outlook-logo').count()==1
+        assert page.locator('link[rel="icon"]').get_attribute('href').startswith('data:image/svg+xml,')
         page.wait_for_selector('.message')
         page.locator('.message').first.click()
         page.evaluate("state.images=false;state.previewed.clear();currentItem().attachments=[{url:'https://images.example/public.png',name:'public.png'}];currentItem().image='';renderReading()")
@@ -54,6 +58,9 @@ def main():
         page.locator('#reading').evaluate('e=>e.scrollTop=50')
         page.keyboard.press('Space')
         assert page.evaluate('state.coverMode'), 'Space works after clicking preview'
+        assert page.locator('#app-name').inner_text()=='Outlook'
+        assert page.locator('.brand .outlook-logo').is_visible()
+        assert page.locator('.mail-ribbon .oi').count()>=15
         assert page.locator('.preview-block img').count()==0
         assert page.locator('dialog[open]').count()==0
         assert not page.locator('#sources-tab').is_visible()
