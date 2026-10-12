@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T04:00:56.488227+00:00",
+  "generated_at": "2026-10-12T04:14:26.636908+00:00",
   "sources": [
     {
       "id": "oz-popular",
@@ -9,8 +9,8 @@
       "kind": "rss",
       "url": "https://www.ozbargain.com.au/feed",
       "page_url": "https://www.ozbargain.com.au/",
-      "last_success": "2026-10-12T03:59:30.894470+00:00",
-      "attempted_at": "2026-10-12T03:59:30.191375+00:00",
+      "last_success": "2026-10-12T04:13:03.136719+00:00",
+      "attempted_at": "2026-10-12T04:13:02.576264+00:00",
       "status": "ok",
       "count": 20,
       "message": "Public listing collected"
@@ -22,8 +22,8 @@
       "kind": "rss",
       "url": "https://www.ozbargain.com.au/deals/feed",
       "page_url": "https://www.ozbargain.com.au/deals",
-      "last_success": "2026-10-12T03:59:31.550124+00:00",
-      "attempted_at": "2026-10-12T03:59:30.894488+00:00",
+      "last_success": "2026-10-12T04:13:03.448552+00:00",
+      "attempted_at": "2026-10-12T04:13:03.136738+00:00",
       "status": "ok",
       "count": 30,
       "message": "Public listing collected"
@@ -35,8 +35,8 @@
       "kind": "rss",
       "url": "https://www.ozbargain.com.au/freebies/feed",
       "page_url": "https://www.ozbargain.com.au/freebies",
-      "last_success": "2026-10-12T03:59:32.103429+00:00",
-      "attempted_at": "2026-10-12T03:59:31.550138+00:00",
+      "last_success": "2026-10-12T04:13:03.664462+00:00",
+      "attempted_at": "2026-10-12T04:13:03.448566+00:00",
       "status": "ok",
       "count": 30,
       "message": "Public listing collected"
@@ -47,8 +47,8 @@
       "name": "All",
       "kind": "atom",
       "url": "https://www.reddit.com/r/all/.rss?limit=25",
-      "last_success": "2026-10-12T03:59:32.592916+00:00",
-      "attempted_at": "2026-10-12T03:59:32.103442+00:00",
+      "last_success": "2026-10-12T04:13:04.041238+00:00",
+      "attempted_at": "2026-10-12T04:13:03.664475+00:00",
       "status": "ok",
       "count": 25,
       "message": "Public listing collected"
@@ -60,7 +60,7 @@
       "kind": "atom",
       "url": "https://www.reddit.com/r/australia/.rss?limit=25",
       "last_success": null,
-      "attempted_at": "2026-10-12T03:59:34.593063+00:00",
+      "attempted_at": "2026-10-12T04:13:06.041402+00:00",
       "status": "error",
       "message": "HTTP Error 429: Too Many Requests"
     },
@@ -72,8 +72,8 @@
       "url": "https://www.ozbargain.com.au/deals/jetstar.com/feed",
       "community": true,
       "page_url": "https://www.ozbargain.com.au/deals/jetstar.com",
-      "last_success": "2026-10-12T03:59:37.125304+00:00",
-      "attempted_at": "2026-10-12T03:59:36.714061+00:00",
+      "last_success": "2026-10-12T04:13:08.370235+00:00",
+      "attempted_at": "2026-10-12T04:13:08.130555+00:00",
       "status": "ok",
       "count": 10,
       "message": "Public listing collected"
@@ -86,7 +86,7 @@
       "url": "https://www.jetstar.com/au/en/holidays/deals/wff?originCode=SYD",
       "deal_type": "package",
       "last_success": null,
-      "attempted_at": "2026-10-12T03:59:37.125317+00:00",
+      "attempted_at": "2026-10-12T04:13:08.370249+00:00",
       "status": "error",
       "message": "Jetstar connection failed (HTTP/2); standard HTTP/1 retry also failed. Open the page or use Capture page."
     },
@@ -98,7 +98,7 @@
       "url": "https://www.jetstar.com/au/en/friday-fare-frenzy?dealsorig=*",
       "deal_type": "flight",
       "last_success": null,
-      "attempted_at": "2026-10-12T03:59:49.042984+00:00",
+      "attempted_at": "2026-10-12T04:13:20.064556+00:00",
       "status": "error",
       "message": "Jetstar connection failed (HTTP/2); standard HTTP/1 retry also failed. Open the page or use Capture page."
     },
@@ -110,7 +110,7 @@
       "url": "https://www.jetstar.com/au/en/deals?pid=mainnav:deals",
       "deal_type": "flight",
       "last_success": null,
-      "attempted_at": "2026-10-12T04:00:00.789503+00:00",
+      "attempted_at": "2026-10-12T04:13:31.597355+00:00",
       "status": "error",
       "message": "Jetstar connection failed (HTTP/2); standard HTTP/1 retry also failed. Open the page or use Capture page."
     },
@@ -122,7 +122,7 @@
       "url": "https://www.jetstar.com/au/en/holidays/deals/asia-pacific-deals?originCode=SYD",
       "deal_type": "package",
       "last_success": null,
-      "attempted_at": "2026-10-12T04:00:12.537324+00:00",
+      "attempted_at": "2026-10-12T04:13:43.282108+00:00",
       "status": "error",
       "message": "Jetstar connection failed (HTTP/2); standard HTTP/1 retry also failed. Open the page or use Capture page."
     },
@@ -134,7 +134,7 @@
       "url": "https://www.jetstar.com/au/en/holidays/deals?originCode=SYD",
       "deal_type": "package",
       "last_success": null,
-      "attempted_at": "2026-10-12T04:00:24.188341+00:00",
+      "attempted_at": "2026-10-12T04:13:54.739548+00:00",
       "status": "error",
       "message": "Jetstar connection failed (HTTP/2); standard HTTP/1 retry also failed. Open the page or use Capture page."
     },
@@ -146,7 +146,7 @@
       "url": "https://www.jbhifi.com.au/collections/computers-tablets/apple-ipad-pro?sortBy=published_at_desc&clearanceItems=true",
       "clearance_only": true,
       "last_success": null,
-      "attempted_at": "2026-10-12T04:00:36.033182+00:00",
+      "attempted_at": "2026-10-12T04:14:06.330408+00:00",
       "status": "error",
       "message": "No verified deal cards found. Open the source and use Capture deals; check whether the sale/filter is active."
     }
@@ -181,17 +181,17 @@
       "price": 5.88,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 23,
+      "votes": 33,
       "comments": 1,
       "published": "2026-10-12T14:14:20+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978662|",
       "id": "d7ba725ddc6b015b565d",
       "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T03:42:56.168522+00:00",
@@ -210,8 +210,14 @@
       "title": "nbn FTTP or HFC 500/50 $82/M Carbon Network & Static IPv4, $84/M ABB Direct Network (New and Existing Customers) @ Carbon Comms",
       "url": "https://www.ozbargain.com.au/node/978661",
       "store_url": "https://carboncomms.com.au/pages/carbon-comms-nbn-plans",
-      "image": "",
-      "attachments": [],
+      "image": "https://files.ozbargain.com.au/n/61/978661l.jpg?h=67567ae9",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/61/978661l.jpg?h=67567ae9",
+          "name": "978661l.jpg"
+        }
+      ],
       "author": "carboncomms",
       "text": "🔥 500/50 NBN — $82/MONTH ONGOING No 6-month promo. No price jump later. No CGNAT. No bullshit. 🔵 Carbon NBN 500/50 — $82/month ongoing ✅ Static IPv4 included ✅ No CGNAT ✅ …",
       "tags": [
@@ -224,17 +230,17 @@
       "price": 82.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 11,
-      "comments": 25,
+      "votes": 18,
+      "comments": 30,
       "published": "2026-10-12T14:01:39+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978661|",
       "id": "ed2af05d422c7912c28e",
       "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T03:42:56.168522+00:00",
@@ -272,16 +278,16 @@
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
       "votes": 9,
-      "comments": 10,
+      "comments": 12,
       "published": "2026-10-12T13:44:25+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978655|",
       "id": "8b61af34a1479307be62",
       "first_seen": "2026-10-12T02:48:28.414395+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T02:48:28.414395+00:00",
@@ -320,14 +326,14 @@
       "votes": 123,
       "comments": 144,
       "published": "2014-04-28T11:43:28+10:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/142073|",
       "id": "83ed9129235176c83d8a",
       "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -363,14 +369,14 @@
       "votes": 13,
       "comments": 11,
       "published": "2026-10-12T12:05:28+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978636|",
       "id": "f9432e9fd8736ddea2c2",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -401,17 +407,17 @@
       "price": 29.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 9,
-      "comments": 2,
+      "votes": 10,
+      "comments": 4,
       "published": "2026-10-12T12:03:17+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978635|",
       "id": "4dd49ebd79dd54208a4c",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -449,14 +455,14 @@
       "votes": 63,
       "comments": 37,
       "published": "2024-10-14T11:24:35+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/871467|",
       "id": "5e0f15c46dafd42ad870",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -510,14 +516,14 @@
       "votes": 32,
       "comments": 6,
       "published": "2026-10-12T10:39:11+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978621|",
       "id": "8e51169cb210f8b825e9",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -564,14 +570,14 @@
       "votes": 76,
       "comments": 25,
       "published": "2026-10-12T09:16:08+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978614|",
       "id": "f892682f02a2fb65a084",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -608,17 +614,17 @@
       "price": 30.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 53,
+      "votes": 54,
       "comments": 29,
       "published": "2026-10-12T08:17:19+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978610|",
       "id": "d9999b5e3909926abc68",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -658,17 +664,17 @@
       "price": null,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 50,
+      "votes": 51,
       "comments": 23,
       "published": "2026-10-12T08:15:39+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978609|",
       "id": "ffd1f92fce7c38abb7ee",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -703,17 +709,17 @@
       "price": null,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 60,
+      "votes": 61,
       "comments": 19,
       "published": "2026-10-12T06:30:59+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978606|",
       "id": "3c6777102147259c0a51",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -751,18 +757,64 @@
       "votes": 19,
       "comments": 42,
       "published": "2026-10-12T04:53:46+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978603|",
       "id": "eace923ec06d417f197f",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
           "price": 1499.0
+        }
+      ],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "ozbargain",
+      "source_ids": [
+        "oz-popular"
+      ],
+      "title": "Italian Meatball Footlong for $12 @ Subway (App Required)",
+      "url": "https://www.ozbargain.com.au/node/978601",
+      "store_url": "https://www.subway.com/en-au",
+      "image": "https://files.ozbargain.com.au/n/01/978601l.jpg?h=e586cbb1",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://files.ozbargain.com.au/n/01/978601l.jpg?h=e586cbb1",
+          "name": "978601l.jpg"
+        }
+      ],
+      "author": "kzl",
+      "text": "Just saw in the 'offers' section of the app. Possibly targeted. Normally $14.95.",
+      "tags": [
+        "Dining & Takeaway",
+        "Footlong",
+        "Sandwich"
+      ],
+      "price": 12.0,
+      "currency": "AUD",
+      "price_basis": "Price parsed from title; check offer",
+      "votes": 16,
+      "comments": 9,
+      "published": "2026-10-12T02:08:56+11:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
+      "kind": "deal",
+      "community": false,
+      "evidence": "Official RSS · shortened description",
+      "key": "ozbargain|www.ozbargain.com.au/node/978601|",
+      "id": "a43a5f14ab9edce442b4",
+      "first_seen": "2026-10-12T00:13:40.401527+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [
+        {
+          "at": "2026-10-12T00:13:40.401527+00:00",
+          "price": 12.0
         }
       ],
       "previous_price": null,
@@ -793,17 +845,17 @@
       "price": 150.01,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 52,
-      "comments": 44,
+      "votes": 53,
+      "comments": 47,
       "published": "2026-10-12T01:06:22+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978599|",
       "id": "5cee02a7d85690c362b4",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -841,14 +893,14 @@
       "votes": 41,
       "comments": 20,
       "published": "2026-10-12T00:11:41+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978596|",
       "id": "1e0a889029fc6f5ccfa8",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -887,14 +939,14 @@
       "votes": 78,
       "comments": 115,
       "published": "2026-10-11T22:27:58+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978590|",
       "id": "3e8d661efafbce1ffef9",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -934,14 +986,14 @@
       "votes": 43,
       "comments": 16,
       "published": "2026-10-11T18:58:02+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978580|",
       "id": "86c087a1c878b86d17ac",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -981,17 +1033,17 @@
       "price": 3.99,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 58,
+      "votes": 59,
       "comments": 19,
       "published": "2026-10-11T18:57:23+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978578|",
       "id": "76b957778d59a2692f58",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -1046,65 +1098,18 @@
       "votes": 44,
       "comments": 47,
       "published": "2026-10-11T17:40:13+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
+      "checked_at": "2026-10-12T04:13:03.133374+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978570|",
       "id": "56dcb1403be85072a486",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
           "price": 1060.0
-        }
-      ],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "ozbargain",
-      "source_ids": [
-        "oz-popular"
-      ],
-      "title": "Ninja CREAMi Ice Cream Maker NC300 $234 + Delivery ($0 to Select Areas) @ Woolworths Group via Everyday Market",
-      "url": "https://www.ozbargain.com.au/node/978567",
-      "store_url": "https://www.woolworths.com.au/shop/productdetails/1113551177/ninja-creami-ice-cream-maker-machine-nc300",
-      "image": "https://files.ozbargain.com.au/n/67/978567l.jpg?h=8bd5c0f3",
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://files.ozbargain.com.au/n/67/978567l.jpg?h=8bd5c0f3",
-          "name": "978567l.jpg"
-        }
-      ],
-      "author": "Samsungnote10",
-      "text": "30% cashback @ TCB Brings it down to $163.80 Definitely go this model over the 'swirl' model if softserve is not your thing, my softserve bit is still unused but ice cream function is …",
-      "tags": [
-        "Electrical & Electronics",
-        "Ice Cream Maker",
-        "Ninja",
-        "Ninja NC300"
-      ],
-      "price": 234.0,
-      "currency": "AUD",
-      "price_basis": "Price parsed from title; check offer",
-      "votes": 36,
-      "comments": 52,
-      "published": "2026-10-11T16:52:41+11:00",
-      "checked_at": "2026-10-12T03:59:30.890404+00:00",
-      "kind": "deal",
-      "community": false,
-      "evidence": "Official RSS · shortened description",
-      "key": "ozbargain|www.ozbargain.com.au/node/978567|",
-      "id": "16627bbcba7b5ca4100e",
-      "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [
-        {
-          "at": "2026-10-12T00:13:40.401527+00:00",
-          "price": 234.0
         }
       ],
       "previous_price": null,
@@ -1136,16 +1141,16 @@
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
       "votes": -1,
-      "comments": 3,
+      "comments": 6,
       "published": "2026-10-12T14:45:38+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978667|",
       "id": "3009873fd02818f93b3f",
       "first_seen": "2026-10-12T04:00:56.488227+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T04:00:56.488227+00:00",
@@ -1184,14 +1189,14 @@
       "votes": 3,
       "comments": 3,
       "published": "2026-10-12T14:40:03+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978666|",
       "id": "5b0cf2c1693dd84b1290",
       "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T04:00:56.488227+00:00",
@@ -1232,14 +1237,14 @@
       "votes": 2,
       "comments": 2,
       "published": "2026-10-12T13:57:03+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978659|",
       "id": "b98d99dc64140a553c1b",
       "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T03:42:56.168522+00:00",
@@ -1274,17 +1279,17 @@
       "price": 22.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 2,
+      "votes": 3,
       "comments": 4,
       "published": "2026-10-12T13:50:35+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978656|",
       "id": "0faee221e41c392a8b43",
       "first_seen": "2026-10-12T03:01:54.582184+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T03:01:54.582184+00:00",
@@ -1322,17 +1327,17 @@
       "price": 199.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 145,
-      "comments": 129,
+      "votes": 149,
+      "comments": 132,
       "published": "2026-10-12T13:07:38+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978648|",
       "id": "7a3998c2b9d8e61750aa",
       "first_seen": "2026-10-12T02:48:28.414395+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T02:48:28.414395+00:00",
@@ -1370,14 +1375,14 @@
       "votes": 5,
       "comments": 2,
       "published": "2026-10-12T12:59:49+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978647|",
       "id": "80eac64b7a2c6c928b08",
       "first_seen": "2026-10-12T02:03:30.609241+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T02:03:30.609241+00:00",
@@ -1417,14 +1422,14 @@
       "votes": 48,
       "comments": 40,
       "published": "2026-10-12T12:45:35+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978646|",
       "id": "6470c41f7cd0b0e85aec",
       "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:56:47.267795+00:00",
@@ -1461,17 +1466,17 @@
       "price": 88.39,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 6,
+      "votes": 7,
       "comments": 0,
       "published": "2026-10-12T12:40:57+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978645|",
       "id": "8d94994dba29b0e03b5d",
       "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:56:47.267795+00:00",
@@ -1510,14 +1515,14 @@
       "votes": 2,
       "comments": 1,
       "published": "2026-10-12T12:20:05+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978639|",
       "id": "013ec423adf9ca68391b",
       "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:56:47.267795+00:00",
@@ -1555,14 +1560,14 @@
       "votes": 2,
       "comments": 3,
       "published": "2026-10-12T12:01:29+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978634|",
       "id": "dad65c3501c3b6e5e0e6",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -1607,14 +1612,14 @@
       "votes": 4,
       "comments": 6,
       "published": "2026-10-12T11:43:44+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978631|",
       "id": "4cf9b46eb41507e43411",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -1652,14 +1657,14 @@
       "votes": 9,
       "comments": 6,
       "published": "2026-10-12T11:35:39+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978628|",
       "id": "175869f9fdf11c58661d",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -1698,16 +1703,16 @@
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
       "votes": 5,
-      "comments": 14,
+      "comments": 15,
       "published": "2026-10-12T11:15:44+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978625|",
       "id": "9fb9e312f50ecaa62733",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -1746,14 +1751,14 @@
       "votes": 3,
       "comments": 19,
       "published": "2026-10-12T11:15:25+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978624|",
       "id": "4d6d801e3e4ca2198bc7",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T01:11:53.587899+00:00",
@@ -1794,16 +1799,16 @@
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
       "votes": 22,
-      "comments": 14,
+      "comments": 15,
       "published": "2026-10-12T10:16:07+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978619|",
       "id": "e4ead09f29b8bcf14141",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -1841,17 +1846,17 @@
       "price": 39.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 4,
+      "votes": 5,
       "comments": 12,
       "published": "2026-10-12T09:14:41+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978613|",
       "id": "e17962f74aad9ae1e2f3",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -1892,14 +1897,14 @@
       "votes": 11,
       "comments": 4,
       "published": "2026-10-12T09:04:59+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978612|",
       "id": "a5ad63256325c001bf27",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -1937,14 +1942,14 @@
       "votes": 13,
       "comments": 17,
       "published": "2026-10-12T07:27:55+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978607|",
       "id": "443724badd482b9e423a",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -1976,16 +1981,16 @@
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
       "votes": 5,
-      "comments": 18,
+      "comments": 19,
       "published": "2026-10-12T05:32:48+11:00",
-      "checked_at": "2026-10-12T03:59:31.544295+00:00",
+      "checked_at": "2026-10-12T04:13:03.443704+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978605|",
       "id": "cb3e3c7f6a5b3ce7f5e0",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -2022,14 +2027,14 @@
       "votes": 2,
       "comments": 48,
       "published": "2026-10-11T20:56:14+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978585|",
       "id": "40e6b07e7949fc6c5d6c",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -2067,14 +2072,14 @@
       "votes": 10,
       "comments": 2,
       "published": "2026-10-11T20:44:54+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978584|",
       "id": "d92049237e476c40fea2",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2110,14 +2115,14 @@
       "votes": 31,
       "comments": 16,
       "published": "2026-10-11T10:04:48+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978536|",
       "id": "9ad99b1896324da82b44",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2153,14 +2158,14 @@
       "votes": 381,
       "comments": 88,
       "published": "2026-10-11T07:15:39+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978532|",
       "id": "ef35310368c0168eecc3",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2197,14 +2202,14 @@
       "votes": 82,
       "comments": 0,
       "published": "2026-10-10T19:21:57+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978477|",
       "id": "d0c2c6c4591fef58a899",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2238,14 +2243,14 @@
       "votes": 16,
       "comments": 6,
       "published": "2026-10-10T15:43:16+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978457|",
       "id": "a3df60fa6af8392101c0",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2282,14 +2287,14 @@
       "votes": 6,
       "comments": 0,
       "published": "2026-10-10T14:18:05+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978446|",
       "id": "6f154a56a52959451511",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2327,14 +2332,14 @@
       "votes": 52,
       "comments": 35,
       "published": "2026-10-10T07:53:57+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978412|",
       "id": "afb0a0e080e355624df1",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -2376,14 +2381,14 @@
       "votes": 151,
       "comments": 0,
       "published": "2026-10-10T04:00:11+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978405|",
       "id": "3edde7ec2317a28f7bb5",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2417,14 +2422,14 @@
       "votes": 217,
       "comments": 70,
       "published": "2026-10-10T01:18:44+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978402|",
       "id": "8b56c9d11038db70b805",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
@@ -2462,14 +2467,14 @@
       "votes": 7,
       "comments": 1,
       "published": "2026-10-09T13:35:22+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978322|",
       "id": "254940e4ea02e8794845",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2503,14 +2508,14 @@
       "votes": 6,
       "comments": 3,
       "published": "2026-10-09T12:58:54+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978318|",
       "id": "5c3477135a6562907db6",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2543,14 +2548,14 @@
       "votes": 6,
       "comments": 1,
       "published": "2026-10-09T12:15:41+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978310|",
       "id": "5acedbfcc80fb999b875",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2583,14 +2588,14 @@
       "votes": 14,
       "comments": 2,
       "published": "2026-10-09T10:58:16+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978296|",
       "id": "5e1fc5ebc93ee1705eae",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2626,14 +2631,14 @@
       "votes": 192,
       "comments": 18,
       "published": "2026-10-09T03:23:25+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978264|",
       "id": "227e20dded44f83dff25",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2671,14 +2676,14 @@
       "votes": 142,
       "comments": 4,
       "published": "2026-10-09T02:02:21+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978262|",
       "id": "0b6714723489d2285885",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2720,14 +2725,14 @@
       "votes": 58,
       "comments": 5,
       "published": "2026-10-09T01:20:10+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978261|",
       "id": "e7eb7ab8aaaef8e5b161",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2760,14 +2765,14 @@
       "votes": 7,
       "comments": 0,
       "published": "2026-10-08T20:52:27+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978244|",
       "id": "742a49e55111e40ca9ca",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2801,14 +2806,14 @@
       "votes": 23,
       "comments": 42,
       "published": "2026-10-08T20:36:24+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978243|",
       "id": "6b20f1271bcc54f3f93a",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2841,14 +2846,14 @@
       "votes": 8,
       "comments": 0,
       "published": "2026-10-08T12:46:42+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978151|",
       "id": "a5bbc5bea34d3e2428c0",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2882,14 +2887,14 @@
       "votes": 7,
       "comments": 3,
       "published": "2026-10-08T11:09:27+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978133|",
       "id": "baeb4360d37db1b0d597",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2923,14 +2928,14 @@
       "votes": 11,
       "comments": 1,
       "published": "2026-10-08T10:41:50+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978128|",
       "id": "9e9e78bd324e1748466c",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -2966,14 +2971,14 @@
       "votes": 13,
       "comments": 14,
       "published": "2026-10-08T10:22:46+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978125|",
       "id": "87fcb3be8ab08ae1381c",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3008,14 +3013,14 @@
       "votes": 15,
       "comments": 4,
       "published": "2026-10-07T23:58:04+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978102|",
       "id": "93010651458f107f86f2",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3051,14 +3056,14 @@
       "votes": 98,
       "comments": 5,
       "published": "2026-10-07T21:02:51+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978083|",
       "id": "25c290d1e297b91d5d4a",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3093,14 +3098,14 @@
       "votes": 138,
       "comments": 6,
       "published": "2026-10-07T20:47:30+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/978079|",
       "id": "a951c028f8ab7184da87",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3135,14 +3140,14 @@
       "votes": 86,
       "comments": 34,
       "published": "2026-10-07T09:59:26+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/977983|",
       "id": "4535284c8d9d2683b9e6",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3177,14 +3182,14 @@
       "votes": 261,
       "comments": 89,
       "published": "2026-10-07T07:37:32+11:00",
-      "checked_at": "2026-10-12T03:59:32.098770+00:00",
+      "checked_at": "2026-10-12T04:13:03.660772+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
       "key": "ozbargain|www.ozbargain.com.au/node/977968|",
       "id": "e2680c1af37763cfa15a",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3218,12 +3223,46 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T23:36:08+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/PoursTea/comments/1x3mttd/suddenly_theres_less_bot_traffic_on_numerous_sites|",
       "id": "b0a52a9c7390fd904a9f",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Politician turns the tables on a reporter.",
+      "url": "https://www.reddit.com/r/SipsTea/comments/1x3o98h/politician_turns_the_tables_on_a_reporter/",
+      "author": "/u/Prime-Paradox",
+      "text": "submitted by    /u/Prime-Paradox    to    r/SipsTea  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://external-preview.redd.it/cjdiNjM0NTdveHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg?width=640&crop=smart&auto=webp&s=1ca2638167a784691542a367a0614af2cad66af4",
+          "name": "cjdiNjM0NTdveHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-12T00:46:37+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/SipsTea/comments/1x3o98h/politician_turns_the_tables_on_a_reporter|",
+      "id": "84fd3b9246d325c5e380",
+      "first_seen": "2026-10-12T02:48:28.414395+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3257,113 +3296,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-12T00:16:39+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/KidsAreFuckingStupid/comments/1x3no20/toddlers_are_wild_man|",
       "id": "a3ff83c6f77ca8f03a83",
       "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "Politician turns the tables on a reporter.",
-      "url": "https://www.reddit.com/r/SipsTea/comments/1x3o98h/politician_turns_the_tables_on_a_reporter/",
-      "author": "/u/Prime-Paradox",
-      "text": "submitted by    /u/Prime-Paradox    to    r/SipsTea  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://external-preview.redd.it/cjdiNjM0NTdveHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg?width=640&crop=smart&auto=webp&s=1ca2638167a784691542a367a0614af2cad66af4",
-          "name": "cjdiNjM0NTdveHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-12T00:46:37+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/SipsTea/comments/1x3o98h/politician_turns_the_tables_on_a_reporter|",
-      "id": "84fd3b9246d325c5e380",
-      "first_seen": "2026-10-12T02:48:28.414395+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "TIL about 2-Nonenal, the natural chemical found on skin that is responsible for the distinct “old person smell.” It typically appears once humans turn 40 and is described as musty, greasy, or grassy. It is not hygiene related, as it cannot be washed away with standard soap and water.",
-      "url": "https://www.reddit.com/r/todayilearned/comments/1x3nfiv/til_about_2nonenal_the_natural_chemical_found_on/",
-      "author": "/u/unravelledthought",
-      "text": "submitted by    /u/unravelledthought    to    r/todayilearned  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-12T00:05:06+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/todayilearned/comments/1x3nfiv/til_about_2nonenal_the_natural_chemical_found_on|",
-      "id": "84700a39c189a188042c",
-      "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "meirl",
-      "url": "https://www.reddit.com/r/meirl/comments/1x3jned/meirl/",
-      "author": "/u/danielminds",
-      "text": "submitted by    /u/danielminds    to    r/meirl  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/5mhhklyslwuh1.jpeg?width=640&crop=smart&auto=webp&s=1f1adcb92fcf6cf6c27264bd6bb9722a2381301a",
-          "name": "5mhhklyslwuh1.jpeg"
-        },
-        {
-          "type": "image",
-          "url": "https://i.redd.it/5mhhklyslwuh1.jpeg",
-          "name": "5mhhklyslwuh1.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-11T21:11:15+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/meirl/comments/1x3jned/meirl|",
-      "id": "d4281166c3999da19d2b",
-      "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3397,12 +3335,79 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-12T01:27:05+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/painting/comments/1x3p1uu/update_work_in_progress_oil_on_canvas|",
       "id": "80ff4148bff1a96cb196",
       "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "TIL about 2-Nonenal, the natural chemical found on skin that is responsible for the distinct “old person smell.” It typically appears once humans turn 40 and is described as musty, greasy, or grassy. It is not hygiene related, as it cannot be washed away with standard soap and water.",
+      "url": "https://www.reddit.com/r/todayilearned/comments/1x3nfiv/til_about_2nonenal_the_natural_chemical_found_on/",
+      "author": "/u/unravelledthought",
+      "text": "submitted by    /u/unravelledthought    to    r/todayilearned  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-12T00:05:06+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/todayilearned/comments/1x3nfiv/til_about_2nonenal_the_natural_chemical_found_on|",
+      "id": "84700a39c189a188042c",
+      "first_seen": "2026-10-12T01:56:47.267795+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "meirl",
+      "url": "https://www.reddit.com/r/meirl/comments/1x3jned/meirl/",
+      "author": "/u/danielminds",
+      "text": "submitted by    /u/danielminds    to    r/meirl  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://preview.redd.it/5mhhklyslwuh1.jpeg?width=640&crop=smart&auto=webp&s=1f1adcb92fcf6cf6c27264bd6bb9722a2381301a",
+          "name": "5mhhklyslwuh1.jpeg"
+        },
+        {
+          "type": "image",
+          "url": "https://i.redd.it/5mhhklyslwuh1.jpeg",
+          "name": "5mhhklyslwuh1.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-11T21:11:15+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/meirl/comments/1x3jned/meirl|",
+      "id": "d4281166c3999da19d2b",
+      "first_seen": "2026-10-12T00:13:40.401527+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3431,12 +3436,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T23:10:38+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/Fauxmoi/comments/1x3mau7/dad_goes_viral_dancing_with_his_daughters_at|",
       "id": "10086408f8c663552628",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3465,12 +3470,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T23:20:12+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/politics/comments/1x3mi42/musk_documentary_suggests_doges_real_purpose_was|",
       "id": "f1b04679f75d214ab475",
       "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3504,12 +3509,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-12T00:00:23+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/interestingasfuck/comments/1x3nbma/the_dog_tags_of_58307_us_soldiers_killed_during|",
       "id": "c144e9eccee821d0d0d6",
       "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3543,197 +3548,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T22:24:08+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/WhitePeopleTwitter/comments/1x3lbch/eat_the_reich|",
       "id": "250cdca1a22e4944f1f5",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "🤣💯",
-      "url": "https://www.reddit.com/r/Funnymemes/comments/1x3kuux/_/",
-      "author": "/u/Snowman69er",
-      "text": "submitted by    /u/Snowman69er    to    r/Funnymemes  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://i.redd.it/pereky76vwuh1.jpeg",
-          "name": "pereky76vwuh1.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-11T22:03:45+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/Funnymemes/comments/1x3kuux/_|",
-      "id": "fe42cad817a43668541b",
-      "first_seen": "2026-10-12T01:11:53.587899+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "Kelly Clarkson fires back at store that dismissed her shopping experience and mocked her on social media with her own song title",
-      "url": "https://www.reddit.com/r/popculturechat/comments/1x3nhcc/kelly_clarkson_fires_back_at_store_that_dismissed/",
-      "author": "/u/ZohanDvir",
-      "text": "submitted by    /u/ZohanDvir    to    r/popculturechat  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/7qpxc528hxuh1.jpeg?width=640&crop=smart&auto=webp&s=c4a0778243d110b91700efdcf29fbb1bf3955219",
-          "name": "7qpxc528hxuh1.jpeg"
-        },
-        {
-          "type": "image",
-          "url": "https://i.redd.it/7qpxc528hxuh1.jpeg",
-          "name": "7qpxc528hxuh1.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-12T00:07:23+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/popculturechat/comments/1x3nhcc/kelly_clarkson_fires_back_at_store_that_dismissed|",
-      "id": "6d3ecb2379d0e620cd12",
-      "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "Cat with heterochromia.",
-      "url": "https://www.reddit.com/r/mildlyinteresting/comments/1x3nxaf/cat_with_heterochromia/",
-      "author": "/u/Artzebub",
-      "text": "submitted by    /u/Artzebub    to    r/mildlyinteresting  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/y71utkz6lxuh1.png?width=640&crop=smart&auto=webp&s=5858e14fb7498ec68da65c3bf071e628ff4773b9",
-          "name": "y71utkz6lxuh1.png"
-        },
-        {
-          "type": "image",
-          "url": "https://i.redd.it/y71utkz6lxuh1.png",
-          "name": "y71utkz6lxuh1.png"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-12T00:29:37+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/mildlyinteresting/comments/1x3nxaf/cat_with_heterochromia|",
-      "id": "0d46f32e0f6ded12209e",
-      "first_seen": "2026-10-12T03:42:56.168522+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "My son is better than me at everything",
-      "url": "https://www.reddit.com/r/BoyDinnerDiaries/comments/1x3mvgi/my_son_is_better_than_me_at_everything/",
-      "author": "/u/jediracer",
-      "text": "And he’s only 17, a senior in high school. We try not to make too much of a big deal about it, mostly to to to keep him level headed, but he was identified as gifted early on. He could read at age 4. He was doing seventh grade math in fourth grade. He’s currently first in his class, out of 300+ students. I think he has like a photographic memory or something.\n\nI’ve been a video gamer all my life, got him started on PlayStation and Wii at like age five; he beat Final Fantasy X in second grade. He currently has six platinum trophies on PS, I have zero.\n\nI got him into basketball when he was young, he started smoking me 1v1 by age fifteen. By fifth grade, he was doing math so advanced that neither my wife or I could help him anymore, not that he even needed our help. He’s a swimmer (captain of the varsity team of course) and has a perfect body; he also has great hair. Mine is gray and thinning.\n\nI’m not really jealous, quite the opposite actually, I’m super proud of course; I’m of the mind that I want my kids to do better than me in life, I just didn’t think that would happen before he became an adult!lol It’s just most times I feel so inferior; i have kind of a dead end job and my wife is the main breadwinner of the family. I know my son thinks he’s better than me. I’ve come to believe that as well. I feel like I’m the stereotypical dumb bumbling dorky suburban dad. Oh did I mention he’s also an inch taller than me now.\n\nThis is more of a vent so thanks go it reading; I’ve never really told anyone how I feel about this. I don’t want to come across as insecure to my wife, who probably already sees me as insecure and probably also agrees that our son is already better than me at everything,\n\ntldr: dorky suburban dad has a genius teenage son who is smarter and better than him at everything.\n\nEDIT: Guys, thank you for all the kind and supportive comments! I am truly humbled by all these kind words and you are all absolutely correct- I will do nothing more than continue to show love and support to my son and all my family. Amazing community of dudes we have here, I appreciate you all so much!\n\n   submitted by    /u/jediracer    to    r/BoyDinnerDiaries  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/iacjcqt1cxuh1.jpeg?width=640&crop=smart&auto=webp&s=5722de0e542ead28aae44542703e1a4d73993422",
-          "name": "iacjcqt1cxuh1.jpeg"
-        },
-        {
-          "type": "image",
-          "url": "https://i.redd.it/iacjcqt1cxuh1.jpeg",
-          "name": "iacjcqt1cxuh1.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-11T23:38:23+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/BoyDinnerDiaries/comments/1x3mvgi/my_son_is_better_than_me_at_everything|",
-      "id": "08761f4fb3f8b9eb702b",
-      "first_seen": "2026-10-12T01:56:47.267795+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "Sometimes being a shelter volunteer requires being a bed for sleepy puppies. It’s a hard job but someone’s gotta do it…",
-      "url": "https://www.reddit.com/r/aww/comments/1x3nk53/sometimes_being_a_shelter_volunteer_requires/",
-      "author": "/u/KimbersKimbos",
-      "text": "submitted by    /u/KimbersKimbos    to    r/aww  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://external-preview.redd.it/cGlwbnQwYXdoeHVoMSC9-hKe7D_nHNqM7o1RH65-Ovz8rmEIp8GVzDSekhk-.jpeg?width=640&crop=smart&auto=webp&s=aa3bff311de358142405bd06249571ff49dbcbb7",
-          "name": "cGlwbnQwYXdoeHVoMSC9-hKe7D_nHNqM7o1RH65-Ovz8rmEIp8GVzDSekhk-.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-12T00:11:14+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/aww/comments/1x3nk53/sometimes_being_a_shelter_volunteer_requires|",
-      "id": "12a26a8c47147de7542b",
-      "first_seen": "2026-10-12T02:48:28.414395+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3767,12 +3587,197 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-12T03:12:00+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/baseball/comments/1x3r2n4/the_brewers_emerge_victorious_in_game_1|",
       "id": "19e5d635a36ed25038a3",
       "first_seen": "2026-10-12T04:00:56.488227+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "🤣💯",
+      "url": "https://www.reddit.com/r/Funnymemes/comments/1x3kuux/_/",
+      "author": "/u/Snowman69er",
+      "text": "submitted by    /u/Snowman69er    to    r/Funnymemes  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://i.redd.it/pereky76vwuh1.jpeg",
+          "name": "pereky76vwuh1.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-11T22:03:45+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/Funnymemes/comments/1x3kuux/_|",
+      "id": "fe42cad817a43668541b",
+      "first_seen": "2026-10-12T01:11:53.587899+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Cat with heterochromia.",
+      "url": "https://www.reddit.com/r/mildlyinteresting/comments/1x3nxaf/cat_with_heterochromia/",
+      "author": "/u/Artzebub",
+      "text": "submitted by    /u/Artzebub    to    r/mildlyinteresting  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://preview.redd.it/y71utkz6lxuh1.png?width=640&crop=smart&auto=webp&s=5858e14fb7498ec68da65c3bf071e628ff4773b9",
+          "name": "y71utkz6lxuh1.png"
+        },
+        {
+          "type": "image",
+          "url": "https://i.redd.it/y71utkz6lxuh1.png",
+          "name": "y71utkz6lxuh1.png"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-12T00:29:37+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/mildlyinteresting/comments/1x3nxaf/cat_with_heterochromia|",
+      "id": "0d46f32e0f6ded12209e",
+      "first_seen": "2026-10-12T03:42:56.168522+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Kelly Clarkson fires back at store that dismissed her shopping experience and mocked her on social media with her own song title",
+      "url": "https://www.reddit.com/r/popculturechat/comments/1x3nhcc/kelly_clarkson_fires_back_at_store_that_dismissed/",
+      "author": "/u/ZohanDvir",
+      "text": "submitted by    /u/ZohanDvir    to    r/popculturechat  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://preview.redd.it/7qpxc528hxuh1.jpeg?width=640&crop=smart&auto=webp&s=c4a0778243d110b91700efdcf29fbb1bf3955219",
+          "name": "7qpxc528hxuh1.jpeg"
+        },
+        {
+          "type": "image",
+          "url": "https://i.redd.it/7qpxc528hxuh1.jpeg",
+          "name": "7qpxc528hxuh1.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-12T00:07:23+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/popculturechat/comments/1x3nhcc/kelly_clarkson_fires_back_at_store_that_dismissed|",
+      "id": "6d3ecb2379d0e620cd12",
+      "first_seen": "2026-10-12T01:56:47.267795+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Sometimes being a shelter volunteer requires being a bed for sleepy puppies. It’s a hard job but someone’s gotta do it…",
+      "url": "https://www.reddit.com/r/aww/comments/1x3nk53/sometimes_being_a_shelter_volunteer_requires/",
+      "author": "/u/KimbersKimbos",
+      "text": "submitted by    /u/KimbersKimbos    to    r/aww  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://external-preview.redd.it/cGlwbnQwYXdoeHVoMSC9-hKe7D_nHNqM7o1RH65-Ovz8rmEIp8GVzDSekhk-.jpeg?width=640&crop=smart&auto=webp&s=aa3bff311de358142405bd06249571ff49dbcbb7",
+          "name": "cGlwbnQwYXdoeHVoMSC9-hKe7D_nHNqM7o1RH65-Ovz8rmEIp8GVzDSekhk-.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-12T00:11:14+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/aww/comments/1x3nk53/sometimes_being_a_shelter_volunteer_requires|",
+      "id": "12a26a8c47147de7542b",
+      "first_seen": "2026-10-12T02:48:28.414395+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "My son is better than me at everything",
+      "url": "https://www.reddit.com/r/BoyDinnerDiaries/comments/1x3mvgi/my_son_is_better_than_me_at_everything/",
+      "author": "/u/jediracer",
+      "text": "And he’s only 17, a senior in high school. We try not to make too much of a big deal about it, mostly to to to keep him level headed, but he was identified as gifted early on. He could read at age 4. He was doing seventh grade math in fourth grade. He’s currently first in his class, out of 300+ students. I think he has like a photographic memory or something.\n\nI’ve been a video gamer all my life, got him started on PlayStation and Wii at like age five; he beat Final Fantasy X in second grade. He currently has six platinum trophies on PS, I have zero.\n\nI got him into basketball when he was young, he started smoking me 1v1 by age fifteen. By fifth grade, he was doing math so advanced that neither my wife or I could help him anymore, not that he even needed our help. He’s a swimmer (captain of the varsity team of course) and has a perfect body; he also has great hair. Mine is gray and thinning.\n\nI’m not really jealous, quite the opposite actually, I’m super proud of course; I’m of the mind that I want my kids to do better than me in life, I just didn’t think that would happen before he became an adult!lol It’s just most times I feel so inferior; i have kind of a dead end job and my wife is the main breadwinner of the family. I know my son thinks he’s better than me. I’ve come to believe that as well. I feel like I’m the stereotypical dumb bumbling dorky suburban dad. Oh did I mention he’s also an inch taller than me now.\n\nThis is more of a vent so thanks go it reading; I’ve never really told anyone how I feel about this. I don’t want to come across as insecure to my wife, who probably already sees me as insecure and probably also agrees that our son is already better than me at everything,\n\ntldr: dorky suburban dad has a genius teenage son who is smarter and better than him at everything.\n\nEDIT: Guys, thank you for all the kind and supportive comments! I am truly humbled by all these kind words and you are all absolutely correct- I will do nothing more than continue to show love and support to my son and all my family. Amazing community of dudes we have here, I appreciate you all so much!\n\n   submitted by    /u/jediracer    to    r/BoyDinnerDiaries  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://preview.redd.it/iacjcqt1cxuh1.jpeg?width=640&crop=smart&auto=webp&s=5722de0e542ead28aae44542703e1a4d73993422",
+          "name": "iacjcqt1cxuh1.jpeg"
+        },
+        {
+          "type": "image",
+          "url": "https://i.redd.it/iacjcqt1cxuh1.jpeg",
+          "name": "iacjcqt1cxuh1.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-11T23:38:23+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/BoyDinnerDiaries/comments/1x3mvgi/my_son_is_better_than_me_at_everything|",
+      "id": "08761f4fb3f8b9eb702b",
+      "first_seen": "2026-10-12T01:56:47.267795+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3801,12 +3806,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T23:34:37+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/antiai/comments/1x3mspk/the_bot_traffic_has_decreased_on_numerous_sites|",
       "id": "2aace49085635da93e1c",
       "first_seen": "2026-10-12T02:48:28.414395+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3835,51 +3840,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T23:52:45+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/videos/comments/1x3n5pm/talarico_on_ken_paxton_continuing_to_avoid_a|",
       "id": "bae5c6a77a240c2a885c",
       "first_seen": "2026-10-12T02:03:30.609241+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "A photographer captured this rare moment of a critically endangered sawfish swimming alongside a sea turtle in Western Australia.",
-      "url": "https://www.reddit.com/r/BeAmazed/comments/1x3jakc/a_photographer_captured_this_rare_moment_of_a/",
-      "author": "/u/IM2X_",
-      "text": "submitted by    /u/IM2X_    to    r/BeAmazed  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/rn6950k6jwuh1.png?width=640&crop=smart&auto=webp&s=0b1d1e356239b5ea64a9a94e0cb39dbde872a7e1",
-          "name": "rn6950k6jwuh1.png"
-        },
-        {
-          "type": "image",
-          "url": "https://i.redd.it/rn6950k6jwuh1.png",
-          "name": "rn6950k6jwuh1.png"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-11T20:56:38+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/BeAmazed/comments/1x3jakc/a_photographer_captured_this_rare_moment_of_a|",
-      "id": "8b969d7fa3588413b157",
-      "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3913,12 +3879,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-12T00:46:12+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/pics/comments/1x3o8yy/a_protester_in_a_demonstration_against_the|",
       "id": "ac11d44ec07f4cb2279d",
       "first_seen": "2026-10-12T04:00:56.488227+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -3928,70 +3894,36 @@
       "source_ids": [
         "reddit-all"
       ],
-      "title": "To ask a politician an incriminating question.",
-      "url": "https://www.reddit.com/r/therewasanattempt/comments/1x3mfcz/to_ask_a_politician_an_incriminating_question/",
-      "author": "/u/Prime-Paradox",
-      "text": "submitted by    /u/Prime-Paradox    to    r/therewasanattempt  \n [link]   [comments]",
+      "title": "A photographer captured this rare moment of a critically endangered sawfish swimming alongside a sea turtle in Western Australia.",
+      "url": "https://www.reddit.com/r/BeAmazed/comments/1x3jakc/a_photographer_captured_this_rare_moment_of_a/",
+      "author": "/u/IM2X_",
+      "text": "submitted by    /u/IM2X_    to    r/BeAmazed  \n [link]   [comments]",
       "tags": [
         "All"
       ],
       "attachments": [
         {
           "type": "image",
-          "url": "https://external-preview.redd.it/djBqOWxmdTQ4eHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg?width=640&crop=smart&auto=webp&s=7665ddb8f9e7042faf3d3be59831df1387712a82",
-          "name": "djBqOWxmdTQ4eHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-11T23:16:32+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/therewasanattempt/comments/1x3mfcz/to_ask_a_politician_an_incriminating_question|",
-      "id": "53820b4b546c162770eb",
-      "first_seen": "2026-10-12T02:03:30.609241+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "Bad faith debate",
-      "url": "https://www.reddit.com/r/CuratedTumblr/comments/1x3itmz/bad_faith_debate/",
-      "author": "/u/Eireika",
-      "text": "submitted by    /u/Eireika    to    r/CuratedTumblr  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/5r2si5cpfwuh1.png?width=640&crop=smart&auto=webp&s=c3f60b5f31b38ea71b2b8f485a745d9ef3c1d906",
-          "name": "5r2si5cpfwuh1.png"
+          "url": "https://preview.redd.it/rn6950k6jwuh1.png?width=640&crop=smart&auto=webp&s=0b1d1e356239b5ea64a9a94e0cb39dbde872a7e1",
+          "name": "rn6950k6jwuh1.png"
         },
         {
           "type": "image",
-          "url": "https://i.redd.it/5r2si5cpfwuh1.png",
-          "name": "5r2si5cpfwuh1.png"
+          "url": "https://i.redd.it/rn6950k6jwuh1.png",
+          "name": "rn6950k6jwuh1.png"
         }
       ],
       "price": null,
       "votes": null,
       "comments": null,
       "kind": "post",
-      "published": "2026-10-11T20:37:12+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "published": "2026-10-11T20:56:38+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/CuratedTumblr/comments/1x3itmz/bad_faith_debate|",
-      "id": "63ddc96d66099f8f68c3",
+      "key": "reddit|www.reddit.com/r/BeAmazed/comments/1x3jakc/a_photographer_captured_this_rare_moment_of_a|",
+      "id": "8b969d7fa3588413b157",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4025,12 +3957,119 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-12T00:45:08+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/Awww/comments/1x3o89h/_|",
       "id": "8e1476812067f6e26c36",
       "first_seen": "2026-10-12T04:00:56.488227+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "To ask a politician an incriminating question.",
+      "url": "https://www.reddit.com/r/therewasanattempt/comments/1x3mfcz/to_ask_a_politician_an_incriminating_question/",
+      "author": "/u/Prime-Paradox",
+      "text": "submitted by    /u/Prime-Paradox    to    r/therewasanattempt  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://external-preview.redd.it/djBqOWxmdTQ4eHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg?width=640&crop=smart&auto=webp&s=7665ddb8f9e7042faf3d3be59831df1387712a82",
+          "name": "djBqOWxmdTQ4eHVoMcMeajPAepAoVaDdTE4cfMrRk-MlxIj0J9hmF73WEHLd.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-11T23:16:32+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/therewasanattempt/comments/1x3mfcz/to_ask_a_politician_an_incriminating_question|",
+      "id": "53820b4b546c162770eb",
+      "first_seen": "2026-10-12T02:03:30.609241+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Newly designed airplane seats 💺",
+      "url": "https://www.reddit.com/r/TikTokCringe/comments/1x3nkg1/newly_designed_airplane_seats/",
+      "author": "/u/Professional_Arm794",
+      "text": "submitted by    /u/Professional_Arm794    to    r/TikTokCringe  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://external-preview.redd.it/MGpqODYwcHpoeHVoMd4f70v5gJlp2vbUJmkDSmTQwkJwDeCloPVroMWzZXf8.jpeg?width=320&crop=smart&auto=webp&s=654993bb8fc74d3ea1288a7eafd26d46980bc8f5",
+          "name": "MGpqODYwcHpoeHVoMd4f70v5gJlp2vbUJmkDSmTQwkJwDeCloPVroMWzZXf8.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-12T00:11:40+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/TikTokCringe/comments/1x3nkg1/newly_designed_airplane_seats|",
+      "id": "14ae239cbe3c65fe39b6",
+      "first_seen": "2026-10-12T04:14:26.636908+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
+      "price_history": [],
+      "previous_price": null,
+      "stale": false
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Bad faith debate",
+      "url": "https://www.reddit.com/r/CuratedTumblr/comments/1x3itmz/bad_faith_debate/",
+      "author": "/u/Eireika",
+      "text": "submitted by    /u/Eireika    to    r/CuratedTumblr  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://preview.redd.it/5r2si5cpfwuh1.png?width=640&crop=smart&auto=webp&s=c3f60b5f31b38ea71b2b8f485a745d9ef3c1d906",
+          "name": "5r2si5cpfwuh1.png"
+        },
+        {
+          "type": "image",
+          "url": "https://i.redd.it/5r2si5cpfwuh1.png",
+          "name": "5r2si5cpfwuh1.png"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-11T20:37:12+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/CuratedTumblr/comments/1x3itmz/bad_faith_debate|",
+      "id": "63ddc96d66099f8f68c3",
+      "first_seen": "2026-10-12T00:13:40.401527+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4053,51 +4092,12 @@
       "comments": null,
       "kind": "post",
       "published": "2026-10-11T22:05:49+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "checked_at": "2026-10-12T04:13:04.033264+00:00",
       "evidence": "Reddit RSS · votes and comment threads not supplied",
       "key": "reddit|www.reddit.com/r/Unexpected/comments/1x3kwm4/drifting_is_easy|",
       "id": "b5607a5625f7f990728a",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
-      "price_history": [],
-      "previous_price": null,
-      "stale": false
-    },
-    {
-      "group": "reddit",
-      "source_ids": [
-        "reddit-all"
-      ],
-      "title": "Reality",
-      "url": "https://www.reddit.com/r/DunderMifflin/comments/1x3k2ri/reality/",
-      "author": "/u/Nice-Pea-3515",
-      "text": "submitted by    /u/Nice-Pea-3515    to    r/DunderMifflin  \n [link]   [comments]",
-      "tags": [
-        "All"
-      ],
-      "attachments": [
-        {
-          "type": "image",
-          "url": "https://preview.redd.it/94v23tq2pwuh1.jpeg?width=640&crop=smart&auto=webp&s=b8b467fbf77d6c39c0f0dc4646f6dc087debe2fd",
-          "name": "94v23tq2pwuh1.jpeg"
-        },
-        {
-          "type": "image",
-          "url": "https://i.redd.it/94v23tq2pwuh1.jpeg",
-          "name": "94v23tq2pwuh1.jpeg"
-        }
-      ],
-      "price": null,
-      "votes": null,
-      "comments": null,
-      "kind": "post",
-      "published": "2026-10-11T21:29:35+00:00",
-      "checked_at": "2026-10-12T03:59:32.582421+00:00",
-      "evidence": "Reddit RSS · votes and comment threads not supplied",
-      "key": "reddit|www.reddit.com/r/DunderMifflin/comments/1x3k2ri/reality|",
-      "id": "b4755abe02501cf35480",
-      "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4133,14 +4133,14 @@
       "votes": 16,
       "comments": 15,
       "published": "2026-10-10T09:29:27+11:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/978415|jetstar: bali return per $247, drw $312, avv $329, cns $365, mel $368, adl $370, bne $447, syd $459, gc $487, hba $586 @ iwtf",
       "id": "ea1a0a42ba6dd49b701a",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4178,14 +4178,14 @@
       "votes": 26,
       "comments": 14,
       "published": "2026-10-07T22:12:03+11:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/978093|vietnam rtn (hcmc, hanoi, da nang): syd $388, per $410, mel $462, bne $486, ool $619, adl $701, hba $708 & more @ btf",
       "id": "423220aca731f9776bb5",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4221,14 +4221,14 @@
       "votes": 236,
       "comments": 237,
       "published": "2026-10-06T07:58:48+11:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/977842|jetstar return for free to japan and south korea @ jetstar",
       "id": "e137426d4c13a5cd2bb3",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4271,14 +4271,14 @@
       "votes": 12,
       "comments": 5,
       "published": "2026-10-01T17:03:12+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/977309|direct o/w bali per $326, bne $390, mel $402; queenstown syd $336; nadi bne $298 (dec 31 & jan 1) @ skyspy",
       "id": "9b7db8006a1a2145b858",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4327,14 +4327,14 @@
       "votes": 15,
       "comments": 5,
       "published": "2026-09-28T21:14:33+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/976741|open-jaw rtw europe-usa-japan ex per $2,145, mel $2,175, syd $2,180, bne $2,353, ool $2,389, cns $2,390 & more @ btf",
       "id": "e765d31f0b0b8f158f54",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4371,14 +4371,14 @@
       "votes": 73,
       "comments": 54,
       "published": "2026-09-27T14:55:24+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/976597|5 nights at port douglas ramada with flights & bags: bne $645, gc $656, syd $684, mel $708, adl $777 per person @ luxury escapes",
       "id": "97821513c2582af679cf",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4413,14 +4413,14 @@
       "votes": 16,
       "comments": 9,
       "published": "2026-09-26T17:56:12+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/976546|jetstar return: syd–ballina $111.34, mel–launceston $127.87, syd–gold coast $159.17 (jan 2027) @ skyspy",
       "id": "8adc9f24fecd7c275fad",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4460,14 +4460,14 @@
       "votes": 25,
       "comments": 12,
       "published": "2026-09-18T20:09:59+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/975627|japan dec-mar return: sapporo mel $1074, per $1197, bne $1203, syd $1239; tokyo syd $1041, mel $1070, adl $1077 @ skyspy",
       "id": "b5aa58bb645004245a3f",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4512,14 +4512,14 @@
       "votes": 16,
       "comments": 17,
       "published": "2026-09-01T18:29:09+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/973512|jetstar/batik business non-stop rtn: bne-osaka $1508, per-kl $1560, bne-tokyo $1583, mel-sing $1743, syd-seoul $1822 @ skyspy",
       "id": "c93a8103cacdb3f76def",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4565,14 +4565,14 @@
       "votes": 85,
       "comments": 11,
       "published": "2026-08-30T19:08:18+10:00",
-      "checked_at": "2026-10-12T03:59:37.123450+00:00",
+      "checked_at": "2026-10-12T04:13:08.368727+00:00",
       "kind": "deal",
       "community": true,
       "evidence": "OzBargain community RSS · not a direct Jetstar scan",
       "key": "jetstar|www.ozbargain.com.au/node/973280|direct o/w: bali ex per $146, adl $259, bne $260, mel $274, syd $297; sin ex per $182, syd $256, mel $274 (nov-jun) @ sky spy",
       "id": "c1f9e2ad2eaaadf2e6dd",
       "first_seen": "2026-10-12T01:59:21.183672+00:00",
-      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "last_seen": "2026-10-12T04:14:26.636908+00:00",
       "price_history": [],
       "previous_price": null,
       "stale": false
@@ -4580,47 +4580,87 @@
     {
       "group": "ozbargain",
       "source_ids": [
-        "oz-new",
         "oz-popular"
       ],
-      "title": "Italian Meatball Footlong for $12 @ Subway (App Required)",
-      "url": "https://www.ozbargain.com.au/node/978601",
-      "store_url": "https://www.subway.com/en-au",
-      "image": "https://files.ozbargain.com.au/n/01/978601l.jpg?h=e586cbb1",
+      "title": "Ninja CREAMi Ice Cream Maker NC300 $234 + Delivery ($0 to Select Areas) @ Woolworths Group via Everyday Market",
+      "url": "https://www.ozbargain.com.au/node/978567",
+      "store_url": "https://www.woolworths.com.au/shop/productdetails/1113551177/ninja-creami-ice-cream-maker-machine-nc300",
+      "image": "https://files.ozbargain.com.au/n/67/978567l.jpg?h=8bd5c0f3",
       "attachments": [
         {
           "type": "image",
-          "url": "https://files.ozbargain.com.au/n/01/978601l.jpg?h=e586cbb1",
-          "name": "978601l.jpg"
+          "url": "https://files.ozbargain.com.au/n/67/978567l.jpg?h=8bd5c0f3",
+          "name": "978567l.jpg"
         }
       ],
-      "author": "kzl",
-      "text": "Just saw in the 'offers' section of the app. Possibly targeted. Normally $14.95.",
+      "author": "Samsungnote10",
+      "text": "30% cashback @ TCB Brings it down to $163.80 Definitely go this model over the 'swirl' model if softserve is not your thing, my softserve bit is still unused but ice cream function is …",
       "tags": [
-        "Dining & Takeaway",
-        "Footlong",
-        "Sandwich"
+        "Electrical & Electronics",
+        "Ice Cream Maker",
+        "Ninja",
+        "Ninja NC300"
       ],
-      "price": 12.0,
+      "price": 234.0,
       "currency": "AUD",
       "price_basis": "Price parsed from title; check offer",
-      "votes": 16,
-      "comments": 8,
-      "published": "2026-10-12T02:08:56+11:00",
-      "checked_at": "2026-10-12T03:41:32.476042+00:00",
+      "votes": 36,
+      "comments": 52,
+      "published": "2026-10-11T16:52:41+11:00",
+      "checked_at": "2026-10-12T03:59:30.890404+00:00",
       "kind": "deal",
       "community": false,
       "evidence": "Official RSS · shortened description",
-      "key": "ozbargain|www.ozbargain.com.au/node/978601|",
-      "id": "a43a5f14ab9edce442b4",
+      "key": "ozbargain|www.ozbargain.com.au/node/978567|",
+      "id": "16627bbcba7b5ca4100e",
       "first_seen": "2026-10-12T00:13:40.401527+00:00",
-      "last_seen": "2026-10-12T03:42:56.168522+00:00",
+      "last_seen": "2026-10-12T04:00:56.488227+00:00",
       "price_history": [
         {
           "at": "2026-10-12T00:13:40.401527+00:00",
-          "price": 12.0
+          "price": 234.0
         }
       ],
+      "previous_price": null,
+      "stale": true,
+      "stale_reason": "No longer in latest listing"
+    },
+    {
+      "group": "reddit",
+      "source_ids": [
+        "reddit-all"
+      ],
+      "title": "Reality",
+      "url": "https://www.reddit.com/r/DunderMifflin/comments/1x3k2ri/reality/",
+      "author": "/u/Nice-Pea-3515",
+      "text": "submitted by    /u/Nice-Pea-3515    to    r/DunderMifflin  \n [link]   [comments]",
+      "tags": [
+        "All"
+      ],
+      "attachments": [
+        {
+          "type": "image",
+          "url": "https://preview.redd.it/94v23tq2pwuh1.jpeg?width=640&crop=smart&auto=webp&s=b8b467fbf77d6c39c0f0dc4646f6dc087debe2fd",
+          "name": "94v23tq2pwuh1.jpeg"
+        },
+        {
+          "type": "image",
+          "url": "https://i.redd.it/94v23tq2pwuh1.jpeg",
+          "name": "94v23tq2pwuh1.jpeg"
+        }
+      ],
+      "price": null,
+      "votes": null,
+      "comments": null,
+      "kind": "post",
+      "published": "2026-10-11T21:29:35+00:00",
+      "checked_at": "2026-10-12T03:59:32.582421+00:00",
+      "evidence": "Reddit RSS · votes and comment threads not supplied",
+      "key": "reddit|www.reddit.com/r/DunderMifflin/comments/1x3k2ri/reality|",
+      "id": "b4755abe02501cf35480",
+      "first_seen": "2026-10-12T00:13:40.401527+00:00",
+      "last_seen": "2026-10-12T04:00:56.488227+00:00",
+      "price_history": [],
       "previous_price": null,
       "stale": true,
       "stale_reason": "No longer in latest listing"
