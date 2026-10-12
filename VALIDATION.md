@@ -25,3 +25,7 @@ Runtime checks verify unchanged fake subjects, sidebar and counts across mode ch
 ## Source-label revision
 
 Reading view now exposes actual source/subreddit subjects and real folder names. Mail view replaces labels with neutral subjects/folders. Tests verify these label substitutions and their restoration while comparing unchanged message and folder row geometry, selection, counts and ribbon.
+
+## Mail-first startup
+
+Startup now sets mail view before the initial render, with images collapsed and no idle timer running. Space enters reading view and starts the configured idle countdown. Mouse movement joins clicks, typing and scrolling as activity that resets the timer. Checks cover initial neutral subjects/folders, timer state, first-Space entry, mouse-move activity reset, idle return to mail view and no automatic reveal on mouse movement.

@@ -29,6 +29,14 @@ def main():
         context.route('https://api.raindrop.io/**',raindrop)
         page=context.new_page();page.on('pageerror',lambda error:errors.append(str(error)))
         page.goto((ROOT/'WorkReader.html').as_uri());page.wait_for_function('!state.loading')
+        assert page.evaluate('state.coverMode'), 'Startup is mail view'
+        assert page.evaluate('cover.timer===null'), 'No idle countdown in mail view'
+        assert 'OzBargain' not in page.locator('#sidebar').inner_text()
+        assert page.locator('.message .subject').all_text_contents()==page.evaluate('visibleItems().map(i=>mailFor(i).subject)')
+        assert page.locator('.preview-block img').count()==0
+        page.keyboard.press('Space')
+        assert not page.evaluate('state.coverMode'), 'First Space opens reader'
+        assert page.evaluate('cover.timer!==null'), 'Reader starts countdown'
         assert page.locator('#app-name').inner_text()=='Outlook'
         assert page.title()=='Inbox — Outlook'
         assert page.locator('.brand .outlook-logo').count()==1
@@ -93,8 +101,18 @@ def main():
         page.locator('#search').fill('first');page.locator('#search').press('Space');assert page.locator('#search').input_value()=='first '
         assert not page.evaluate('state.coverMode');page.locator('#search').fill('')
         page.locator('#settings-tab').click();page.locator('#idle-minutes').fill('0.5');page.locator('#save-view-settings').click();assert page.evaluate('state.idleMinutes')==0.5
-        page.locator('#settings-dialog .close').click();page.evaluate('state.idleMinutes=.005;recordActivity()');page.locator('#reading').dispatch_event('scroll');page.wait_for_function('state.coverMode',timeout=3000)
-        page.evaluate('state.idleMinutes=2');page.locator('#cover-toggle').click();assert not page.evaluate('state.coverMode')
+        page.locator('#settings-dialog .close').click()
+        page.evaluate('state.idleMinutes=.005;recordActivity()')
+        page.evaluate('cover.lastActivity=Date.now()-1000')
+        page.mouse.move(850,450)
+        page.wait_for_function('Date.now()-cover.lastActivity<200')
+        assert not page.evaluate('state.coverMode'), 'Mouse move resets activity without switching mode'
+        page.wait_for_function('state.coverMode',timeout=3000)
+        page.mouse.move(860,460)
+        assert page.evaluate('state.coverMode'), 'Mouse move does not reveal reader from mail view'
+        assert page.evaluate('cover.timer===null')
+        page.evaluate('state.idleMinutes=2')
+        page.locator('#cover-toggle').click();assert not page.evaluate('state.coverMode')
         page.locator('#search').fill('held query');page.locator('#settings-tab').click();page.evaluate('cover.lastActivity=Date.now()-120001;checkIdle()')
         assert page.locator('dialog[open]').count()==0
         page.locator('#cover-toggle').click();assert page.locator('#search').input_value()=='held query';page.locator('#search').fill('')

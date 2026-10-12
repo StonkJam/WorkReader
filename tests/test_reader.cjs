@@ -18,6 +18,7 @@ const context=vm.createContext({console,Intl,Date,JSON,Math,Number,String,Set,Ma
 vm.runInContext(match[1],context,{timeout:3000});
 const run=s=>vm.runInContext(s,context,{timeout:1000});
 assert(run('state.snapshot.items.length')>0,'Bundled live snapshot loads');
+assert(run('state.coverMode'),'Startup uses mail view');assert.equal(run('cover.timer'),null,'Idle timer does not run in mail view');assert.equal(run('state.images'),false,'Startup images are collapsed');assert(element('sidebar').innerHTML.includes('Team circulars'));run('setCoverMode(false)');
 assert(element('sidebar').innerHTML.includes('OzBargain'),'Source folders render');
 assert(element('reading').innerHTML.includes('Select a message'),'Empty reading pane renders');
 run("state.folder='ozbargain';render()");assert(run("visibleItems().every(i=>i.group==='ozbargain')"));
