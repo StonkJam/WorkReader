@@ -29,8 +29,6 @@ jobs:
         with:
           ref: main
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - name: Stage public reader files
         run: |
           mkdir site

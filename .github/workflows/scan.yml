@@ -70,6 +70,7 @@ jobs:
           git add data/deals.json WorkReader.html index.html
           if ! git diff --cached --quiet; then
             git commit -m 'Update public deal snapshot'
+            git pull --rebase origin main
             git push
           fi
       - name: Retain downloadable reader
@@ -78,3 +79,11 @@ jobs:
           name: WorkReader-USB-reader
           path: WorkReader.html
           retention-days: 7
+      - name: Retain collection diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collection-diagnostics
+          path: diagnostics/
+          if-no-files-found: ignore
+          retention-days: 3

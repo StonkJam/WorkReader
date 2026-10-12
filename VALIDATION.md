@@ -32,4 +32,4 @@ No real-browser rendering or visual interaction test was available in this envir
 
 Jetstar/JB's conservative card extraction is **best effort and unverified against a rendered live page in this build**. If the first scan returns “No verified deal cards”, use the manual Capture deals bookmark and adjust source-specific selectors as needed. A successful workflow can contain source-level failures; inspect Source status.
 
-GitHub upload, scheduling and Pages publication have **not** occurred because no GitHub account/repository connection was available. The workflows are ready in the package; README.md contains activation steps.
+This report records the initial local build. The project has subsequently been uploaded to https://github.com/StonkJam/WorkReader. Check Actions and the reader’s Source status for the latest runner results. GitHub Pages requires Settings → Pages → GitHub Actions to be selected before its publication workflow succeeds.

@@ -21,7 +21,7 @@ assert(run('state.snapshot.items.length')>0,'Bundled live snapshot loads');
 assert(element('sidebar').innerHTML.includes('OzBargain'),'Source folders render');
 assert(element('reading').innerHTML.includes('Your deal inbox'),'Empty reading pane renders');
 run("state.folder='ozbargain';render()");assert(run("visibleItems().every(i=>i.group==='ozbargain')"));
-run("state.folder='reddit';render()");assert.equal(run('visibleItems().length'),25);
+run("state.folder='reddit';render()");assert.equal(run('visibleItems().length'),run("state.snapshot.items.filter(i=>i.group==='reddit').length"));
 run("state.folder='inbox';$('search').value='unlikely-keyword-abcdef';renderList()");assert.equal(run('visibleItems().length'),0);run("$('search').value=''");
 const first=run('state.snapshot.items[0].key');
 run(`selectItem(${JSON.stringify(first)})`);assert(run(`state.read.has(${JSON.stringify(first)})`));

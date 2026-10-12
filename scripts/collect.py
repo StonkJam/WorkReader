@@ -145,6 +145,17 @@ def browser_collect(browser, source):
             item.update(group=source['group'], source_ids=[source['id']], checked_at=checked, published=None)
             identify(item)
         return result['items']
+    except Exception:
+        # Public, anonymous-page diagnostics stay in workflow artifacts, not the published feed.
+        diagnostic = {'source':source['id'], 'url':source['url'], 'checked_at':NOW()}
+        try:
+            diagnostic['title'] = page.title()
+            diagnostic['visible_text'] = page.locator('body').inner_text(timeout=2000)[:8000]
+            diagnostic['product_links'] = page.locator('a[href*="/products/"]').evaluate_all('(els) => els.slice(0,25).map(e => ({text:e.innerText, href:e.href, card:e.parentElement?.innerText?.slice(0,1200)}))')
+        except Exception: pass
+        target=ROOT/'diagnostics'; target.mkdir(exist_ok=True)
+        (target/(source['id']+'.json')).write_text(json.dumps(diagnostic,ensure_ascii=False,indent=2))
+        raise
     finally: page.close()
 
 
@@ -189,7 +200,7 @@ def main():
     if args.mode=='full':
         try:
             from playwright.sync_api import sync_playwright
-            pw = sync_playwright().start(); browser = pw.chromium.launch(headless=True)
+            pw = sync_playwright().start(); browser = pw.chromium.launch(headless=True, args=['--disable-http2'])
         except Exception as err: print('Browser collection unavailable:', str(err)[:200], file=sys.stderr)
     try:
         for source in cfg['sources']:
