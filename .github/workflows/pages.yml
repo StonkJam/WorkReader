@@ -28,8 +28,30 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Check whether Pages is enabled
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os, urllib.request, urllib.error
+          request = urllib.request.Request('https://api.github.com/repos/StonkJam/WorkReader/pages', headers={'Authorization':'Bearer ' + os.environ['GH_TOKEN'], 'Accept':'application/vnd.github+json'})
+          try:
+              with urllib.request.urlopen(request) as response:
+                  enabled = response.status == 200
+          except urllib.error.HTTPError as error:
+              if error.code != 404:
+                  raise
+              enabled = False
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('enabled=' + str(enabled).lower() + '\n')
+          if not enabled:
+              print('USB reader and scans work independently. To publish the website, choose Settings > Pages > GitHub Actions.')
+          PY
       - uses: actions/configure-pages@v5
+        if: steps.pages.outputs.enabled == 'true'
       - name: Stage public reader files
+        if: steps.pages.outputs.enabled == 'true'
         run: |
           mkdir site
           cp index.html site/index.html
@@ -37,8 +59,10 @@ jobs:
           cp -r data site/data
           touch site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.enabled == 'true'
         with:
           path: site
       - name: Deploy
+        if: steps.pages.outputs.enabled == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
