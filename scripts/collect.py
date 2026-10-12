@@ -124,7 +124,7 @@ def fetch_feed(source):
 def browser_collect(browser, source):
     page = browser.new_page(viewport={'width':1440, 'height':1000}, locale='en-AU')
     try:
-        response = page.goto(source['url'], wait_until='domcontentloaded', timeout=45000)
+        response = page.goto(source['url'], wait_until='domcontentloaded', timeout=20000)
         if response and response.status >= 400: raise ValueError('Website returned HTTP ' + str(response.status))
         for label in ('Accept all', 'Accept All', 'Accept cookies'):
             try:
@@ -138,6 +138,16 @@ def browser_collect(browser, source):
         extractor = (ROOT/'scripts/extract-page.js').read_text()
         result = page.evaluate('(' + extractor + ')', {'source':source})
         if result.get('blocked'): raise ValueError(result['blocked'])
+        if not result['items'] and source['group']=='jbhifi' and source.get('clearance_only'):
+            # The supplied URL may render an unfiltered collection. Use JB's own clearance
+            # collection, still requiring an explicit Clearance label and an iPad Pro title.
+            response=page.goto('https://www.jbhifi.com.au/collections/computers-tablets/computer-clearance', wait_until='domcontentloaded', timeout=20000)
+            if response and response.status>=400: raise ValueError('Clearance page returned HTTP '+str(response.status))
+            page.wait_for_timeout(6000)
+            for _ in range(3):
+                page.mouse.wheel(0,900); page.wait_for_timeout(900)
+            result=page.evaluate('('+extractor+')', {'source':source})
+            if result.get('blocked'): raise ValueError(result['blocked'])
         if not result['items']:
             raise ValueError('No verified deal cards found. Open the source and use Capture deals; check whether the sale/filter is active.')
         checked = NOW()
@@ -200,7 +210,7 @@ def main():
     if args.mode=='full':
         try:
             from playwright.sync_api import sync_playwright
-            pw = sync_playwright().start(); browser = pw.chromium.launch(headless=True, args=['--disable-http2'])
+            pw = sync_playwright().start(); browser = pw.chromium.launch(headless=True)
         except Exception as err: print('Browser collection unavailable:', str(err)[:200], file=sys.stderr)
     try:
         for source in cfg['sources']:
