@@ -39,6 +39,8 @@ def main():
         assert page.evaluate('cover.timer!==null'), 'Reader starts countdown'
         assert page.locator('#app-name').inner_text()=='Outlook'
         assert page.title()=='Inbox — Outlook'
+        assert page.evaluate('uiScaleFactor()')==1.4
+        assert page.locator('.statusbar').bounding_box()['y']+page.locator('.statusbar').bounding_box()['height']<=901
         assert page.locator('.brand .outlook-logo').count()==1
         assert page.locator('link[rel="icon"]').get_attribute('href').startswith('data:image/svg+xml,')
         assert page.locator('#toast').is_hidden(), 'Startup network failure is quiet'
@@ -50,7 +52,7 @@ def main():
         assert not page.evaluate('state.syncError')
         page.evaluate("$('toast').classList.add('hidden')")
         refresh=page.locator('#refresh').bounding_box();glyph=page.locator('#refresh .oi').bounding_box();ribbon=page.locator('.ribbon').bounding_box()
-        assert 22<=glyph['width']<=26 and refresh['y']+refresh['height']<=ribbon['y']+ribbon['height']
+        assert 18<=glyph['width']/page.evaluate('uiScaleFactor()')<=22 and refresh['y']+refresh['height']<=ribbon['y']+ribbon['height']
         page.locator('.message').first.click()
         page.evaluate("state.images=false;state.previewed.clear();currentItem().attachments=[{url:'https://images.example/public.png',name:'public.png'}];currentItem().image='';renderReading()")
         assert page.locator('.preview-block img').count()==0 and not images
@@ -87,6 +89,8 @@ def main():
         # Right-click operations use the clicked row, including a row that is not selected.
         row=page.locator('.message').nth(1);key=row.get_attribute('data-item');row.click(button='right')
         assert page.locator('#message-menu').is_visible()
+        menu=page.locator('#message-menu').bounding_box()
+        assert menu['x']+menu['width']<=1441 and menu['y']+menu['height']<=901
         assert page.get_by_role('menuitem',name='Save to Raindrop').is_visible()
         assert page.get_by_role('menuitem',name='Email…').is_visible()
         page.get_by_role('menuitem',name='Bookmark',exact=True).click()
@@ -130,6 +134,17 @@ def main():
         assert page.locator('.fare-table tr').nth(1).inner_text().startswith('Sydney')
         page.screenshot(path=str(out/'jetstar-offer.png'))
         page.set_viewport_size({'width':700,'height':850});page.locator('[data-folder="ozbargain"]').click();page.locator('.message').first.click();assert page.locator('#reading').is_visible();page.screenshot(path=str(out/'compact.png'))
+        page.set_viewport_size({'width':3440,'height':1440})
+        page.evaluate('state.uiScale=140;applyUiScale()')
+        assert 239<=page.locator('#sidebar').bounding_box()['width']<=243
+        assert 461<=page.locator('.messages').bounding_box()['width']<=463
+        assert page.locator('.statusbar').bounding_box()['y']+page.locator('.statusbar').bounding_box()['height']<=1441
+        page.screenshot(path=str(out/'outlook-scale-ultrawide.png'))
+        page.locator('#settings-tab').click();page.locator('#ui-scale').select_option('125')
+        assert page.evaluate('uiScaleFactor()')==1.25
+        assert page.evaluate("JSON.parse(localStorage.getItem('workreader:uiScale'))")==125
+        assert page.evaluate('exportData().preferences.uiScale')==125
+        page.locator('#settings-dialog .close').click()
         assert not errors,errors
         browser.close();print('Browser checks passed: stable chrome/row geometry, image toggle, context menu, idle timeout, official API failover, Raindrop privacy and Jetstar table.')
 if __name__=='__main__':main()

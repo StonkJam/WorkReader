@@ -69,6 +69,12 @@ Bookmarklets may be blocked by a page or browser policy. The original source mus
 
 Jetstar “from” fares may be one-way, per person, date-limited or subject to membership/baggage conditions. Package prices may use different passenger and night counts. The card text is retained and the booking page is the source of truth. Sydney is indicated when present on the card or requested by the package URL; it is not guaranteed simply because a query parameter says SYD. Flight sales are collected across origins from your supplied pages; search “Sydney” for explicit Sydney matches.
 
+## Interface scale
+
+The default **140%** interface scale matches the reference Outlook screenshot's larger panes and text. The desktop folder pane is about **241 px**, the message pane **462 px**, and the app rail **48 px** at this setting. Ribbon and message spacing are tuned separately so enlarging the text does not create oversized rows. The page compensates for scaling so the footer remains inside the viewport.
+
+Choose **File → Reader settings → Interface scale** to use 100%, 110%, 125%, 140%, 150%, 175% or 200%. The choice persists in browser storage and exports. Responsive panes, dialogs and context menus account for the chosen scale. Browser zoom remains a separate setting.
+
 ## Reading/mail view, message actions and idle timeout
 
 The file always opens in **mail view**, with image previews collapsed. Press **Space** to reveal the reader and start its idle timer. Press Space again to return to mail view. **Space** changes folder/subject labels and the message content without moving the interface. Both views keep the same senders, rows, timestamps, selected item, folder ordering, ribbon, filters, search query and pane positions. Reading view labels the folders and subjects with the actual source or subreddit; mail view substitutes neutral folder labels and fictional email subjects. The real source and title appear underneath in reading view; mail view uses neutral office text. Images collapse and stay collapsed until reopened. Space does not toggle while typing in a field or dialog. The ribbon button provides the same switch on touch devices.

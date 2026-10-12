@@ -29,3 +29,7 @@ Reading view now exposes actual source/subreddit subjects and real folder names.
 ## Mail-first startup
 
 Startup now sets mail view before the initial render, with images collapsed and no idle timer running. Space enters reading view and starts the configured idle countdown. Mouse movement joins clicks, typing and scrolling as activity that resets the timer. Checks cover initial neutral subjects/folders, timer state, first-Space entry, mouse-move activity reset, idle return to mail view and no automatic reveal on mouse movement.
+
+## Outlook scale match
+
+Both supplied screenshots have the same image dimensions. Their pane proportions indicate approximately 140% relative scaling: the reader message pane spans about 200 screenshot pixels versus about 280 in Outlook. This revision defaults to 140%, uses 172/330 CSS-pixel folder/message panes, and adjusts ribbon/folder/message spacing. Browser checks verify viewport/footer fit, context-menu fit at the scaled coordinates, unchanged geometry across mail/reader mode, compact layout, ultrawide pane measurements and saved scale preferences.

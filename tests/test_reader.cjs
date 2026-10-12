@@ -10,7 +10,7 @@ element('sort').value='new';element('type').value='all';element('fresh').value='
 const storage=new Map();let fetchMode='failure';const rdCalls=[],dataCalls=[];
 const context=vm.createContext({console,Intl,Date,JSON,Math,Number,String,Set,Map,Array,Object,RegExp,URL,URLSearchParams,Blob,AbortController,Promise,
   localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},
-  document:{body:{classList:{toggle(){}}},getElementById:element,addEventListener(){},querySelector(){return null;},createElement:()=>element('temporary')},
+  document:{documentElement:{style:{setProperty(){}}},body:{classList:{toggle(){}}},getElementById:element,addEventListener(){},querySelector(){return null;},createElement:()=>element('temporary')},
   window:{addEventListener(){},innerWidth:1440,innerHeight:900},location:{protocol:'file:',href:'file:///usb/WorkReader.html'},navigator:{},CSS:{escape:x=>x},
   setTimeout:()=>1,clearTimeout(){},setInterval:()=>1,
   fetch:async(url,options)=>{if(String(url).startsWith('https://api.raindrop.io/rest/v1/')){rdCalls.push({url,options});let items=[];if(url.endsWith('/collections'))items=[{_id:42,title:'My collection'}];else if(url.endsWith('/collections/childrens'))items=[{_id:43,title:'Child collection',parent:{$id:42}}];else if(url.includes('/raindrops/'))items=[{_id:999,title:'Private test bookmark',link:'https://private.example/bookmark',created:'2026-10-12T00:00:00Z',cover:'https://private.example/cover.png',collection:{$id:42}}];return {ok:true,json:async()=>({result:true,items,item:{_id:1000}})};}dataCalls.push(String(url));if(fetchMode==='failure'||fetchMode==='api-only'&&!String(url).startsWith('https://api.github.com/'))throw Error('Network unavailable');return {ok:true,text:async()=>JSON.stringify({schema_version:1,generated_at:'2026-10-12T00:00:00Z',sources:[],items:[]})};}
@@ -18,7 +18,7 @@ const context=vm.createContext({console,Intl,Date,JSON,Math,Number,String,Set,Ma
 vm.runInContext(match[1],context,{timeout:3000});
 const run=s=>vm.runInContext(s,context,{timeout:1000});
 assert(run('state.snapshot.items.length')>0,'Bundled live snapshot loads');
-assert(run('state.coverMode'),'Startup uses mail view');assert.equal(run('cover.timer'),null,'Idle timer does not run in mail view');assert.equal(run('state.images'),false,'Startup images are collapsed');assert(element('sidebar').innerHTML.includes('Team circulars'));run('setCoverMode(false)');
+assert.equal(run('uiScaleFactor()'),1.4,'Default matches Outlook scale');assert.equal(run('exportData().preferences.uiScale'),140);assert(run('state.coverMode'),'Startup uses mail view');assert.equal(run('cover.timer'),null,'Idle timer does not run in mail view');assert.equal(run('state.images'),false,'Startup images are collapsed');assert(element('sidebar').innerHTML.includes('Team circulars'));run('setCoverMode(false)');
 assert(element('sidebar').innerHTML.includes('OzBargain'),'Source folders render');
 assert(element('reading').innerHTML.includes('Select a message'),'Empty reading pane renders');
 run("state.folder='ozbargain';render()");assert(run("visibleItems().every(i=>i.group==='ozbargain')"));

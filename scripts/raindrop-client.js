@@ -5,7 +5,7 @@ function isRaindropFolder(){return state.folder==='raindrop'||state.folder.start
 function currentItem(){return [...state.snapshot.items,...rd.items].find(i=>i.key===state.selected);}
 function publicReadKeys(){return [...state.read].filter(k=>!String(k).startsWith('raindrop:'));}
 function publicSavedKeys(){return [...state.saved].filter(k=>!String(k).startsWith('raindrop:'));}
-function exportData(){return {...state.snapshot,preferences:{dataUrl:state.dataUrl,read:publicReadKeys(),saved:publicSavedKeys(),watches:state.watches,dark:state.dark,images:state.images,idleMinutes:state.idleMinutes,discreetHeaders:state.discreetHeaders}};}
+function exportData(){return {...state.snapshot,preferences:{dataUrl:state.dataUrl,read:publicReadKeys(),saved:publicSavedKeys(),watches:state.watches,dark:state.dark,images:state.images,uiScale:state.uiScale,idleMinutes:state.idleMinutes,discreetHeaders:state.discreetHeaders}};}
 async function rdRequest(path,options={}){
   if(!rd.token)throw Error('Connect Raindrop first.');
   if(!/^\/(collections(?:\/childrens)?|raindrops\/(?:0|-1|[1-9]\d*)(?:\?[^#]*)?|raindrop)$/.test(path))throw Error('Unsupported Raindrop operation.');

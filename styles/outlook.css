@@ -21,3 +21,30 @@ body{height:100vh;overflow:hidden;font:12px 'Segoe UI',Arial,sans-serif;backgrou
 .read-head h2{height:20px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .list-head h1{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis}.list-head .hint{flex-shrink:0}
+
+/* Match the reference Outlook DPI: 140% default, with viewport compensation. */
+:root{--ui-scale:1.4;--chrome-height:152px}
+body{zoom:var(--ui-scale);width:calc(100vw / var(--ui-scale));height:calc(100vh / var(--ui-scale));overflow:hidden}
+body .layout{height:calc(100vh / var(--ui-scale) - var(--chrome-height));grid-template-columns:172px 330px minmax(280px,1fr)}
+body .ribbon{height:72px;min-height:72px}
+body .ribbon .large-command{height:50px;gap:4px}
+body .ribbon .large-command .oi{width:20px;height:20px}
+body .ribbon .command-stack button{height:17px}
+body .refresh-command .oi{width:20px!important;height:20px!important}
+body .folder{height:22px;min-height:22px;padding-top:3px;padding-bottom:3px}
+body .message{height:64px;min-height:64px;max-height:64px;padding-top:6px;padding-bottom:6px}
+body .message .preview{height:14px;max-height:14px;white-space:nowrap;display:block;line-height:14px;overflow:hidden;text-overflow:ellipsis}
+body .message-avatar{top:10px}
+body dialog{width:min(680px,calc(100vw / var(--ui-scale) - 30px));max-height:calc(85vh / var(--ui-scale))}
+body .toast{max-width:calc(90vw / var(--ui-scale))}
+body.compact-layout .layout{grid-template-columns:145px minmax(0,1fr)}
+body.compact-layout .layout .reading{display:none}
+body.compact-layout .layout.reading-open .messages{display:none}
+body.compact-layout .layout.reading-open .reading{display:block;grid-column:2}
+body.compact-layout .back{display:flex;margin:8px 12px;width:max-content}
+body.compact-layout .window-controls{display:none}
+body.compact-layout .brand{min-width:110px}
+body.compact-layout .ribbon{overflow-x:auto}
+body.narrow-layout .layout{grid-template-columns:112px minmax(0,1fr)}
+body.narrow-layout .brand{min-width:86px!important;font-size:11px}
+body.narrow-layout .search{min-width:0;max-width:170px!important}
