@@ -10,7 +10,7 @@ def main():
     snapshot=json.loads((ROOT/'data/deals.json').read_text())
     with sync_playwright() as pw:
         browser=pw.chromium.launch();context=browser.new_context(viewport={'width':1440,'height':900})
-        images=[];posts=[];errors=[];network={'api':False}
+        images=[];posts=[];errors=[];network={'api':False,'reject_token':False}
         context.route('https://raw.githubusercontent.com/**',lambda route:route.abort())
         def github(route):
             if network['api']:route.fulfill(json=snapshot,headers={'Access-Control-Allow-Origin':'*'})
@@ -19,6 +19,7 @@ def main():
         def image(route):images.append(route.request.url);route.fulfill(body=PNG,content_type='image/png')
         context.route('https://images.example/**',image)
         def raindrop(route):
+            if network['reject_token']:route.fulfill(status=401,json={'result':False});return
             path=route.request.url.split('/rest/v1')[1]
             if path=='/collections':data={'result':True,'items':[{'_id':42,'title':'Travel','count':1}]}
             elif path=='/collections/childrens':data={'result':True,'items':[{'_id':43,'title':'Hotels','parent':{'$id':42}}]}
@@ -34,6 +35,10 @@ def main():
         assert 'OzBargain' not in page.locator('#sidebar').inner_text()
         assert page.locator('.message .subject').all_text_contents()==page.evaluate('visibleItems().map(i=>mailFor(i).subject)')
         assert page.locator('.preview-block img').count()==0
+        assert page.evaluate('!!state.selected'), 'Startup previews a fictional message without marking it read'
+        assert page.locator('#filter-panel').is_hidden()
+        page.locator('#filter-toggle').click();assert page.locator('#filter-panel').is_visible()
+        page.locator('#filter-toggle').click();assert page.locator('#filter-panel').is_hidden()
         page.keyboard.press('Space')
         assert not page.evaluate('state.coverMode'), 'First Space opens reader'
         assert page.evaluate('cover.timer!==null'), 'Reader starts countdown'
@@ -57,7 +62,7 @@ def main():
         page.evaluate("state.images=false;state.previewed.clear();currentItem().attachments=[{url:'https://images.example/public.png',name:'public.png'}];currentItem().image='';renderReading()")
         assert page.locator('.preview-block img').count()==0 and not images
         page.screenshot(path=str(out/'outlook-light.png'))
-        page.locator('#theme').click();page.wait_for_function("getComputedStyle(document.querySelector('.folder.active')).backgroundColor==='rgb(56, 56, 56)'")
+        page.locator('#theme').click();page.wait_for_function("getComputedStyle(document.querySelector('.folder.active')).backgroundColor==='rgb(0, 0, 0)'")
         page.get_by_text('Click to preview',exact=True).click();page.wait_for_selector('.preview-block img')
         page.get_by_text('Click to close',exact=True).click()
         assert page.locator('.preview-block img').count()==0, 'Same card closes image'
@@ -120,14 +125,34 @@ def main():
         page.locator('#search').fill('held query');page.locator('#settings-tab').click();page.evaluate('cover.lastActivity=Date.now()-120001;checkIdle()')
         assert page.locator('dialog[open]').count()==0
         page.locator('#cover-toggle').click();assert page.locator('#search').input_value()=='held query';page.locator('#search').fill('')
-        page.locator('#raindrop').click();page.locator('#rd-token').fill('SYNTHETIC-TEST-TOKEN');page.locator('#rd-connect').click();page.wait_for_selector('[data-item="raindrop:999"]')
+        page.evaluate('setCoverMode(true)')
+        source_row=page.locator('.message').nth(2);pending_key=source_row.get_attribute('data-item')
+        pending_title=page.evaluate('(key)=>state.snapshot.items.find(i=>i.key===key).title',pending_key)
+        original_selected=page.evaluate('state.selected')
+        source_row.click(button='right');page.get_by_role('menuitem',name='Save to Raindrop').click()
+        assert page.locator('#raindrop-dialog').is_visible()
+        network['reject_token']=True
+        page.locator('#rd-token').fill('SYNTHETIC-INVALID');page.locator('#rd-connect').click()
+        page.wait_for_function('!rd.token')
+        assert 'rejected this token' in page.locator('#rd-state').inner_text()
+        assert page.evaluate('!!rd.pendingSave'), 'Failed connection retains clicked item for retry'
+        network['reject_token']=False
+        page.locator('#rd-token').fill('SYNTHETIC-TEST-TOKEN');page.locator('#rd-connect').click()
+        page.wait_for_selector('#rd-save-dialog[open]')
+        assert page.locator('#rd-save-title').input_value()==pending_title
+        assert page.evaluate('state.selected')==original_selected, 'Connecting to save does not change current selection'
+        page.locator('#rd-save-collection').select_option('42');page.locator('#rd-save-submit').click()
+        page.wait_for_function('!document.getElementById("rd-save-dialog").open')
+        assert posts[-1]['title']==pending_title and posts[-1]['collection']['$id']==42
+        page.evaluate('setCoverMode(false)')
+        page.locator('#rail-raindrop').click();page.wait_for_selector('[data-item="raindrop:999"]')
         assert page.locator('#rd-token').input_value()=='';page.locator('[data-item="raindrop:999"]').click()
         assert 'Private test bookmark' in page.locator('#reading').inner_text();page.evaluate('setCoverMode(true)');assert 'Private test bookmark' not in page.locator('#reading').inner_text();page.evaluate('setCoverMode(false)')
         assert 'Private test bookmark' in page.locator('#reading').inner_text();assert not any('private.png' in url for url in images)
         assert 'private.example' not in page.evaluate('JSON.stringify(exportData())');assert 'SYNTHETIC' not in page.evaluate('JSON.stringify(localStorage)');assert 'raindrop:999' not in page.evaluate('JSON.stringify(localStorage)')
         page.locator('[data-folder="inbox"]').click();page.locator('.message').first.click(button='right');page.get_by_role('menuitem',name='Save to Raindrop').click()
         page.locator('#rd-save-collection').select_option('42');page.locator('#rd-save-submit').click();page.wait_for_function("!document.getElementById('rd-save-dialog').open")
-        assert len(posts)==1 and posts[0]['collection']['$id']==42
+        assert len(posts)==2 and posts[0]['collection']['$id']==42
         page.locator('#raindrop').click();page.locator('#rd-disconnect').click();assert page.evaluate("rd.token===''&&rd.items.length===0");page.locator('#raindrop-dialog .close').click()
         page.locator('[data-folder="jetstar"]').click();page.locator('.message').filter(has_text='Bali Return').first.click()
         assert page.locator('.fare-table .sydney-row').inner_text().find('$459')>=0
@@ -139,6 +164,8 @@ def main():
         assert 239<=page.locator('#sidebar').bounding_box()['width']<=243
         assert 461<=page.locator('.messages').bounding_box()['width']<=463
         assert page.locator('.statusbar').bounding_box()['y']+page.locator('.statusbar').bounding_box()['height']<=1441
+        assert 80<=page.locator('.message').first.bounding_box()['height']<=82
+        assert page.locator('#list').bounding_box()['y']-page.locator('.messages').bounding_box()['y']<48
         page.screenshot(path=str(out/'outlook-scale-ultrawide.png'))
         page.locator('#settings-tab').click();page.locator('#ui-scale').select_option('125')
         assert page.evaluate('uiScaleFactor()')==1.25

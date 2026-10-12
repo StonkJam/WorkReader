@@ -48,3 +48,76 @@ body.compact-layout .ribbon{overflow-x:auto}
 body.narrow-layout .layout{grid-template-columns:112px minmax(0,1fr)}
 body.narrow-layout .brand{min-width:86px!important;font-size:11px}
 body.narrow-layout .search{min-width:0;max-width:170px!important}
+
+/* v8: desktop Outlook reference, tuned independently of the DPI scale. */
+:root{--bg:#f3f3f3;--surface:#fff;--ribbon:#fafafa;--selection:#e3edf7;--line:#ddd;--muted:#616161;--title:#f5f5f5}
+body.dark{--bg:#141414;--surface:#292929;--ink:#e9e9e9;--muted:#bcbcbc;--line:#3c3c3c;--blue:#60b8f8;--soft:#30363c;--selection:#363636;--ribbon:#292929;--rail:#1b252a;--title:#0a0a0a;--flag-bg:#343025}
+body .top{border-bottom:0;gap:12px;padding-left:10px}
+body .brand{min-width:112px;font-size:11px;gap:12px;color:#168de2;font-weight:600}
+body .brand .outlook-logo{width:12px;height:12px}
+body .top .search{max-width:735px;min-width:0;height:24px;border-radius:1px;border-color:#666}
+.search-scope{font-size:10px;border-right:1px solid #646464;padding-right:9px;white-space:nowrap;color:var(--ink)}
+body .search .oi{width:13px;height:13px}
+body .tabs{background:var(--bg);padding-left:44px;gap:13px}
+body .ribbon{padding-left:41px;border-bottom:0;border-radius:0 0 3px 3px}
+body .ribbon-group{padding-left:9px;padding-right:9px}
+body .ribbon .large-command{min-width:43px;padding:3px 5px;font-size:10px}
+body .ribbon .large-command .oi{color:var(--blue)}
+body #email-item .oi{color:#b975c3}
+body #bookmark-item .oi{color:#db595b}
+body #watch{border:1px solid var(--line);min-width:99px;height:31px;flex-direction:row;align-items:center;gap:5px;padding:5px 9px;margin-top:3px}
+body #watch .oi{width:12px;height:12px;color:#cba95b}
+body .ribbon .command-stack button{height:20px}
+body .ribbon .command-stack button .oi{width:13px;height:13px}
+body .layout{padding-top:12px;gap:5px;grid-template-columns:172px 330px minmax(280px,1fr)}
+body .sidebar{padding-top:1px}
+body .folder{border:1px solid transparent;border-radius:0;font-size:10px;gap:6px}
+body .folder.active{background:#e5e5e5;color:var(--ink);border-color:#bcbcbc;font-weight:400}
+body.dark .folder.active{background:#000;border-color:#555}
+body .section{font-size:9.5px;margin-top:11px}
+body .list-head{height:33px;min-height:33px;padding:5px 11px}
+body .list-head h1{font-size:11px}
+body .list-head .hint{font-size:9px;color:var(--muted)}
+.messages{position:relative}
+.filter-toggle{padding:3px;width:22px;height:22px;flex-shrink:0}
+.filter-toggle .oi{width:14px;height:14px;color:var(--muted)}
+.filters[hidden]{display:none!important}
+body .filters{position:absolute;top:33px;left:0;right:0;z-index:3;border:1px solid var(--line);padding:8px;background:var(--surface);box-shadow:0 4px 10px #0004}
+body .filter{border-color:var(--line);height:26px;max-width:155px;font-size:10px}
+body .date-divider{height:23px;padding:4px 12px;background:var(--bg);font-size:9.5px}
+body .message{height:58px;min-height:58px;max-height:58px;padding-top:6px;padding-bottom:5px;padding-left:46px;padding-right:24px}
+body .message-top{margin-bottom:1px}
+body .message .sender{font-size:10px}
+body .message .subject{font-size:10px;height:14px;line-height:14px}
+body .message .preview{font-size:9px;margin-top:1px}
+body .message-avatar{left:22px;top:9px;width:20px;height:20px;font-size:8px}
+.message:after{content:'›';position:absolute;top:14px;left:10px;color:var(--muted);font-size:12px}
+body .message.unread:before{display:none}
+body .message.unread .subject{font-weight:500}
+body .message.selected:before{display:block;content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--blue)}
+body .message .flag{top:25px;right:7px;color:var(--muted);opacity:.7;font-size:12px}
+body .message .flag.saved{color:#db595b;opacity:1}
+body .reading{border:0;border-radius:2px;background:var(--surface)}
+body .read-head{height:33px;padding:6px 12px;border:0;margin-bottom:7px;border-radius:2px}
+body .read-head h2{font-size:11px;font-weight:600;margin:0;height:21px;line-height:21px}
+.sender-header{display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid var(--line);padding:12px 15px 13px;min-height:64px}
+body .from{margin:0;gap:10px;flex:1;min-width:0}
+body .from>div:last-child{min-width:0}
+body .from strong{font-size:10px}
+body .from small{font-size:9px;line-height:1.4}
+body .sender-avatar{width:24px;height:24px;flex-shrink:0;font-size:9px;background:#426b73}
+body .read-actions{padding:0;border:0;margin:0;gap:5px;justify-content:flex-end;max-width:55%}
+body .read-actions .primary,body .read-actions .secondary{font-size:9px;min-height:21px;border:0;padding:3px 5px;border-radius:0;color:var(--muted)}
+body .attachment-strip{margin:10px 40px 0;min-height:62px;gap:7px}
+body .attachment{min-height:37px;height:37px;max-width:250px;padding:5px 9px;border-radius:2px}
+body .attachment strong{font-size:10px}
+body .attachment small{font-size:9px;color:var(--muted)}
+body .body-text{margin:29px 40px 24px;font-size:12px;line-height:1.55}
+body .post-title{margin:29px 40px 0;font-size:16px}
+body .post-title+.body-text{margin-top:16px}
+body .details,body .notice,body .price-box,body .flight-offer,body .preview-block{margin-left:40px;margin-right:40px}
+body .statusbar{background:var(--bg)}
+body.compact-layout .search-scope{display:none}
+body.compact-layout .sender-header{flex-wrap:wrap}
+body.compact-layout .read-actions{max-width:100%;justify-content:flex-start;padding-left:34px}
+body.compact-layout .body-text,body.compact-layout .post-title,body.compact-layout .attachment-strip,body.compact-layout .details,body.compact-layout .notice,body.compact-layout .price-box,body.compact-layout .flight-offer,body.compact-layout .preview-block{margin-left:20px;margin-right:20px}

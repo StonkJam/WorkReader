@@ -20,7 +20,7 @@ const run=s=>vm.runInContext(s,context,{timeout:1000});
 assert(run('state.snapshot.items.length')>0,'Bundled live snapshot loads');
 assert.equal(run('uiScaleFactor()'),1.4,'Default matches Outlook scale');assert.equal(run('exportData().preferences.uiScale'),140);assert(run('state.coverMode'),'Startup uses mail view');assert.equal(run('cover.timer'),null,'Idle timer does not run in mail view');assert.equal(run('state.images'),false,'Startup images are collapsed');assert(element('sidebar').innerHTML.includes('Team circulars'));run('setCoverMode(false)');
 assert(element('sidebar').innerHTML.includes('OzBargain'),'Source folders render');
-assert(element('reading').innerHTML.includes('Select a message'),'Empty reading pane renders');
+assert(run('!!state.selected'),'Startup previews a message');assert(!run('state.read.has(state.selected)'),'Startup preview does not mark a message read');run('state.selected=null;renderReading()');assert(element('reading').innerHTML.includes('Select a message'),'Empty reading pane renders');
 run("state.folder='ozbargain';render()");assert(run("visibleItems().every(i=>i.group==='ozbargain')"));
 run("state.folder='reddit';render()");assert.equal(run('visibleItems().length'),run("state.snapshot.items.filter(i=>i.group==='reddit').length"));
 run("state.folder='inbox';$('search').value='unlikely-keyword-abcdef';renderList()");assert.equal(run('visibleItems().length'),0);run("$('search').value=''");

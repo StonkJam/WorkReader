@@ -140,3 +140,7 @@ Edit `reader.template.html`, `styles/outlook.css` or `scripts/raindrop-client.js
 ## Licence
 
 The original code in this project is MIT licensed; see `LICENSE`. Public listing content and third-party brands remain owned by their respective owners. The licence covers this project's code, not rights to the source websites' content.
+
+The v8 layout uses a compact filter menu (the sliders beside the folder heading or **Find → Filter**) instead of a permanent filter strip. Message rows are denser, the ribbon has familiar command groups, and the dark palette follows the supplied desktop Outlook reference. The first message is previewed at startup without marking it read.
+
+Right-click **Save to Raindrop** is available in either view. If disconnected, connect with your personal Test token and the same clicked item opens in the save form; connecting does not change the selected message. Invalid tokens can be retried without losing that item. Closing the connection prompt cancels the pending save. No token or pending save is written to storage or exports.
