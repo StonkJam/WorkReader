@@ -50,14 +50,62 @@ def main():
         page.wait_for_function("document.querySelector('.preview-block img').complete")
         assert images==['https://images.example/public.png']
         page.screenshot(path=str(out/'image-preview.png'))
-        page.get_by_text('Hide preview', exact=True).click()
+        selected = page.evaluate('state.selected')
+        page.locator('#reading').evaluate('e=>e.scrollTop=50')
+        page.keyboard.press('Space')
+        assert page.evaluate('state.coverMode'), 'Space works after clicking preview'
         assert page.locator('.preview-block img').count()==0
+        assert page.locator('dialog[open]').count()==0
+        assert not page.locator('#sources-tab').is_visible()
+        assert not page.locator('#status-details').is_visible()
+        assert 'OzBargain' not in page.locator('#sidebar').inner_text()
+        assert 'Weekly planning notes' in page.locator('#list').inner_text()
+        assert 'Gilligan' not in page.locator('#reading').inner_text()
+        page.evaluate("render();renderStatus();toast('Background refresh')")
+        assert page.locator('#toast').is_hidden()
+        page.screenshot(path=str(out/'mail-cover-dark.png'))
+        page.keyboard.press('Space')
+        assert not page.evaluate('state.coverMode')
+        assert page.evaluate('state.selected')==selected
+        assert page.locator('.preview-block img').count()==0, 'Images remain hidden on return'
+        # Spaces while typing are ordinary text; repeated keydown never flips twice.
+        page.locator('#search').fill('first')
+        page.locator('#search').press('Space')
+        assert not page.evaluate('state.coverMode')
+        assert page.locator('#search').input_value()=='first '
+        page.locator('#search').fill('')
+        page.locator('#settings-tab').click()
+        page.locator('#idle-minutes').fill('0.5')
+        page.locator('#save-view-settings').click()
+        assert page.evaluate('state.idleMinutes')==0.5
+        page.locator('#settings-dialog .close').click()
+        # Use a short runtime-only interval to exercise the real timer without a long wait.
+        page.evaluate('state.idleMinutes=.005;recordActivity()')
+        page.locator('#reading').dispatch_event('scroll')
+        page.wait_for_function('state.coverMode', timeout=3000)
+        page.evaluate('state.idleMinutes=2')
+        page.locator('#mail-return').click()
+        assert not page.evaluate('state.coverMode')
+        page.evaluate('state.idleMinutes=2;recordActivity()')
+        page.locator('#search').fill('held query')
+        page.locator('#settings-tab').click()
+        page.evaluate('cover.lastActivity=Date.now()-120001;checkIdle()')
+        assert page.locator('dialog[open]').count()==0, 'Idle closes an open dialog'
+        page.locator('#mail-return').click()
+        assert page.locator('#search').input_value()=='held query'
+        page.locator('#search').fill('')
+        # The email-style list shows subreddit/source subject above the post title.
+        assert page.locator('.message .subject').first.inner_text()==page.evaluate('mailHeading(visibleItems()[0])')
         page.locator('#raindrop').click()
         page.locator('#rd-token').fill('SYNTHETIC-TEST-TOKEN')
         page.locator('#rd-connect').click()
         page.wait_for_selector('[data-item="raindrop:999"]')
         assert page.locator('#rd-token').input_value()==''
         page.locator('[data-item="raindrop:999"]').click()
+        assert 'Private test bookmark' in page.locator('#reading').inner_text()
+        page.evaluate('setCoverMode(true)')
+        assert 'Private test bookmark' not in page.locator('#reading').inner_text()
+        page.evaluate('setCoverMode(false)')
         assert 'Private test bookmark' in page.locator('#reading').inner_text()
         assert images==['https://images.example/public.png'], 'Private cover remains collapsed'
         assert 'private.example' not in page.evaluate('JSON.stringify(exportData())')

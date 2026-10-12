@@ -13,3 +13,7 @@ OzBargain feeds and Reddit All have returned live data from GitHub. Reddit Austr
 The Jetstar reading pane shows source links, errors and capture instructions when there is no selected listing. Manual Capture page reads visible cards in an ordinary source-page tab and imports a local JSON capture. It remains dependent on the page layout and browser bookmarklet support.
 
 GitHub Pages remains optional and requires Settings → Pages → GitHub Actions. The USB HTML is self-contained; remote snapshots, images and Raindrop require access to their respective sites.
+
+## Mail-view update
+
+Node checks also cover replacing panes with a separate sample mailbox, closing dialogs, suppressing source/status content during background renders, preserving search and scroll positions, keeping images collapsed after return, switching at the configured inactivity deadline, and disabling the timer. Chromium checks exercise the Space shortcut, normal spaces in search, the actual short-duration idle timer, idle while a dialog is open, and covering/restoring a private Raindrop bookmark. The runner retains a mail-cover screenshot.

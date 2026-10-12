@@ -4,7 +4,7 @@ const html=fs.readFileSync(path.join(__dirname,'../WorkReader.html'),'utf8');
 const match=html.match(/<script>([\s\S]*?)<\/script>/);assert(match,'Reader has an inline script');
 assert(!/<script[^>]+src=/i.test(html),'No external script dependency');
 const elements=new Map();
-function element(id){if(!elements.has(id))elements.set(id,{id,value:'',innerHTML:'',textContent:'',disabled:false,open:false,className:'',dataset:{},classList:{add(){},remove(){},toggle(){}},addEventListener(){},setAttribute(){},showModal(){this.open=true;},close(){this.open=false;},appendChild(){},select(){},click(){}});return elements.get(id);}
+function element(id){if(!elements.has(id))elements.set(id,{id,value:'',innerHTML:'',textContent:'',disabled:false,open:false,className:'',dataset:{},classList:{add(){},remove(){},toggle(){},contains(){return false;}},addEventListener(){},setAttribute(){},showModal(){this.open=true;},close(){this.open=false;},appendChild(){},select(){},click(){}});return elements.get(id);}
 for(const m of html.matchAll(/id="([^"]+)"/g))element(m[1]);
 element('sort').value='new';element('type').value='all';element('fresh').value='all';
 const storage=new Map();let fetchMode='failure';const rdCalls=[];
@@ -42,6 +42,11 @@ run("state.previewed.add('https://images.example/photo.jpg');renderReading()");
 assert(element('reading').innerHTML.includes('src="https://images.example/photo.jpg"'),'Explicit preview renders image');
 run("state.previewed.clear();state.folder='jetstar';state.selected=null;renderReading()");
 assert(element('reading').innerHTML.includes('Automatic scan unavailable'),'Failed Jetstar scan is explained');
+run("state.folder='inbox';state.selected=state.snapshot.items[0].key;state.images=true;$('search').value='remember-search';$('list').scrollTop=140;$('reading').scrollTop=80;$('settings-dialog').showModal();setCoverMode(true)");
+assert(run('state.coverMode'));assert.equal(element('settings-dialog').open,false,'Cover closes dialogs');assert.equal(element('search').value,'');assert.equal(element('search').disabled,true);assert(!element('reading').innerHTML.includes('images.example'));assert(!element('sidebar').innerHTML.includes('OzBargain'));assert(element('list').innerHTML.includes('Weekly planning notes'));assert(!run('JSON.stringify(exportData())').includes('SAMPLE_MAIL'),'Fictional mailbox never exported');
+run("render();renderList();renderReading();renderStatus();toast('Potentially revealing status')");assert.equal(element('status').textContent,'All folders are up to date','Background renders keep cover');
+run('setCoverMode(false)');assert.equal(element('search').value,'remember-search');assert.equal(element('list').scrollTop,140);assert.equal(element('reading').scrollTop,80);assert.equal(run('state.images'),false);assert.equal(run('state.previewed.size'),0,'Previews remain collapsed on return');
+run("$('search').value='';state.idleMinutes=2;cover.lastActivity=1000;checkIdle(120999)");assert(!run('state.coverMode'),'Does not cover before timeout');run('checkIdle(121000)');assert(run('state.coverMode'),'Covers at configured idle deadline');run('setCoverMode(false);state.idleMinutes=0;cover.lastActivity=0;checkIdle(999999999)');assert(!run('state.coverMode'),'Zero disables timeout');run('state.idleMinutes=2');
 const before=run('state.snapshot.items.length');
 run("state.dataUrl='https://raw.githubusercontent.com/example/workreader/main/data/deals.json'");
 (async()=>{await run('loadRemote()');assert.equal(run('state.snapshot.items.length'),before,'Failed refresh retains data');assert.equal(run('state.loading'),false);

@@ -69,6 +69,16 @@ Bookmarklets may be blocked by a page or browser policy. The original source mus
 
 Jetstar “from” fares may be one-way, per person, date-limited or subject to membership/baggage conditions. Package prices may use different passenger and night counts. The card text is retained and the booking page is the source of truth. Sydney is indicated when present on the card or requested by the package URL; it is not guaranteed simply because a query parameter says SYD. Flight sales are collected across origins from your supplied pages; search “Sydney” for explicit Sydney matches.
 
+## Quick mail view and idle timeout
+
+Press **Space** while reading to switch to a fictional mailbox with neutral office emails. Press it again, or use **Reading view**, to return. Spaces in text fields and dialogs work normally. A **Mail view · Space** ribbon button is also available.
+
+Mail view replaces the visible folder list, message list and reading pane; hides source controls and source status; closes dialogs; clears the token input; collapses image previews; and suppresses background toasts. Your folder, selected item, search query and pane positions are restored on return. Images stay collapsed until explicitly reopened. The fictional messages are separate from real data and never enter your snapshot or export. The sample mailbox has no send/reply capability.
+
+In **File → Reader settings**, set the inactivity timeout in minutes (default **2**, **0** disables it), then choose **Save view settings**. Clicks, typing, scrolling and touch reset it; pointer movement alone does not. Returning from another tab checks elapsed wall-clock time, since browsers may delay timers in background tabs. A timed switch stays in mail view until you explicitly return.
+
+The same settings include **Email-style reader headings**: neutral sender above the subreddit/source subject, with the real post title beneath. Turn this off to restore the original source/author list. These preferences are saved in the browser and included in exports; the current mail-view state is temporary.
+
 ## Raindrop.io
 
 1. Open **Raindrop** in the ribbon. In [Raindrop integration settings](https://app.raindrop.io/settings/integrations), create a personal app and obtain its **Test token**.
