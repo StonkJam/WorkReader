@@ -2,7 +2,7 @@ name: Check reader in Chromium
 on:
   push:
     branches: [main]
-    paths: ['reader.template.html', 'styles/**', 'assets/**', 'scripts/build.py', 'scripts/raindrop-client.js', 'scripts/cover-view.js', 'scripts/snapshot-client.js', 'scripts/message-actions.js', 'scripts/jetstar-format.js', 'scripts/ui-scale.js', 'scripts/source-settings.js', 'scripts/video-client.js', 'scripts/add_source.py', 'tests/**', '.github/workflows/reader-check.yml']
+    paths: ['reader.template.html', 'styles/**', 'assets/**', 'scripts/build.py', 'scripts/raindrop-client.js', 'scripts/cover-view.js', 'scripts/snapshot-client.js', 'scripts/github-scan.js', 'scripts/message-actions.js', 'scripts/jetstar-format.js', 'scripts/ui-scale.js', 'scripts/source-settings.js', 'scripts/video-client.js', 'scripts/add_source.py', 'tests/**', '.github/workflows/reader-check.yml']
   workflow_dispatch:
 permissions:
   contents: read

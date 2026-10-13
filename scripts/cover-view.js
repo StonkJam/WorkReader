@@ -20,7 +20,7 @@ function displayFolderLabel(id,label){if(!state.coverMode)return label;const gro
 function fakeInitials(item){return mailFor(item).sender.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();}
 function previewText(item){return state.coverMode?mailFor(item).preview:item.title;}
 function setCoverMode(enabled){enabled=!!enabled;if(enabled===state.coverMode)return;const listScroll=$('list').scrollTop||0,readingScroll=$('reading').scrollTop||0,sidebarScroll=$('sidebar').scrollTop||0;state.coverMode=enabled;clearTimeout(cover.timer);
-  if(enabled){closeVideoPreviews();rd.pendingSave=null;rd.saveItem=null;closeMessageMenu();state.previewed.clear();state.images=false;persist('images',false);$('rd-token').value='';for(const id of ['settings-dialog','sources-dialog','capture-dialog','watch-dialog','raindrop-dialog','rd-save-dialog','add-source-dialog'])$(id).close();$('toast').classList.add('hidden');clearTimeout(toast.timer);}
+  if(enabled){closeVideoPreviews();rd.pendingSave=null;rd.saveItem=null;closeMessageMenu();state.previewed.clear();state.images=false;persist('images',false);$('rd-token').value='';$('gh-token').value='';for(const id of ['settings-dialog','sources-dialog','capture-dialog','watch-dialog','raindrop-dialog','rd-save-dialog','add-source-dialog','github-dialog'])$(id).close();$('toast').classList.add('hidden');clearTimeout(toast.timer);}
   // Only labels and message content change; preserve every row and pane position.
   applyAppearance();renderSidebar();renderList();renderReading();$('list').scrollTop=listScroll;$('reading').scrollTop=readingScroll;$('sidebar').scrollTop=sidebarScroll;recordActivity();
 }

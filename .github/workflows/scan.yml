@@ -20,7 +20,8 @@ on:
         default: quick
         options: [quick, full]
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '0 8-17 * * 1-5'
+      timezone: Australia/Sydney
 
 permissions:
   contents: write
@@ -46,9 +47,10 @@ jobs:
         run: |
           python - <<'PY'
           import datetime, os
-          now = datetime.datetime.now(datetime.timezone.utc)
+          from zoneinfo import ZoneInfo
+          now = datetime.datetime.now(ZoneInfo('Australia/Sydney'))
           event = os.environ['EVENT_NAME']
-          mode = os.environ.get('REQUESTED_MODE') if event=='workflow_dispatch' else ('full' if event=='push' or (now.hour % 4 == 0 and now.minute < 20) else 'quick')
+          mode = os.environ.get('REQUESTED_MODE') if event=='workflow_dispatch' else ('full' if event=='push' or (now.hour in (8, 12, 16)) else 'quick')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write('value=' + (mode or 'quick') + '\n')
           PY

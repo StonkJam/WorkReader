@@ -52,3 +52,8 @@ Added checks for mail-mode refresh with one new item and an additional source, n
 ## v10 stale-data regression
 
 The latest live snapshot at investigation time was generated at 2026-10-12 17:00 UTC (13 October 04:00 Sydney), more than five hours before the user's report. Scheduled collections had large gaps. Tests now cover a newer bundle versus older browser cache, older server data rejected without losing rows, an unchanged response reported as No newer snapshot, source-success age reported as Collection overdue, and a link to run a quick collection manually. Existing mail-mode refresh, selection/scroll preservation, network failure and privacy checks remain. The new schedule is an attempted cadence, not a timing guarantee.
+
+
+## v11 on-demand Actions
+
+The schedule uses GitHub's Australia/Sydney timezone field with weekday hourly triggers from 08:00 through 17:00. The browser's dispatch body is constrained to main, scan.yml, mode=quick and return_run_details=true. Runtime/Chromium checks cover session-only token handling, one dispatch, queued and running states, a successful job with initially stale publication, checking the collection_run marker before success, 403 dispatch failure, restoring the Refresh button, and disconnect cleanup. The tests use synthetic tokens and API responses, not a user's real credential. The collector's real public output includes its GitHub run ID, and normalisation validates numeric IDs.

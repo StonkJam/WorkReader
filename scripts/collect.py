@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -310,6 +311,8 @@ def main():
         if browser: browser.close()
         if pw: pw.stop()
     result = merge(previous, observations, statuses, NOW(), cfg['retain_days'])
+    if os.environ.get('GITHUB_RUN_ID','').isdigit():
+        result['collection_run']={'id':int(os.environ['GITHUB_RUN_ID']),'attempt':int(os.environ.get('GITHUB_RUN_ATTEMPT','1'))}
     # Preserved sources were not scanned: their observation times must remain unchanged.
     old_by = {i.get('key') or key(i):i for i in previous.get('items',[])}
     for item in result['items']:

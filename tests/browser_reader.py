@@ -17,10 +17,35 @@ def main():
     remote['sources'].append({'id':'reddit-custom','group':'reddit','name':'r/testreader','url':'https://www.reddit.com/r/testreader/.rss','status':'ok','count':1})
     with sync_playwright() as pw:
         browser=pw.chromium.launch();context=browser.new_context(viewport={'width':1440,'height':900})
-        images=[];posts=[];errors=[];video_requests=[];network={'api':False,'reject_token':False}
+        images=[];posts=[];errors=[];video_requests=[];network={'api':False,'reject_token':False,'gh_forbidden':False,'dispatches':0,'run_checks':0,'stale_published_once':True}
         context.route('https://raw.githubusercontent.com/**',lambda route:route.abort())
         def github(route):
-            if network['api']:route.fulfill(json=remote,headers={'Access-Control-Allow-Origin':'*'})
+            path=route.request.url.split('/repos/StonkJam/WorkReader')[1].split('?')[0]
+            if path.startswith('/actions/'):
+                if route.request.method=='OPTIONS':
+                    route.fulfill(status=204,headers={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET,POST','Access-Control-Allow-Headers':'Authorization,Accept,Content-Type,X-GitHub-Api-Version'});return
+                assert route.request.headers.get('authorization')=='Bearer SYNTHETIC-GH-TOKEN'
+                if path=='/actions/workflows/scan.yml':
+                    route.fulfill(json={'id':381674250,'state':'active'},headers={'Access-Control-Allow-Origin':'*'});return
+                if path.endswith('/dispatches'):
+                    if network['gh_forbidden']:route.fulfill(status=403,json={'message':'Forbidden'},headers={'Access-Control-Allow-Origin':'*'});return
+                    assert route.request.method=='POST'
+                    assert route.request.post_data_json=={'ref':'main','inputs':{'mode':'quick'},'return_run_details':True}
+                    network['dispatches']+=1;network['run_checks']=0
+                    route.fulfill(json={'workflow_run_id':999999999999,'html_url':'https://github.com/StonkJam/WorkReader/actions/runs/999999999999'},headers={'Access-Control-Allow-Origin':'*'});return
+                if path=='/actions/runs/999999999999':
+                    network['run_checks']+=1
+                    phase='queued' if network['run_checks']==1 else 'in_progress' if network['run_checks']==2 else 'completed'
+                    route.fulfill(json={'status':phase,'conclusion':'success' if phase=='completed' else None},headers={'Access-Control-Allow-Origin':'*'});return
+                raise AssertionError(path)
+            if network['api']:
+                if network['run_checks']>=3:
+                    if network['stale_published_once']:
+                        network['stale_published_once']=False
+                    else:
+                        remote['collection_run']={'id':999999999999,'attempt':1}
+                        remote['generated_at']=datetime.now(timezone.utc).isoformat()
+                route.fulfill(json=remote,headers={'Access-Control-Allow-Origin':'*'})
             else:route.abort()
         context.route('https://api.github.com/**',github)
         def image(route):images.append(route.request.url);route.fulfill(body=PNG,content_type='image/png')
@@ -42,6 +67,11 @@ def main():
         old_cache=json.loads(json.dumps(snapshot));old_cache['generated_at']='2000-01-01T00:00:00Z';old_cache['items']=[]
         context.add_init_script("localStorage.setItem('workreader:snapshot',"+json.dumps(json.dumps(old_cache))+");")
         page=context.new_page();page.on('pageerror',lambda error:errors.append(str(error)))
+        def download_snapshot():
+            page.locator('#refresh').click()
+            assert page.locator('#github-dialog').is_visible()
+            page.locator('#gh-use-existing').click()
+            page.wait_for_function('!state.loading')
         page.goto((ROOT/'WorkReader.html').as_uri());page.wait_for_function('!state.loading')
         assert page.evaluate('state.coverMode'), 'Startup is mail view'
         assert page.evaluate('state.snapshot.generated_at')==snapshot['generated_at'], 'New bundle overrides older local snapshot'
@@ -56,25 +86,25 @@ def main():
         selected_at_refresh=page.evaluate('state.selected');initial_count=page.locator('.message').count()
         network['api']=True
         page.evaluate("$('list').scrollTop=50")
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         assert page.evaluate('state.coverMode') and page.evaluate('state.selected')==selected_at_refresh
         assert page.locator('.message').count()==initial_count+1, 'Refresh renders new rows in mail view'
         assert page.locator('#list').evaluate('(e)=>e.scrollTop')==50
         assert 'Synthetic refresh post' not in page.locator('#list').inner_text()
         assert 'r/testreader' not in page.locator('#sidebar').inner_text()
         assert '1 new messages' in page.locator('#status').inner_text()
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         assert 'No newer snapshot' in page.locator('#status').inner_text()
         assert 'Up to date' not in page.locator('#status').inner_text()
         remote['generated_at']='2000-01-01T00:00:00Z'
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         assert page.locator('.message').count()==initial_count+1
         assert 'kept newer' in page.locator('#status').inner_text()
         remote['generated_at']=now
         old_success=datetime.now(timezone.utc)-timedelta(hours=5)
         for source in remote['sources']:
             if source.get('status')=='ok':source['last_success']=old_success.isoformat()
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         assert 'Collection overdue' in page.locator('#status').inner_text()
         page.locator('#status-details').click()
         assert 'Collection overdue' in page.locator('#collection-status').inner_text()
@@ -82,9 +112,9 @@ def main():
         page.locator('#sources-dialog .close').click()
         for source in remote['sources']:
             if source.get('status')=='ok':source['last_success']=now
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         network['api']=False
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         assert page.locator('.message').count()==initial_count+1, 'Failed refresh preserves displayed cached rows'
         assert page.locator('#status-details').inner_text()=='Connection details'
         page.locator('#status-details').click();assert page.locator('#settings-dialog').is_visible()
@@ -103,7 +133,7 @@ def main():
         assert page.evaluate('!!state.syncError')
         assert page.evaluate('state.snapshot.items.length')==len(remote['items'])
         network['api']=True
-        page.locator('#refresh').click();page.wait_for_function('!state.loading')
+        download_snapshot()
         assert page.evaluate('state.syncEndpoint')=='GitHub public API'
         assert not page.evaluate('state.syncError')
         page.evaluate("$('toast').classList.add('hidden')")
@@ -251,6 +281,25 @@ def main():
         assert 80<=page.locator('.message').first.bounding_box()['height']<=82
         assert page.locator('#list').bounding_box()['y']-page.locator('.messages').bounding_box()['y']<48
         page.screenshot(path=str(out/'outlook-scale-ultrawide.png'))
+        # Real Refresh flow dispatches one quick run, waits for publication, and keeps secrets in memory.
+        page.evaluate('ghScan.pollMs=30')
+        page.locator('#refresh').click();assert page.locator('#github-dialog').is_visible()
+        page.locator('#gh-token').fill('SYNTHETIC-GH-TOKEN');page.locator('#gh-connect').click()
+        page.wait_for_function("!ghScan.active&&ghScan.message==='Collection finished · snapshot loaded'")
+        assert network['dispatches']==1 and network['run_checks']>=4, 'Successful run does not accept a snapshot from an earlier run'
+        assert page.evaluate('state.snapshot.collection_run.id')==999999999999
+        assert page.locator('#gh-token').input_value()==''
+        assert 'SYNTHETIC-GH-TOKEN' not in page.evaluate('JSON.stringify(localStorage)')
+        assert 'SYNTHETIC-GH-TOKEN' not in page.evaluate('JSON.stringify(exportData())')
+        assert page.locator('#refresh').is_enabled()
+        network['gh_forbidden']=True
+        page.locator('#refresh').click();page.wait_for_function('!!ghScan.error')
+        assert 'permission' in page.evaluate('ghScan.error')
+        assert page.locator('#refresh').is_enabled(), 'Failed dispatch unlocks Refresh'
+        network['gh_forbidden']=False
+        page.locator('#settings-tab').click();page.locator('#gh-settings').click();page.locator('#gh-disconnect').click()
+        assert page.evaluate("ghScan.token===''&&ghScan.repo===''")
+        page.locator('#github-dialog .close').click();page.locator('#settings-dialog .close').click()
         page.locator('#settings-tab').click();page.locator('#ui-scale').select_option('125')
         assert page.evaluate('uiScaleFactor()')==1.25
         assert page.evaluate("JSON.parse(localStorage.getItem('workreader:uiScale'))")==125
